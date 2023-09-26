@@ -8,12 +8,32 @@ using System.Text.Json.Serialization;
 public class MTGCard {
 	[JsonPropertyName("name")]
 	public string Name { get; set; }
+	[JsonPropertyName("oracle_id")]
+	public string OracleId { get; set; }
+
 	[JsonPropertyName("image_uris")]
 	public Dictionary<string, string> ImageURIs { get; set; }
 	[JsonPropertyName("oracle_text")]
 	public string Text { get; set; }
 	[JsonPropertyName("prices")]
 	public Dictionary<string, string?> Prices { get; set; } 
+}
+
+public class CCard {
+	[JsonPropertyName("oracle_id")]
+	public string OracleId { get; set; }
+	[JsonPropertyName("amount")]
+	public int Amount { get; set; }
+}
+
+public class Collection {
+	[JsonPropertyName("name")]
+	public string Name { get; set; }
+	[JsonPropertyName("cards")]
+	public List<CCard> Cards { get; set; }
+	public static Collection FromJson(string text) {
+		return JsonSerializer.Deserialize<Collection>(text) ?? throw new Exception("Failed to deserialize collection: " + text); 
+	}
 }
 
 public partial class Wrapper<T> : Node

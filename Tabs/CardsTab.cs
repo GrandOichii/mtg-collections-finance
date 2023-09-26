@@ -151,14 +151,15 @@ public partial class CardsTab : TabBar
 	{
 		
 		// check if card already exists
-		if (update) {
-			for (int i = 0; i < CardsListNode.ItemCount; i++) {
-				if (CardsListNode.GetItemText(i) == cardW.Value.Name) {
-					CardsListNode.SetItemMetadata(i, cardW);
-					return;
-				}
-			}
-		}
+		// TODO too slow
+//		if (update) {
+//			for (int i = 0; i < CardsListNode.ItemCount; i++) {
+//				if (CardsListNode.GetItemText(i) == cardW.Value.Name) {
+//					CardsListNode.SetItemMetadata(i, cardW);
+//					return;
+//				}
+//			}
+//		}
 		
 		// add card
 		var index = CardsListNode.AddItem(cardW.Value.Name);

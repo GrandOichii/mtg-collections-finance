@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cq5fvgkch6wkf"]
+
+[ext_resource type="Texture2D" uid="uid://ddso6f8bvs8ko" path="res://Assets/icons8-plus-64.png" id="1_edbvi"]
+
+[node name="AddCardToCollectionButton" type="Button"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("1_edbvi")
+icon_alignment = 1

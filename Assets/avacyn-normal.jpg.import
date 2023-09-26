@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2n2akc4cpyvq"
-path="res://.godot/imported/avacyn.jpg-9cf6fd54672259575b789ea34fdabb57.ctex"
+uid="uid://bqffkp84jjlu7"
+path="res://.godot/imported/avacyn-normal.jpg-390db1262ff1ec76dc30a76d5fb9fb1f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://avacyn.jpg"
-dest_files=["res://.godot/imported/avacyn.jpg-9cf6fd54672259575b789ea34fdabb57.ctex"]
+source_file="res://Assets/avacyn-normal.jpg"
+dest_files=["res://.godot/imported/avacyn-normal.jpg-390db1262ff1ec76dc30a76d5fb9fb1f.ctex"]
 
 [params]
 

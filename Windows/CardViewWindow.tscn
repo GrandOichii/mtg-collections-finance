@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b1y4i4dbes22g"]
 
 [ext_resource type="Script" path="res://Windows/CardViewWindow.cs" id="1_s7ha8"]
-[ext_resource type="Texture2D" uid="uid://d1nyq4j8slfxm" path="res://back.jpg" id="1_vahsf"]
+[ext_resource type="Texture2D" uid="uid://d1nyq4j8slfxm" path="res://Assets/back.jpg" id="2_s0l1s"]
 
 [node name="CardViewWindow" type="Window"]
 position = Vector2i(0, 36)
@@ -22,7 +22,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("1_vahsf")
+texture = ExtResource("2_s0l1s")
 expand_mode = 3
 stretch_mode = 4
 
@@ -47,6 +47,24 @@ autowrap_mode = 2
 
 [node name="HSeparator2" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Prices:"
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 30
+
+[node name="PricesLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "PRICES HERE
+PRICES HERE
+PRICES HERE"
 
 [node name="ImageRequest" type="HTTPRequest" parent="."]
 unique_name_in_owner = true

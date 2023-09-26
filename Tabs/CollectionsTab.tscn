@@ -1,11 +1,14 @@
-[gd_scene format=3 uid="uid://d4gi3j2xx70wp"]
+[gd_scene load_steps=2 format=3 uid="uid://d4gi3j2xx70wp"]
 
-[node name="Collections" type="TabBar"]
+[ext_resource type="Script" path="res://Tabs/CollectionsTab.cs" id="1_m5heb"]
+
+[node name="CollectionsTab" type="TabBar"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_m5heb")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -19,16 +22,17 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ItemList" type="ItemList" parent="HBoxContainer/VBoxContainer"]
+[node name="CollectionsList" type="ItemList" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="NewButton" type="Button" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "New"
 
-[node name="Button2" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="RemoveButton" type="Button" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Remove"
 
@@ -37,7 +41,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 
-[node name="FlowContainer" type="FlowContainer" parent="HBoxContainer/ScrollContainer"]
+[node name="CardsContainer" type="FlowContainer" parent="HBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[connection signal="item_activated" from="HBoxContainer/VBoxContainer/CollectionsList" to="." method="_on_collections_list_item_activated"]

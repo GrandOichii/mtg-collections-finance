@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8ksuux3ykfn8"]
+
+[ext_resource type="Script" path="res://CollectionCard.cs" id="1_u0c7j"]
+[ext_resource type="Texture2D" uid="uid://d1nyq4j8slfxm" path="res://Assets/back.jpg" id="2_qxw8h"]
+
+[node name="CardInDeck" type="MarginContainer"]
+custom_minimum_size = Vector2(270, 439)
+offset_top = 347.0
+offset_right = 270.0
+offset_bottom = 786.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+script = ExtResource("1_u0c7j")
+
+[node name="Container" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ImageTexture" type="TextureRect" parent="Container"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_qxw8h")
+expand_mode = 5
+
+[node name="NameLabel" type="Label" parent="Container"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "CARD NAME HERE "
+horizontal_alignment = 1
+
+[node name="AmountSpin" type="SpinBox" parent="Container"]
+unique_name_in_owner = true
+layout_mode = 2
+prefix = "Count: "
+
+[node name="TransparencyRect" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.156863, 0.156863, 0.156863, 0)
+
+[node name="ImageRequest" type="HTTPRequest" parent="."]
+unique_name_in_owner = true
+use_threads = true
+
+[connection signal="value_changed" from="Container/AmountSpin" to="." method="_on_amount_spin_value_changed"]
+[connection signal="request_completed" from="ImageRequest" to="." method="_on_image_request_request_completed"]

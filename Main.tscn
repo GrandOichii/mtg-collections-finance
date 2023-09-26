@@ -18,3 +18,5 @@ layout_mode = 2
 [node name="Collections" parent="TabContainer" instance=ExtResource("2_q1vqo")]
 visible = false
 layout_mode = 2
+
+[connection signal="CardAdded" from="TabContainer/Cards" to="TabContainer/Collections" method="_on_cards_card_added"]
