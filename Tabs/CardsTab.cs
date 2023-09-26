@@ -40,7 +40,7 @@ public partial class CardsTab : TabBar
 	
 	#region Nodes
 	
-	public ItemList CardsListNode { get; private set; }
+	public CardsList CardsListNode { get; private set; }
 	public ProgressBar DownloadProgressNode { get; private set; }
 	public Button DownloadCardsButtonNode { get; private set; }
 	public HttpRequest DownloadCardsRequestNode { get; private set; }
@@ -72,7 +72,7 @@ public partial class CardsTab : TabBar
 	{
 		#region Node fetching
 		
-		CardsListNode = GetNode<ItemList>("%CardsList");
+		CardsListNode = GetNode<CardsList>("%CardsList");
 		DownloadProgressNode = GetNode<ProgressBar>("%DownloadProgress");
 		DownloadCardsButtonNode = GetNode<Button>("%DownloadCardsButton");
 		DownloadCardsRequestNode = GetNode<HttpRequest>("%DownloadCardsRequest");
@@ -162,23 +162,17 @@ public partial class CardsTab : TabBar
 //		}
 		
 		// add card
-		var index = CardsListNode.AddItem(cardW.Value.Name);
-		CardsListNode.SetItemMetadata(index, cardW);
+		CardsListNode.AddItem(cardW);
 	}
-
-	private void _on_cards_list_item_activated(int index)
+	
+	private void _on_cards_list_card_activated(Wrapper<MTGCard> cardW)
 	{
-		var item = CardsListNode.GetItemMetadata(index).As<Wrapper<MTGCard>>();
-		CardViewWindowNode.Load(item);
+		CardViewWindowNode.Load(cardW);
 		CardViewWindowNode.Show();
 	}
 	
 	#endregion
 
 }
-
-
-
-
 
 

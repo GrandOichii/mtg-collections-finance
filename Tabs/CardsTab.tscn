@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cus6j8i16d2vn"]
+[gd_scene load_steps=4 format=3 uid="uid://cus6j8i16d2vn"]
 
 [ext_resource type="Script" path="res://Tabs/CardsTab.cs" id="1_mathd"]
 [ext_resource type="PackedScene" uid="uid://b1y4i4dbes22g" path="res://Windows/CardViewWindow.tscn" id="2_d3dc2"]
+[ext_resource type="PackedScene" uid="uid://ch81xoe01fi4r" path="res://CardsList.tscn" id="3_0j1rb"]
 
 [node name="Cards" type="TabBar"]
 anchors_preset = 15
@@ -23,7 +24,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CardsList" type="ItemList" parent="VBoxContainer"]
+[node name="CardsList" parent="VBoxContainer" instance=ExtResource("3_0j1rb")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -47,7 +48,7 @@ visible = false
 layout_mode = 2
 
 [connection signal="CardAdded" from="." to="." method="_on_card_added"]
-[connection signal="item_activated" from="VBoxContainer/CardsList" to="." method="_on_cards_list_item_activated"]
+[connection signal="CardActivated" from="VBoxContainer/CardsList" to="." method="_on_cards_list_card_activated"]
 [connection signal="pressed" from="VBoxContainer/DownloadCardsButton" to="." method="_on_download_cards_button_pressed"]
 [connection signal="request_completed" from="VBoxContainer/DownloadCardsButton/DownloadCardsRequest" to="." method="_on_download_cards_request_request_completed"]
 [connection signal="request_completed" from="VBoxContainer/DownloadCardsButton/BulkDataRequest" to="." method="_on_bulk_data_request_request_completed"]

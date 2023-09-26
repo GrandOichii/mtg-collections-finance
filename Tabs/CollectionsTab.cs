@@ -52,6 +52,8 @@ public partial class CollectionsTab : TabBar
 		var item = CollectionsListNode.GetItemMetadata(index).As<Wrapper<Collection>>();
 		var collection = item.Value;
 		RemoveCards();
+		// TODO bad
+		// don't know any other way :)
 		Vector2 size = (CollectionCardPS.Instantiate() as CollectionCard).CustomMinimumSize;
 		foreach (var card in collection.Cards) {
 			var child = CollectionCardPS.Instantiate() as CollectionCard;
@@ -79,6 +81,7 @@ public partial class CollectionsTab : TabBar
 	}
 	
 	private void _on_add_card_to_collection_button_pressed() {
+		
 		GD.Print("Amogus");
 	}
 	

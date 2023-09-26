@@ -52,7 +52,6 @@ public partial class CardViewWindow : Window
 			var text = "-";
 			if (pair.Value is not null) {
 				text = pair.Value;
-				GD.Print(pair.Value);
 				var v = float.Parse(text);
 				var priceIndex = GetPriceIndexOf(pair.Key);
 				if (priceIndex is not null) {
