@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://cus6j8i16d2vn"]
+
+[ext_resource type="Script" path="res://Tabs/CardsTab.cs" id="1_mathd"]
+[ext_resource type="PackedScene" uid="uid://b1y4i4dbes22g" path="res://Windows/CardViewWindow.tscn" id="2_d3dc2"]
+
+[node name="Cards" type="TabBar"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mathd")
+
+[node name="CardViewWindow" parent="." instance=ExtResource("2_d3dc2")]
+unique_name_in_owner = true
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CardsList" type="ItemList" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DownloadCardsButton" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Download latest cards"
+
+[node name="DownloadCardsRequest" type="HTTPRequest" parent="VBoxContainer/DownloadCardsButton"]
+unique_name_in_owner = true
+download_file = "cards.json"
+use_threads = true
+
+[node name="BulkDataRequest" type="HTTPRequest" parent="VBoxContainer/DownloadCardsButton"]
+unique_name_in_owner = true
+
+[node name="DownloadProgress" type="ProgressBar" parent="VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[connection signal="CardAdded" from="." to="." method="_on_card_added"]
+[connection signal="item_activated" from="VBoxContainer/CardsList" to="." method="_on_cards_list_item_activated"]
+[connection signal="pressed" from="VBoxContainer/DownloadCardsButton" to="." method="_on_download_cards_button_pressed"]
+[connection signal="request_completed" from="VBoxContainer/DownloadCardsButton/DownloadCardsRequest" to="." method="_on_download_cards_request_request_completed"]
+[connection signal="request_completed" from="VBoxContainer/DownloadCardsButton/BulkDataRequest" to="." method="_on_bulk_data_request_request_completed"]

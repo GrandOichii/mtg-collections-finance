@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1y4i4dbes22g"]
+
+[ext_resource type="Script" path="res://Windows/CardViewWindow.cs" id="1_s7ha8"]
+[ext_resource type="Texture2D" uid="uid://d1nyq4j8slfxm" path="res://back.jpg" id="1_vahsf"]
+
+[node name="CardViewWindow" type="Window"]
+position = Vector2i(0, 36)
+size = Vector2i(890, 595)
+transient = true
+unresizable = true
+script = ExtResource("1_s7ha8")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ImageRect" type="TextureRect" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("1_vahsf")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NameLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "CARD NAME HERE"
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "ORACLE TEXT HERE
+ORACLE TEXT FERE"
+autowrap_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ImageRequest" type="HTTPRequest" parent="."]
+unique_name_in_owner = true
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="request_completed" from="ImageRequest" to="." method="_on_image_request_request_completed"]

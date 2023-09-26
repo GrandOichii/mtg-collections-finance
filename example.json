@@ -1,0 +1,851 @@
+{
+    "data": [
+        {
+            "artist": "James Ryman",
+            "artist_ids": [
+                "3852bbc9-11c0-4fe3-8722-a06ad7e2bcc5"
+            ],
+            "booster": true,
+            "border_color": "black",
+            "card_faces": [
+                {
+                    "artist": "James Ryman",
+                    "artist_id": "3852bbc9-11c0-4fe3-8722-a06ad7e2bcc5",
+                    "colors": [
+                        "W"
+                    ],
+                    "illustration_id": "f90dd248-e671-4055-8031-c0f9938132ee",
+                    "image_uris": {
+                        "art_crop": "https://cards.scryfall.io/art_crop/front/a/e/ae155ee2-008f-4dc6-82bf-476be7baa224.jpg?1576383667",
+                        "border_crop": "https://cards.scryfall.io/border_crop/front/a/e/ae155ee2-008f-4dc6-82bf-476be7baa224.jpg?1576383667",
+                        "large": "https://cards.scryfall.io/large/front/a/e/ae155ee2-008f-4dc6-82bf-476be7baa224.jpg?1576383667",
+                        "normal": "https://cards.scryfall.io/normal/front/a/e/ae155ee2-008f-4dc6-82bf-476be7baa224.jpg?1576383667",
+                        "png": "https://cards.scryfall.io/png/front/a/e/ae155ee2-008f-4dc6-82bf-476be7baa224.png?1576383667",
+                        "small": "https://cards.scryfall.io/small/front/a/e/ae155ee2-008f-4dc6-82bf-476be7baa224.jpg?1576383667"
+                    },
+                    "mana_cost": "{3}{W}{W}",
+                    "name": "Archangel Avacyn",
+                    "object": "card_face",
+                    "oracle_text": "Flash\nFlying, vigilance\nWhen Archangel Avacyn enters the battlefield, creatures you control gain indestructible until end of turn.\nWhen a non-Angel creature you control dies, transform Archangel Avacyn at the beginning of the next upkeep.",
+                    "power": "4",
+                    "toughness": "4",
+                    "type_line": "Legendary Creature — Angel"
+                },
+                {
+                    "artist": "James Ryman",
+                    "artist_id": "3852bbc9-11c0-4fe3-8722-a06ad7e2bcc5",
+                    "color_indicator": [
+                        "R"
+                    ],
+                    "colors": [
+                        "R"
+                    ],
+                    "flavor_name": "",
+                    "flavor_text": "\"Wings that once bore hope are now stained with blood. She is our guardian no longer.\"\n—Grete, cathar apostate",
+                    "illustration_id": "7c028c56-e6d0-4ce9-aea9-994ba128245f",
+                    "image_uris": {
+                        "art_crop": "https://cards.scryfall.io/art_crop/back/a/e/ae155ee2-008f-4dc6-82bf-476be7baa224.jpg?1576383667",
+                        "border_crop": "https://cards.scryfall.io/border_crop/back/a/e/ae155ee2-008f-4dc6-82bf-476be7baa224.jpg?1576383667",
+                        "large": "https://cards.scryfall.io/large/back/a/e/ae155ee2-008f-4dc6-82bf-476be7baa224.jpg?1576383667",
+                        "normal": "https://cards.scryfall.io/normal/back/a/e/ae155ee2-008f-4dc6-82bf-476be7baa224.jpg?1576383667",
+                        "png": "https://cards.scryfall.io/png/back/a/e/ae155ee2-008f-4dc6-82bf-476be7baa224.png?1576383667",
+                        "small": "https://cards.scryfall.io/small/back/a/e/ae155ee2-008f-4dc6-82bf-476be7baa224.jpg?1576383667"
+                    },
+                    "mana_cost": "",
+                    "name": "Avacyn, the Purifier",
+                    "object": "card_face",
+                    "oracle_text": "Flying\nWhen this creature transforms into Avacyn, the Purifier, it deals 3 damage to each other creature and each opponent.",
+                    "power": "6",
+                    "toughness": "5",
+                    "type_line": "Legendary Creature — Angel"
+                }
+            ],
+            "cardmarket_id": 288641,
+            "cmc": 5.0,
+            "collector_number": "5",
+            "color_identity": [
+                "R",
+                "W"
+            ],
+            "digital": false,
+            "edhrec_rank": 5746,
+            "finishes": [
+                "nonfoil",
+                "foil"
+            ],
+            "foil": true,
+            "frame": "2015",
+            "frame_effects": [
+                "sunmoondfc"
+            ],
+            "full_art": false,
+            "games": [
+                "paper",
+                "mtgo"
+            ],
+            "highres_image": true,
+            "id": "ae155ee2-008f-4dc6-82bf-476be7baa224",
+            "image_status": "highres_scan",
+            "keywords": [
+                "Flying",
+                "Vigilance",
+                "Transform",
+                "Flash"
+            ],
+            "lang": "en",
+            "layout": "transform",
+            "legalities": {
+                "alchemy": "not_legal",
+                "brawl": "not_legal",
+                "commander": "legal",
+                "duel": "legal",
+                "explorer": "legal",
+                "future": "not_legal",
+                "gladiator": "legal",
+                "historic": "legal",
+                "historicbrawl": "legal",
+                "legacy": "legal",
+                "modern": "legal",
+                "oathbreaker": "legal",
+                "oldschool": "not_legal",
+                "pauper": "not_legal",
+                "paupercommander": "not_legal",
+                "penny": "legal",
+                "pioneer": "legal",
+                "predh": "not_legal",
+                "premodern": "not_legal",
+                "standard": "not_legal",
+                "vintage": "legal"
+            },
+            "mtgo_foil_id": 59767,
+            "mtgo_id": 59766,
+            "multiverse_ids": [
+                409741,
+                409742
+            ],
+            "name": "Archangel Avacyn // Avacyn, the Purifier",
+            "nonfoil": true,
+            "object": "card",
+            "oracle_id": "432b37a5-d32a-4b78-91ab-860aa026b7cc",
+            "oversized": false,
+            "penny_rank": 2237,
+            "prices": {
+                "eur": "3.60",
+                "eur_foil": "12.64",
+                "tix": "0.02",
+                "usd": "3.22",
+                "usd_etched": null,
+                "usd_foil": "12.41"
+            },
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A432b37a5-d32a-4b78-91ab-860aa026b7cc&unique=prints",
+            "promo": false,
+            "purchase_uris": {
+                "cardhoarder": "https://www.cardhoarder.com/cards/59766?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+                "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Archangel+Avacyn&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+                "tcgplayer": "https://www.tcgplayer.com/product/114848?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall"
+            },
+            "rarity": "mythic",
+            "related_uris": {
+                "edhrec": "https://edhrec.com/route/?cc=Archangel+Avacyn",
+                "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=409741",
+                "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Archangel+Avacyn+%2F%2F+Avacyn%2C+the+Purifier&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+                "tcgplayer_infinite_decks": "https://infinite.tcgplayer.com/search?contentMode=deck&game=magic&partner=scryfall&q=Archangel+Avacyn+%2F%2F+Avacyn%2C+the+Purifier&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall"
+            },
+            "released_at": "2016-04-08",
+            "reprint": false,
+            "reserved": false,
+            "rulings_uri": "https://api.scryfall.com/cards/ae155ee2-008f-4dc6-82bf-476be7baa224/rulings",
+            "scryfall_set_uri": "https://scryfall.com/sets/soi?utm_source=api",
+            "scryfall_uri": "https://scryfall.com/card/soi/5/archangel-avacyn-avacyn-the-purifier?utm_source=api",
+            "security_stamp": "oval",
+            "set": "soi",
+            "set_id": "5e914d7e-c1e9-446c-a33d-d093c02b2743",
+            "set_name": "Shadows over Innistrad",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Asoi&unique=prints",
+            "set_type": "expansion",
+            "set_uri": "https://api.scryfall.com/sets/5e914d7e-c1e9-446c-a33d-d093c02b2743",
+            "story_spotlight": false,
+            "tcgplayer_id": 114848,
+            "textless": false,
+            "type_line": "Legendary Creature — Angel // Legendary Creature — Angel",
+            "uri": "https://api.scryfall.com/cards/ae155ee2-008f-4dc6-82bf-476be7baa224",
+            "variation": false
+        },
+        {
+            "artist": "Wayne Reynolds",
+            "artist_ids": [
+                "afc47cec-3ccc-404e-a8c6-4d83dd504271"
+            ],
+            "booster": true,
+            "border_color": "black",
+            "card_faces": [
+                {
+                    "artist": "Wayne Reynolds",
+                    "artist_id": "afc47cec-3ccc-404e-a8c6-4d83dd504271",
+                    "colors": [
+                        "W"
+                    ],
+                    "flavor_text": "\"We come bearing the word of Avacyn and the Lunarch Council.\"",
+                    "illustration_id": "abe9d2b7-8ae3-4f03-9dc4-c613b8fab1df",
+                    "image_uris": {
+                        "art_crop": "https://cards.scryfall.io/art_crop/front/1/0/1001e708-e4f9-456a-8b9d-3421a2a3833d.jpg?1576383680",
+                        "border_crop": "https://cards.scryfall.io/border_crop/front/1/0/1001e708-e4f9-456a-8b9d-3421a2a3833d.jpg?1576383680",
+                        "large": "https://cards.scryfall.io/large/front/1/0/1001e708-e4f9-456a-8b9d-3421a2a3833d.jpg?1576383680",
+                        "normal": "https://cards.scryfall.io/normal/front/1/0/1001e708-e4f9-456a-8b9d-3421a2a3833d.jpg?1576383680",
+                        "png": "https://cards.scryfall.io/png/front/1/0/1001e708-e4f9-456a-8b9d-3421a2a3833d.png?1576383680",
+                        "small": "https://cards.scryfall.io/small/front/1/0/1001e708-e4f9-456a-8b9d-3421a2a3833d.jpg?1576383680"
+                    },
+                    "mana_cost": "{3}{W}",
+                    "name": "Avacynian Missionaries",
+                    "object": "card_face",
+                    "oracle_text": "At the beginning of your end step, if Avacynian Missionaries is equipped, transform it.",
+                    "power": "3",
+                    "toughness": "3",
+                    "type_line": "Creature — Human Cleric"
+                },
+                {
+                    "artist": "Wayne Reynolds",
+                    "artist_id": "afc47cec-3ccc-404e-a8c6-4d83dd504271",
+                    "color_indicator": [
+                        "W"
+                    ],
+                    "colors": [
+                        "W"
+                    ],
+                    "flavor_name": "",
+                    "flavor_text": "\"We come bearing the tools of confession and absolution.\"",
+                    "illustration_id": "55edf2a2-dd7c-4b2a-9377-88a6d1c38b99",
+                    "image_uris": {
+                        "art_crop": "https://cards.scryfall.io/art_crop/back/1/0/1001e708-e4f9-456a-8b9d-3421a2a3833d.jpg?1576383680",
+                        "border_crop": "https://cards.scryfall.io/border_crop/back/1/0/1001e708-e4f9-456a-8b9d-3421a2a3833d.jpg?1576383680",
+                        "large": "https://cards.scryfall.io/large/back/1/0/1001e708-e4f9-456a-8b9d-3421a2a3833d.jpg?1576383680",
+                        "normal": "https://cards.scryfall.io/normal/back/1/0/1001e708-e4f9-456a-8b9d-3421a2a3833d.jpg?1576383680",
+                        "png": "https://cards.scryfall.io/png/back/1/0/1001e708-e4f9-456a-8b9d-3421a2a3833d.png?1576383680",
+                        "small": "https://cards.scryfall.io/small/back/1/0/1001e708-e4f9-456a-8b9d-3421a2a3833d.jpg?1576383680"
+                    },
+                    "mana_cost": "",
+                    "name": "Lunarch Inquisitors",
+                    "object": "card_face",
+                    "oracle_text": "When this creature transforms into Lunarch Inquisitors, you may exile another target creature until Lunarch Inquisitors leaves the battlefield.",
+                    "power": "4",
+                    "toughness": "4",
+                    "type_line": "Creature — Human Cleric"
+                }
+            ],
+            "cardmarket_id": 288642,
+            "cmc": 4.0,
+            "collector_number": "6",
+            "color_identity": [
+                "W"
+            ],
+            "digital": false,
+            "edhrec_rank": 20622,
+            "finishes": [
+                "nonfoil",
+                "foil"
+            ],
+            "foil": true,
+            "frame": "2015",
+            "frame_effects": [
+                "sunmoondfc"
+            ],
+            "full_art": false,
+            "games": [
+                "paper",
+                "mtgo"
+            ],
+            "highres_image": true,
+            "id": "1001e708-e4f9-456a-8b9d-3421a2a3833d",
+            "image_status": "highres_scan",
+            "keywords": [
+                "Transform"
+            ],
+            "lang": "en",
+            "layout": "transform",
+            "legalities": {
+                "alchemy": "not_legal",
+                "brawl": "not_legal",
+                "commander": "legal",
+                "duel": "legal",
+                "explorer": "not_legal",
+                "future": "not_legal",
+                "gladiator": "not_legal",
+                "historic": "not_legal",
+                "historicbrawl": "not_legal",
+                "legacy": "legal",
+                "modern": "legal",
+                "oathbreaker": "legal",
+                "oldschool": "not_legal",
+                "pauper": "not_legal",
+                "paupercommander": "restricted",
+                "penny": "legal",
+                "pioneer": "legal",
+                "predh": "not_legal",
+                "premodern": "not_legal",
+                "standard": "not_legal",
+                "vintage": "legal"
+            },
+            "mtgo_foil_id": 59883,
+            "mtgo_id": 59882,
+            "multiverse_ids": [
+                409743,
+                409744
+            ],
+            "name": "Avacynian Missionaries // Lunarch Inquisitors",
+            "nonfoil": true,
+            "object": "card",
+            "oracle_id": "5b356a01-900c-4fe5-93bd-45629528c484",
+            "oversized": false,
+            "penny_rank": 8941,
+            "prices": {
+                "eur": "0.06",
+                "eur_foil": "0.05",
+                "tix": "0.02",
+                "usd": "0.04",
+                "usd_etched": null,
+                "usd_foil": "0.22"
+            },
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A5b356a01-900c-4fe5-93bd-45629528c484&unique=prints",
+            "promo": false,
+            "purchase_uris": {
+                "cardhoarder": "https://www.cardhoarder.com/cards/59882?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+                "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Avacynian+Missionaries&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+                "tcgplayer": "https://www.tcgplayer.com/product/114849?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall"
+            },
+            "rarity": "uncommon",
+            "related_uris": {
+                "edhrec": "https://edhrec.com/route/?cc=Avacynian+Missionaries",
+                "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=409743",
+                "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Avacynian+Missionaries+%2F%2F+Lunarch+Inquisitors&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+                "tcgplayer_infinite_decks": "https://infinite.tcgplayer.com/search?contentMode=deck&game=magic&partner=scryfall&q=Avacynian+Missionaries+%2F%2F+Lunarch+Inquisitors&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall"
+            },
+            "released_at": "2016-04-08",
+            "reprint": false,
+            "reserved": false,
+            "rulings_uri": "https://api.scryfall.com/cards/1001e708-e4f9-456a-8b9d-3421a2a3833d/rulings",
+            "scryfall_set_uri": "https://scryfall.com/sets/soi?utm_source=api",
+            "scryfall_uri": "https://scryfall.com/card/soi/6/avacynian-missionaries-lunarch-inquisitors?utm_source=api",
+            "set": "soi",
+            "set_id": "5e914d7e-c1e9-446c-a33d-d093c02b2743",
+            "set_name": "Shadows over Innistrad",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Asoi&unique=prints",
+            "set_type": "expansion",
+            "set_uri": "https://api.scryfall.com/sets/5e914d7e-c1e9-446c-a33d-d093c02b2743",
+            "story_spotlight": false,
+            "tcgplayer_id": 114849,
+            "textless": false,
+            "type_line": "Creature — Human Cleric // Creature — Human Cleric",
+            "uri": "https://api.scryfall.com/cards/1001e708-e4f9-456a-8b9d-3421a2a3833d",
+            "variation": false
+        },
+        {
+            "artist": "Victor Adame Minguez",
+            "artist_ids": [
+                "bd8f7368-5b10-4554-b6b8-d052c6aca89f"
+            ],
+            "booster": false,
+            "border_color": "black",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "cardmarket_id": 584122,
+            "cmc": 2.0,
+            "collector_number": "142",
+            "color_identity": [
+                "R"
+            ],
+            "colors": [
+                "R"
+            ],
+            "digital": false,
+            "edhrec_rank": 5511,
+            "finishes": [
+                "nonfoil"
+            ],
+            "foil": false,
+            "frame": "2015",
+            "full_art": false,
+            "games": [
+                "paper"
+            ],
+            "highres_image": true,
+            "id": "2642eb44-becf-4e99-934f-7241fcc32dee",
+            "illustration_id": "b5deed52-6768-4797-a4d3-e37fb50b3cb8",
+            "image_status": "highres_scan",
+            "image_uris": {
+                "art_crop": "https://cards.scryfall.io/art_crop/front/2/6/2642eb44-becf-4e99-934f-7241fcc32dee.jpg?1641603042",
+                "border_crop": "https://cards.scryfall.io/border_crop/front/2/6/2642eb44-becf-4e99-934f-7241fcc32dee.jpg?1641603042",
+                "large": "https://cards.scryfall.io/large/front/2/6/2642eb44-becf-4e99-934f-7241fcc32dee.jpg?1641603042",
+                "normal": "https://cards.scryfall.io/normal/front/2/6/2642eb44-becf-4e99-934f-7241fcc32dee.jpg?1641603042",
+                "png": "https://cards.scryfall.io/png/front/2/6/2642eb44-becf-4e99-934f-7241fcc32dee.png?1641603042",
+                "small": "https://cards.scryfall.io/small/front/2/6/2642eb44-becf-4e99-934f-7241fcc32dee.jpg?1641603042"
+            },
+            "keywords": [
+                "Madness"
+            ],
+            "lang": "en",
+            "layout": "normal",
+            "legalities": {
+                "alchemy": "not_legal",
+                "brawl": "not_legal",
+                "commander": "legal",
+                "duel": "legal",
+                "explorer": "legal",
+                "future": "not_legal",
+                "gladiator": "legal",
+                "historic": "legal",
+                "historicbrawl": "legal",
+                "legacy": "legal",
+                "modern": "legal",
+                "oathbreaker": "legal",
+                "oldschool": "not_legal",
+                "pauper": "not_legal",
+                "paupercommander": "not_legal",
+                "penny": "legal",
+                "pioneer": "legal",
+                "predh": "not_legal",
+                "premodern": "not_legal",
+                "standard": "not_legal",
+                "vintage": "legal"
+            },
+            "mana_cost": "{1}{R}",
+            "multiverse_ids": [
+                545762
+            ],
+            "name": "Avacyn's Judgment",
+            "nonfoil": true,
+            "object": "card",
+            "oracle_id": "f3ae58ed-8ef7-4e0a-945f-1f622157236b",
+            "oracle_text": "Madness {X}{R} (If you discard this card, discard it into exile. When you do, cast it for its madness cost or put it into your graveyard.)\nAvacyn's Judgment deals 2 damage divided as you choose among any number of targets. If this spell's madness cost was paid, it deals X damage divided as you choose among those permanents and/or players instead.",
+            "oversized": false,
+            "penny_rank": 3863,
+            "prices": {
+                "eur": "0.15",
+                "eur_foil": null,
+                "tix": null,
+                "usd": "0.07",
+                "usd_etched": null,
+                "usd_foil": null
+            },
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Af3ae58ed-8ef7-4e0a-945f-1f622157236b&unique=prints",
+            "promo": false,
+            "purchase_uris": {
+                "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Avacyn%27s+Judgment&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+                "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Avacyn%27s+Judgment&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+                "tcgplayer": "https://www.tcgplayer.com/product/254243?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall"
+            },
+            "rarity": "rare",
+            "related_uris": {
+                "edhrec": "https://edhrec.com/route/?cc=Avacyn%27s+Judgment",
+                "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=545762",
+                "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Avacyn%27s+Judgment&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+                "tcgplayer_infinite_decks": "https://infinite.tcgplayer.com/search?contentMode=deck&game=magic&partner=scryfall&q=Avacyn%27s+Judgment&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall"
+            },
+            "released_at": "2021-11-19",
+            "reprint": true,
+            "reserved": false,
+            "rulings_uri": "https://api.scryfall.com/cards/2642eb44-becf-4e99-934f-7241fcc32dee/rulings",
+            "scryfall_set_uri": "https://scryfall.com/sets/voc?utm_source=api",
+            "scryfall_uri": "https://scryfall.com/card/voc/142/avacyns-judgment?utm_source=api",
+            "security_stamp": "oval",
+            "set": "voc",
+            "set_id": "b2e444f7-41e6-4172-ba01-47d91d5e7bbc",
+            "set_name": "Crimson Vow Commander",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Avoc&unique=prints",
+            "set_type": "commander",
+            "set_uri": "https://api.scryfall.com/sets/b2e444f7-41e6-4172-ba01-47d91d5e7bbc",
+            "story_spotlight": false,
+            "tcgplayer_id": 254243,
+            "textless": false,
+            "type_line": "Sorcery",
+            "uri": "https://api.scryfall.com/cards/2642eb44-becf-4e99-934f-7241fcc32dee",
+            "variation": false
+        },
+        {
+            "all_parts": [
+                {
+                    "component": "combo_piece",
+                    "id": "0de0eaeb-9b62-427d-9873-d84de1740ddc",
+                    "name": "Battle at the Helvault",
+                    "object": "related_card",
+                    "type_line": "Enchantment — Saga",
+                    "uri": "https://api.scryfall.com/cards/0de0eaeb-9b62-427d-9873-d84de1740ddc"
+                },
+                {
+                    "component": "token",
+                    "id": "2c8730fb-59ca-4cf7-96a4-d6ba3f6f2fbe",
+                    "name": "Avacyn",
+                    "object": "related_card",
+                    "type_line": "Token Legendary Creature — Angel",
+                    "uri": "https://api.scryfall.com/cards/2c8730fb-59ca-4cf7-96a4-d6ba3f6f2fbe"
+                }
+            ],
+            "artist": "Alix Branwyn",
+            "artist_ids": [
+                "4f0a0e38-d74c-4e0b-ad91-fecccb1afa5d"
+            ],
+            "booster": false,
+            "border_color": "black",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "cardmarket_id": 723088,
+            "cmc": 6.0,
+            "collector_number": "719",
+            "color_identity": [
+                "W"
+            ],
+            "colors": [
+                "W"
+            ],
+            "digital": false,
+            "edhrec_rank": 9829,
+            "finishes": [
+                "nonfoil"
+            ],
+            "foil": false,
+            "frame": "2015",
+            "full_art": false,
+            "games": [
+                "paper",
+                "mtgo"
+            ],
+            "highres_image": true,
+            "id": "0de0eaeb-9b62-427d-9873-d84de1740ddc",
+            "illustration_id": "5d5732b2-ff2a-494c-bc7b-f26383ba9938",
+            "image_status": "highres_scan",
+            "image_uris": {
+                "art_crop": "https://cards.scryfall.io/art_crop/front/0/d/0de0eaeb-9b62-427d-9873-d84de1740ddc.jpg?1692232653",
+                "border_crop": "https://cards.scryfall.io/border_crop/front/0/d/0de0eaeb-9b62-427d-9873-d84de1740ddc.jpg?1692232653",
+                "large": "https://cards.scryfall.io/large/front/0/d/0de0eaeb-9b62-427d-9873-d84de1740ddc.jpg?1692232653",
+                "normal": "https://cards.scryfall.io/normal/front/0/d/0de0eaeb-9b62-427d-9873-d84de1740ddc.jpg?1692232653",
+                "png": "https://cards.scryfall.io/png/front/0/d/0de0eaeb-9b62-427d-9873-d84de1740ddc.png?1692232653",
+                "small": "https://cards.scryfall.io/small/front/0/d/0de0eaeb-9b62-427d-9873-d84de1740ddc.jpg?1692232653"
+            },
+            "keywords": [],
+            "lang": "en",
+            "layout": "saga",
+            "legalities": {
+                "alchemy": "not_legal",
+                "brawl": "not_legal",
+                "commander": "legal",
+                "duel": "legal",
+                "explorer": "not_legal",
+                "future": "not_legal",
+                "gladiator": "not_legal",
+                "historic": "not_legal",
+                "historicbrawl": "not_legal",
+                "legacy": "legal",
+                "modern": "not_legal",
+                "oathbreaker": "legal",
+                "oldschool": "not_legal",
+                "pauper": "not_legal",
+                "paupercommander": "not_legal",
+                "penny": "not_legal",
+                "pioneer": "not_legal",
+                "predh": "not_legal",
+                "premodern": "not_legal",
+                "standard": "not_legal",
+                "vintage": "legal"
+            },
+            "mana_cost": "{4}{W}{W}",
+            "mtgo_id": 114469,
+            "multiverse_ids": [
+                625084
+            ],
+            "name": "Battle at the Helvault",
+            "nonfoil": true,
+            "object": "card",
+            "oracle_id": "076584c8-ec58-4711-8f59-4839a4fa88ad",
+            "oracle_text": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)\nI, II — For each player, exile up to one target non-Saga, nonland permanent that player controls until Battle at the Helvault leaves the battlefield.\nIII — Create Avacyn, a legendary 8/8 white Angel creature token with flying, vigilance, and indestructible.",
+            "oversized": false,
+            "preview": {
+                "previewed_at": "2023-07-19",
+                "source": "The Command Zone",
+                "source_uri": "https://www.youtube.com/watch?v=WARcYHfIbeg"
+            },
+            "prices": {
+                "eur": "3.91",
+                "eur_foil": null,
+                "tix": null,
+                "usd": "4.68",
+                "usd_etched": null,
+                "usd_foil": null
+            },
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A076584c8-ec58-4711-8f59-4839a4fa88ad&unique=prints",
+            "promo": false,
+            "purchase_uris": {
+                "cardhoarder": "https://www.cardhoarder.com/cards/114469?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+                "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Battle+at+the+Helvault&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+                "tcgplayer": "https://www.tcgplayer.com/product/505957?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall"
+            },
+            "rarity": "rare",
+            "related_uris": {
+                "edhrec": "https://edhrec.com/route/?cc=Battle+at+the+Helvault",
+                "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=625084",
+                "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Battle+at+the+Helvault&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+                "tcgplayer_infinite_decks": "https://infinite.tcgplayer.com/search?contentMode=deck&game=magic&partner=scryfall&q=Battle+at+the+Helvault&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall"
+            },
+            "released_at": "2023-08-04",
+            "reprint": false,
+            "reserved": false,
+            "rulings_uri": "https://api.scryfall.com/cards/0de0eaeb-9b62-427d-9873-d84de1740ddc/rulings",
+            "scryfall_set_uri": "https://scryfall.com/sets/cmm?utm_source=api",
+            "scryfall_uri": "https://scryfall.com/card/cmm/719/battle-at-the-helvault?utm_source=api",
+            "security_stamp": "oval",
+            "set": "cmm",
+            "set_id": "cd05036f-2698-43e6-a48e-5c8d82f0a551",
+            "set_name": "Commander Masters",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Acmm&unique=prints",
+            "set_type": "masters",
+            "set_uri": "https://api.scryfall.com/sets/cd05036f-2698-43e6-a48e-5c8d82f0a551",
+            "story_spotlight": false,
+            "tcgplayer_id": 505957,
+            "textless": false,
+            "type_line": "Enchantment — Saga",
+            "uri": "https://api.scryfall.com/cards/0de0eaeb-9b62-427d-9873-d84de1740ddc",
+            "variation": false
+        },
+        {
+            "artist": "Bram Sels",
+            "artist_ids": [
+                "2e90d3c1-e8ac-45c7-9d5a-63385c1a384d"
+            ],
+            "booster": false,
+            "border_color": "black",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "cardmarket_id": 731968,
+            "cmc": 4.0,
+            "collector_number": "18",
+            "color_identity": [
+                "W"
+            ],
+            "colors": [
+                "W"
+            ],
+            "digital": false,
+            "edhrec_rank": 6311,
+            "finishes": [
+                "nonfoil"
+            ],
+            "foil": false,
+            "frame": "2015",
+            "frame_effects": [
+                "legendary"
+            ],
+            "full_art": false,
+            "games": [
+                "paper"
+            ],
+            "highres_image": true,
+            "id": "b7848325-c46e-4e63-90d0-c9524380eb63",
+            "illustration_id": "a2c05468-358a-40cf-af39-7039626918bd",
+            "image_status": "highres_scan",
+            "image_uris": {
+                "art_crop": "https://cards.scryfall.io/art_crop/front/b/7/b7848325-c46e-4e63-90d0-c9524380eb63.jpg?1692516503",
+                "border_crop": "https://cards.scryfall.io/border_crop/front/b/7/b7848325-c46e-4e63-90d0-c9524380eb63.jpg?1692516503",
+                "large": "https://cards.scryfall.io/large/front/b/7/b7848325-c46e-4e63-90d0-c9524380eb63.jpg?1692516503",
+                "normal": "https://cards.scryfall.io/normal/front/b/7/b7848325-c46e-4e63-90d0-c9524380eb63.jpg?1692516503",
+                "png": "https://cards.scryfall.io/png/front/b/7/b7848325-c46e-4e63-90d0-c9524380eb63.png?1692516503",
+                "small": "https://cards.scryfall.io/small/front/b/7/b7848325-c46e-4e63-90d0-c9524380eb63.jpg?1692516503"
+            },
+            "keywords": [],
+            "lang": "en",
+            "layout": "normal",
+            "legalities": {
+                "alchemy": "not_legal",
+                "brawl": "not_legal",
+                "commander": "legal",
+                "duel": "legal",
+                "explorer": "not_legal",
+                "future": "not_legal",
+                "gladiator": "not_legal",
+                "historic": "not_legal",
+                "historicbrawl": "not_legal",
+                "legacy": "legal",
+                "modern": "not_legal",
+                "oathbreaker": "legal",
+                "oldschool": "not_legal",
+                "pauper": "not_legal",
+                "paupercommander": "not_legal",
+                "penny": "not_legal",
+                "pioneer": "not_legal",
+                "predh": "not_legal",
+                "premodern": "not_legal",
+                "standard": "not_legal",
+                "vintage": "legal"
+            },
+            "mana_cost": "{2}{W}{W}",
+            "multiverse_ids": [],
+            "name": "Greymond, Avacyn's Stalwart",
+            "nonfoil": true,
+            "object": "card",
+            "oracle_id": "739a5220-50cd-4148-be58-1bbdeef2954e",
+            "oracle_text": "As Greymond, Avacyn's Stalwart enters the battlefield, choose two abilities from among first strike, vigilance, and lifelink.\nHumans you control have each of the chosen abilities.\nAs long as you control four or more Humans, Humans you control get +2/+2.",
+            "oversized": false,
+            "power": "3",
+            "preview": {
+                "previewed_at": "2023-08-20",
+                "source": "Wizards of the Coast",
+                "source_uri": "https://www.youtube.com/watch?v=68247hXvosA"
+            },
+            "prices": {
+                "eur": "24.31",
+                "eur_foil": null,
+                "tix": null,
+                "usd": "44.15",
+                "usd_etched": null,
+                "usd_foil": null
+            },
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A739a5220-50cd-4148-be58-1bbdeef2954e&unique=prints",
+            "promo": false,
+            "purchase_uris": {
+                "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Greymond%2C+Avacyn%27s+Stalwart&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+                "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Greymond%2C+Avacyn%27s+Stalwart&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+                "tcgplayer": "https://www.tcgplayer.com/product/513295?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall"
+            },
+            "rarity": "mythic",
+            "related_uris": {
+                "edhrec": "https://edhrec.com/route/?cc=Greymond%2C+Avacyn%27s+Stalwart",
+                "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Greymond%2C+Avacyn%27s+Stalwart&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+                "tcgplayer_infinite_decks": "https://infinite.tcgplayer.com/search?contentMode=deck&game=magic&partner=scryfall&q=Greymond%2C+Avacyn%27s+Stalwart&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall"
+            },
+            "released_at": "2023-09-08",
+            "reprint": true,
+            "reserved": false,
+            "rulings_uri": "https://api.scryfall.com/cards/b7848325-c46e-4e63-90d0-c9524380eb63/rulings",
+            "scryfall_set_uri": "https://scryfall.com/sets/slx?utm_source=api",
+            "scryfall_uri": "https://scryfall.com/card/slx/18/greymond-avacyns-stalwart?utm_source=api",
+            "security_stamp": "oval",
+            "set": "slx",
+            "set_id": "3c318e12-9152-4300-a096-4f58a6438897",
+            "set_name": "Universes Within",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Aslx&unique=prints",
+            "set_type": "masters",
+            "set_uri": "https://api.scryfall.com/sets/3c318e12-9152-4300-a096-4f58a6438897",
+            "story_spotlight": false,
+            "tcgplayer_id": 513295,
+            "textless": false,
+            "toughness": "4",
+            "type_line": "Legendary Creature — Human Soldier",
+            "uri": "https://api.scryfall.com/cards/b7848325-c46e-4e63-90d0-c9524380eb63",
+            "variation": false
+        },
+        {
+            "arena_id": 72545,
+            "artist": "Cliff Childs",
+            "artist_ids": [
+                "ed6f7e03-20ba-4c73-bdda-4a4928480721"
+            ],
+            "booster": true,
+            "border_color": "black",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "cardmarket_id": 474859,
+            "cmc": 1.0,
+            "collector_number": "483",
+            "color_identity": [],
+            "colors": [],
+            "digital": false,
+            "edhrec_rank": 13043,
+            "finishes": [
+                "nonfoil"
+            ],
+            "flavor_text": "Words to bless the eye that reads them, telling of a future beyond the reach of fear.",
+            "foil": false,
+            "frame": "2015",
+            "full_art": false,
+            "games": [
+                "arena",
+                "paper"
+            ],
+            "highres_image": true,
+            "id": "2a2d0981-0af6-42d6-b926-16f8f2327320",
+            "illustration_id": "06f381e3-da10-4d45-ac46-8311b0bd5468",
+            "image_status": "highres_scan",
+            "image_uris": {
+                "art_crop": "https://cards.scryfall.io/art_crop/front/2/a/2a2d0981-0af6-42d6-b926-16f8f2327320.jpg?1601080969",
+                "border_crop": "https://cards.scryfall.io/border_crop/front/2/a/2a2d0981-0af6-42d6-b926-16f8f2327320.jpg?1601080969",
+                "large": "https://cards.scryfall.io/large/front/2/a/2a2d0981-0af6-42d6-b926-16f8f2327320.jpg?1601080969",
+                "normal": "https://cards.scryfall.io/normal/front/2/a/2a2d0981-0af6-42d6-b926-16f8f2327320.jpg?1601080969",
+                "png": "https://cards.scryfall.io/png/front/2/a/2a2d0981-0af6-42d6-b926-16f8f2327320.png?1601080969",
+                "small": "https://cards.scryfall.io/small/front/2/a/2a2d0981-0af6-42d6-b926-16f8f2327320.jpg?1601080969"
+            },
+            "keywords": [],
+            "lang": "en",
+            "layout": "normal",
+            "legalities": {
+                "alchemy": "not_legal",
+                "brawl": "not_legal",
+                "commander": "legal",
+                "duel": "legal",
+                "explorer": "not_legal",
+                "future": "not_legal",
+                "gladiator": "legal",
+                "historic": "legal",
+                "historicbrawl": "legal",
+                "legacy": "legal",
+                "modern": "legal",
+                "oathbreaker": "legal",
+                "oldschool": "not_legal",
+                "pauper": "legal",
+                "paupercommander": "legal",
+                "penny": "legal",
+                "pioneer": "not_legal",
+                "predh": "not_legal",
+                "premodern": "not_legal",
+                "standard": "not_legal",
+                "vintage": "legal"
+            },
+            "mana_cost": "{1}",
+            "multiverse_ids": [
+                489466
+            ],
+            "name": "Scroll of Avacyn",
+            "nonfoil": true,
+            "object": "card",
+            "oracle_id": "f728c4f1-178f-421b-a713-21f85892f051",
+            "oracle_text": "{1}, Sacrifice Scroll of Avacyn: Draw a card. If you control an Angel, you gain 5 life.",
+            "oversized": false,
+            "penny_rank": 5470,
+            "prices": {
+                "eur": "0.05",
+                "eur_foil": null,
+                "tix": null,
+                "usd": "0.07",
+                "usd_etched": null,
+                "usd_foil": null
+            },
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Af728c4f1-178f-421b-a713-21f85892f051&unique=prints",
+            "promo": false,
+            "purchase_uris": {
+                "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Scroll+of+Avacyn&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall",
+                "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Scroll+of+Avacyn&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+                "tcgplayer": "https://www.tcgplayer.com/product/216572?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall"
+            },
+            "rarity": "common",
+            "related_uris": {
+                "edhrec": "https://edhrec.com/route/?cc=Scroll+of+Avacyn",
+                "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=489466",
+                "tcgplayer_infinite_articles": "https://infinite.tcgplayer.com/search?contentMode=article&game=magic&partner=scryfall&q=Scroll+of+Avacyn&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall",
+                "tcgplayer_infinite_decks": "https://infinite.tcgplayer.com/search?contentMode=deck&game=magic&partner=scryfall&q=Scroll+of+Avacyn&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall"
+            },
+            "released_at": "2020-07-17",
+            "reprint": true,
+            "reserved": false,
+            "rulings_uri": "https://api.scryfall.com/cards/2a2d0981-0af6-42d6-b926-16f8f2327320/rulings",
+            "scryfall_set_uri": "https://scryfall.com/sets/jmp?utm_source=api",
+            "scryfall_uri": "https://scryfall.com/card/jmp/483/scroll-of-avacyn?utm_source=api",
+            "set": "jmp",
+            "set_id": "0f6ccf25-a627-4263-86df-5757137f1696",
+            "set_name": "Jumpstart",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Ajmp&unique=prints",
+            "set_type": "draft_innovation",
+            "set_uri": "https://api.scryfall.com/sets/0f6ccf25-a627-4263-86df-5757137f1696",
+            "story_spotlight": false,
+            "tcgplayer_id": 216572,
+            "textless": false,
+            "type_line": "Artifact",
+            "uri": "https://api.scryfall.com/cards/2a2d0981-0af6-42d6-b926-16f8f2327320",
+            "variation": false
+        }
+    ],
+    "has_more": false,
+    "object": "list",
+    "total_cards": 6
+}

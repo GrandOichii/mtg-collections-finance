@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://mj88lrjos2t6"]
+
+[ext_resource type="PackedScene" uid="uid://cus6j8i16d2vn" path="res://Tabs/CardsTab.tscn" id="1_swwpf"]
+[ext_resource type="PackedScene" uid="uid://d4gi3j2xx70wp" path="res://Tabs/CollectionsTab.tscn" id="2_q1vqo"]
+
+[node name="Main" type="CanvasLayer"]
+
+[node name="TabContainer" type="TabContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Cards" parent="TabContainer" instance=ExtResource("1_swwpf")]
+layout_mode = 2
+
+[node name="Collections" parent="TabContainer" instance=ExtResource("2_q1vqo")]
+visible = false
+layout_mode = 2
