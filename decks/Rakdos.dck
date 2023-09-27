@@ -1,0 +1,76 @@
+NAME:Rakdos
+1 [GK2:66] Master of Cruelties
+1 [RNA:199] Rakdos, the Showstopper
+1 [RNA:117] Spear Spewer
+1 [RNA:222] Carnival // Carnage
+1 [RNA:197] Rakdos Firewheeler
+1 [GK2:71] Rakdos the Defiler
+1 [GK2:63] Dreadbore
+1 [WAR:80] Bond of Revival
+1 [DGM:61] Carnage Gladiator
+1 [RNA:107] Light Up the Stage
+1 [GK2:55] Cackling Flames
+1 [RNA:255] Rakdos Guildgate
+1 [DGM:133] Toil // Trouble
+1 [RNA:84] Rakdos Trumpeter
+1 [GK2:65] Lyzolda, the Blood Witch
+1 [RNA:198] Rakdos Roustabout
+1 [GK2:61] Avatar of Discord
+1 [RNA:237] Rakdos Locket
+1 [RNA:73] Drill Bit
+1 [GK2:72] Rakdos's Return
+1 [DIS:128] Rakdos Ickspitter
+1 [RNA:216] Footlight Fiend
+1 [RTR:212] Cryptborn Horror
+1 [RNA:221] Bedeck // Bedazzle
+1 [RNA:196] Rafter Demon
+1 [GK2:70] Rakdos Shred-Freak
+1 [RNA:157] Bedevil
+1 [GK2:67] Rakdos Cackler
+1 [GK2:69] Rakdos Guildmage
+1 [GK2:74] Wrecking Ball
+1 [DGM:69] Exava, Rakdos Blood Witch
+1 [GK2:59] Utvara Hellkite
+1 [RNA:181] Hackrobat
+1 [GK2:75] Rakdos Keyrune
+1 [JMP:289] Act of Treason
+1 [GK2:53] Crypt Champion
+1 [RNA:70] Cry of the Carnarium
+1 [GK2:68] Rakdos Charm
+1 [WAR:109] Unlikely Aid
+1 [RNA:63] Blade Juggler
+1 [RNA:164] Cult Guildmage
+1 [GK2:56] Demonfire
+1 [GK2:73] Riot Spikes
+1 [DGM:104] Sire of Insanity
+1 [RNA:118] Spikewheel Acrobat
+1 [RNA:71] Dead Revels
+1 [RNA:109] Rix Maadi Reveler
+1 [DGM:143] Rakdos Cluestone
+1 [RTR:166] Havoc Festival
+1 [RTR:90] Chaos Imps
+1 [GK2:57] Rakdos Pit Dragon
+1 [DIS:179] Rix Maadi, Dungeon Palace
+1 [GK2:54] Thrill-Kill Assassin
+1 [GK2:60] Auger Spree
+1 [RTR:167] Hellhole Flailer
+1 [GK2:64] Jagged Poppet
+1 [RTR:192] Rix Maadi Guildmage
+1 [GK2:76] Rakdos Signet
+1 [GK2:62] Carnival Hellsteed
+1 [RNA:191] Macabre Mockery
+1 [RNA:176] Get the Point
+1 [RNA:85] Spawn of Mayhem
+1 [RNA:64] Bladebrand
+1 [RNA:213] Theater of Horrors
+1 [RNA:115] Skewer the Critics
+1 [RNA:172] Fireblade Artist
+1 [GK2:58] Splatter Thug
+1 [GK2:77] Rakdos Carnarium
+6 [GK2:79] Mountain
+10 [GK2:105] Mountain
+9 [GK2:78] Swamp
+6 [GK2:51] Swamp
+SB: 1 [RTR:187] Rakdos, Lord of Riots
+LAYOUT MAIN:(1,8)(CMC,false,25)|([RNA:255],[DIS:179],[GK2:77],[GK2:79],[GK2:105],[GK2:105],[GK2:105],[GK2:79],[GK2:79],[GK2:79],[GK2:105],[GK2:79],[GK2:79],[GK2:105],[GK2:105],[GK2:105],[GK2:105],[GK2:105],[GK2:105],[GK2:78],[GK2:51],[GK2:51],[GK2:78],[GK2:78],[GK2:78],[GK2:51],[GK2:51],[GK2:78],[GK2:51],[GK2:51],[GK2:78],[GK2:78],[GK2:78],[GK2:78])([RNA:117],[RNA:216],[GK2:67],[GK2:56],[GK2:73])([GK2:63],[RNA:84],[GK2:72],[GK2:70],[GK2:69],[GK2:68],[WAR:109],[RNA:164],[RNA:109],[GK2:54],[RTR:192],[GK2:76],[RNA:64],[RNA:172])([RNA:107],[GK2:65],[RNA:198],[GK2:61],[RNA:237],[RNA:73],[DIS:128],[RTR:212],[RNA:157],[RNA:181],[GK2:75],[JMP:289],[RNA:70],[DGM:143],[GK2:60],[RTR:167],[GK2:64],[RNA:213],[RNA:115],[GK2:58])([RNA:197],[DGM:61],[GK2:55],[RNA:196],[GK2:74],[DGM:69],[GK2:53],[RNA:118],[RNA:71],[GK2:57],[RNA:191],[RNA:85])([GK2:66],[RNA:222],[WAR:80],[RNA:63],[RNA:176])([RNA:199],[GK2:71],[DGM:133],[DGM:104],[RTR:166],[RTR:90],[GK2:62])([RNA:221],[GK2:59])
+LAYOUT SIDEBOARD:(1,1)(CMC,false,50)|([RTR:187])

@@ -1,0 +1,77 @@
+1 [DGM:122] Armed // Dangerous
+1 [WAR:116] Bond of Passion
+1 [GPT:103] Borborygmos
+1 [GTC:147] Borborygmos Enraged
+1 [GTC:216] Burning-Tree Emissary
+1 [GPT:105] Burning-Tree Shaman
+1 [RNA:161] Cindervines
+1 [GTC:151] Clan Defiance
+1 [RNA:162] Clan Guildmage
+1 [RNA:223] Collision // Colossus
+1 [ODY:287] Decimate
+1 [WAR:191*] Domri, Anarch of Bolas
+1 [RNA:166] Domri, Chaos Bringer
+1 [GTC:156] Domri Rade
+1 [WAR:192] Domri's Ambush
+1 [RNA:124] End-Raze Forerunners
+1 [RNA:173] Frenzied Arynx
+1 [GTC:166] Frenzied Tilling
+1 [GTC:167] Ghor-Clan Rampager
+1 [J21:693] Goblin Anarchomancer
+1 [GTC:168] Ground Assault
+1 [RNA:129] Gruul Beastmaster
+1 [GTC:169] Gruul Charm
+1 [DGM:140] Gruul Cluestone
+1 [RNA:249] Gruul Guildgate
+1 [GPT:144] Gruul Guildmage
+1 [GTC:230] Gruul Keyrune
+1 [RNA:234] Gruul Locket
+1 [GTC:170] Gruul Ragebeast
+1 [GPT:150] Gruul Signet
+1 [RNA:179] Gruul Spellbreaker
+1 [DGM:75] Gruul War Chant
+1 [GPT:151] Gruul War Plow
+1 [GPT:120] Killer Instinct
+1 [RNA:193] Nikya of the Old Ways
+1 [GPT:91] Petrified Wood-Kin
+1 [GTC:223] Pit Fight
+1 [DGM:36] Pyrewild Shaman
+1 [GPT:73] Rabble-Rouser
+1 [RNA:134] Rampage of the Clans
+1 [RNA:200] Ravager Wurm
+1 [RNA:201] Rhythm of the Wild
+1 [GTC:224] Rubblebelt Raiders
+1 [GTC:191] Rubblehulk
+1 [J21:713] Ruination Rioter
+1 [GPT:126] Rumbling Slum
+1 [DGM:100] Savageborn Hydra
+1 [RNA:203] Savage Smash
+1 [GPT:127] Savage Twister
+1 [ORI:160] Scab-Clan Berserker
+1 [GPT:128] Scab-Clan Mauler
+1 [GTC:194] Signal the Clans
+1 [GPT:77] Skarrgan Firebird
+1 [RNA:114] Skarrgan Hellkite
+1 [GTC:133] Skarrg Goliath
+1 [GTC:196] Skarrg Guildmage
+1 [GPT:163] Skarrg, the Rage Pits
+1 [GTC:106] Skullcrack
+1 [RNA:259] Stomping Ground
+1 [RNA:210] Sunder Shaman
+1 [RNA:229] Thrash // Threat
+1 [GPT:136] Ulasht, the Hate Seed
+1 [GPT:149] Wild Cantor
+1 [GPT:139] Wreak Havoc
+1 [DGM:119] Zhur-Taa Ancient
+1 [GTC:112] Wrecking Ogre
+1 [DGM:120] Zhur-Taa Druid
+1 [RNA:215] Zhur-Taa Goblin
+1 [AFC:243] Gruul Turf
+1 [WAR:133] Ilharg, the Raze-Boar
+5 [GK2:106] Forest
+9 [GK2:133] Forest
+10 [GK2:79] Mountain
+5 [GK2:105] Mountain
+SB: 1 [DGM:99] Ruric Thar, the Unbowed
+LAYOUT MAIN:(1,9)(CMC,false,50)|([RNA:249],[GPT:163],[RNA:259],[AFC:243],[GK2:106],[GK2:133],[GK2:106],[GK2:133],[GK2:106],[GK2:106],[GK2:133],[GK2:133],[GK2:133],[GK2:133],[GK2:106],[GK2:133],[GK2:133],[GK2:133],[GK2:79],[GK2:105],[GK2:105],[GK2:105],[GK2:79],[GK2:79],[GK2:79],[GK2:79],[GK2:79],[GK2:79],[GK2:79],[GK2:79],[GK2:105],[GK2:79],[GK2:105])([GPT:149])([GTC:216],[RNA:161],[GTC:151],[RNA:162],[WAR:192],[J21:693],[GTC:168],[GTC:169],[GPT:144],[GPT:150],[GTC:223],[J21:713],[DGM:100],[GPT:127],[GPT:128],[GTC:194],[GTC:196],[GTC:106],[DGM:120],[RNA:215])([GPT:105],[WAR:191*],[GTC:156],[DGM:140],[GTC:230],[RNA:234],[RNA:179],[DGM:36],[RNA:201],[RNA:203],[ORI:160])([RNA:223],[ODY:287],[RNA:166],[RNA:173],[GTC:167],[RNA:129],[DGM:75],[GPT:151],[GPT:73],[RNA:134],[GTC:224],[GPT:126],[RNA:210],[GPT:136],[GPT:139])([GTC:166],[RNA:193],[RNA:114],[DGM:119],[GTC:112],[WAR:133])([DGM:122],[WAR:116],[GPT:120],[RNA:200],[GTC:191],[GPT:77],[RNA:229])([GPT:103],[GTC:170],[GPT:91])([GTC:147],[RNA:124],[GTC:133])
+LAYOUT SIDEBOARD:(1,1)(NONE,false,50)|([DGM:99])

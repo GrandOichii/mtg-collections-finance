@@ -1,0 +1,73 @@
+NAME:Orzhov
+1 [PRNA:22p] Smothering Tithe
+1 [WAR:188] Cruel Celebrant
+1 [GTC:177] Merciless Eviction
+1 [GK2:37] Angel of Despair
+1 [RNA:156] Basilica Bell-Haunt
+1 [GTC:5] Basilica Guards
+1 [GTC:58] Basilica Screecher
+1 [GK2:29] Belfry Spirit
+1 [GPT:102] Blind Hunter
+1 [GTC:6] Blind Obedience
+1 [DGM:57] Blood Baron of Vizkopa
+1 [RNA:224] Consecrate // Consume
+1 [GTC:61] Crypt Ghast
+1 [GK2:38] Deathpact Angel
+1 [MB1:1519] Debtors' Knell
+1 [DGM:64] Debt to the Deathless
+1 [RNA:171] Final Payment
+1 [GK2:40] Ghost Council of Orzhova
+1 [GTC:219] Gift of Orzhova
+1 [RNA:248] Godless Shrine
+1 [GTC:171] High Priest of Penance
+1 [GTC:220] Immortal Servitude
+1 [GTC:173] Kingpin's Pet
+1 [RNA:184] Imperious Oligarch
+1 [RNA:16] Ministrant of Obligation
+1 [PRNA:192] Mortify
+1 [DGM:89] Obzedat's Aid
+1 [GTC:182] Obzedat, Ghost Council
+1 [GK2:41] One Thousand Lashes
+1 [GPT:162] Orzhova, the Church of Deals
+1 [GK2:49] Orzhov Basilica
+1 [GK2:42] Orzhov Charm
+1 [DGM:142] Orzhov Cluestone
+1 [RNA:79] Orzhov Enforcer
+1 [RNA:252] Orzhov Guildgate
+1 [GPT:147] Orzhov Guildmage
+1 [GTC:233] Orzhov Keyrune
+1 [RNA:236] Orzhov Locket
+1 [GK2:48] Orzhov Signet
+1 [GK2:44] Pillory of the Sleepless
+1 [GK2:33] Pontiff of Blight
+1 [GPT:61] Seize the Soul
+1 [RNA:205] Seraph of the Scales
+1 [GTC:26] Syndic of Tithes
+1 [GK2:46] Treasury Thrull
+1 [GK2:47] Vizkopa Guildmage
+1 [GPT:134] Teysa, Orzhov Scion
+1 [DGM:108] Teysa, Envoy of Ghosts
+1 [RNA:212] Teysa Karlov
+1 [GPT:100] Agent of Masks
+1 [GPT:109] Culling Sun
+1 [GTC:18] Knight of Obligation
+1 [GPT:131] Souls of the Faultless
+1 [GTC:80] Syndicate Enforcer
+1 [DGM:109] Tithe Drinker
+1 [RNA:27] Tithe Taker
+1 [GPT:1] Absolver Thrull
+1 [GPT:50] Exhumer Thrull
+1 [GPT:7] Graven Dominator
+1 [DGM:83] Maw of the Obzedat
+1 [GK2:43] Orzhov Pontiff
+1 [GPT:55] Ostiary Thrull
+1 [RNA:194] Pitiless Pontiff
+1 [GPT:14] Shadow Lance
+1 [GTC:81] Thrull Parasite
+8 [GK2:26] Plains
+9 [GK2:50] Plains
+8 [GK2:78] Swamp
+9 [GK2:51] Swamp
+SB: 1 [C15:46] Karlov of the Ghost Council
+LAYOUT MAIN:(1,8)(CMC,false,0)|([RNA:248],[GPT:162],[GK2:49],[RNA:252],[GK2:26],[GK2:26],[GK2:50],[GK2:26],[GK2:50],[GK2:26],[GK2:50],[GK2:50],[GK2:26],[GK2:50],[GK2:26],[GK2:50],[GK2:26],[GK2:50],[GK2:26],[GK2:50],[GK2:50],[GK2:78],[GK2:51],[GK2:51],[GK2:78],[GK2:78],[GK2:78],[GK2:51],[GK2:51],[GK2:78],[GK2:51],[GK2:78],[GK2:51],[GK2:78],[GK2:51],[GK2:78],[GK2:51],[GK2:51])([GPT:14],[GTC:81])([WAR:188],[GTC:58],[GTC:6],[RNA:171],[GTC:171],[RNA:184],[GK2:42],[RNA:79],[GPT:147],[GK2:48],[GTC:26],[GK2:47],[DGM:109],[RNA:27],[RNA:194])([GTC:5],[GTC:219],[GTC:220],[GTC:173],[RNA:16],[PRNA:192],[DGM:142],[GTC:233],[RNA:236],[GK2:44],[GPT:134],[GPT:131],[GK2:43])([PRNA:22p],[RNA:156],[GPT:102],[GTC:61],[DGM:64],[GK2:40],[GK2:41],[GPT:61],[RNA:205],[RNA:212],[GTC:18],[GTC:80],[GPT:1],[GPT:55])([GK2:29],[DGM:57],[DGM:89],[GTC:182],[GPT:100],[GPT:109],[DGM:83])([GTC:177],[RNA:224],[GK2:38],[GK2:33],[GK2:46],[GPT:50],[GPT:7])([GK2:37],[MB1:1519],[DGM:108])
+LAYOUT SIDEBOARD:(1,1)(NONE,false,50)|([C15:46])

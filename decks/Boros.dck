@@ -1,0 +1,76 @@
+1 [RTR:1] Angel of Serenity
+1 [GTC:142] Assemble the Legion
+1 [GRN:153] Aurelia, Exemplar of Justice
+1 [DGM:56] Blaze Commando
+1 [GTC:86] Bomber Corps
+1 [WAR:116] Bond of Passion
+1 [DGM:58] Boros Battleshaper
+1 [GRN:156] Boros Challenger
+1 [GTC:148] Boros Charm
+1 [DGM:137] Boros Cluestone
+1 [RAV:275] Boros Garrison
+1 [RAV:242] Boros Guildmage
+1 [GTC:227] Boros Keyrune
+1 [GRN:231] Boros Locket
+1 [GTC:215] Boros Reckoner
+1 [RAV:255] Boros Signet
+1 [RAV:193] Boros Swiftblade
+1 [RAV:194] Brightflame
+1 [GRN:159] Chance for Glory
+1 [GRN:4] Citywide Bust
+1 [GRN:7] Crush Contraband
+1 [GRN:165] Deafening Clarion
+1 [GRN:10] Divine Visitation
+1 [WAR:197] Feather, the Redeemed
+1 [WAR:12] Finale of Glory
+1 [RAV:205] Firemane Angel
+1 [GTC:163] Firemane Avenger
+1 [MOC:73] Firemane Commando
+1 [RAV:206] Flame-Kin Zealot
+1 [GTC:165] Foundry Champion
+1 [GTC:12] Frontline Medic
+1 [GRN:227] Integrity // Intervention
+1 [GRN:182] Justice Strike
+1 [GRN:187] Legion Guildmage
+1 [GTC:97] Legion Loyalist
+1 [DGM:81] Legion's Initiative
+1 [RAV:213] Lightning Helix
+1 [GRN:19] Light of the Legion
+1 [RAV:250] Master Warcraft
+1 [WAR:24] Parhelion II
+1 [RAV:223] Razia, Boros Archangel
+1 [RAV:224] Razia's Purification
+1 [GRN:229] Response // Resurgence
+1 [GRN:254] Sacred Foundry
+1 [RAV:226] Searing Meditation
+1 [GRN:198] Skyknight Legionnaire
+1 [M20:218] Skyknight Vanguard
+1 [WAR:216] Solar Blaze
+1 [RAV:272] Sunforger
+1 [RAV:282] Sunhome, Fortress of the Legion
+1 [GTC:200] Sunhome Guildmage
+1 [GRN:26] Sunhome Stalwart
+1 [GRN:202] Swathcutter Giant
+1 [GRN:203] Swiftblade Vindicator
+1 [DGM:107] Tajic, Blade of the Legion
+1 [GRN:204] Tajic, Legion's Edge
+1 [RAV:235] Thundersong Trumpeter
+1 [GRN:209] Truefire Captain
+1 [DGM:113] Viashino Firstblade
+1 [DGM:135] Wear // Tear
+1 [RAV:36] Wojek Apothecary
+1 [RAV:152] Wojek Embermage
+1 [GTC:208] Wojek Halberdiers
+1 [GK1:83] Agrus Kos, Wojek Veteran
+1 [J22:1] Agrus Kos, Eternal Soldier
+1 [MH2:198] General Ferrous Rokiric
+1 [GRN:102] Goblin Banneret
+1 [GRN:109] Legion Warboss
+1 [RAV:267] Pariah's Shield
+10 [GK1:49] Mountain
+3 [GK1:101] Mountain
+9 [GK1:126] Plains
+8 [GK1:100] Plains
+SB: 1 [GTC:143] Aurelia, the Warleader
+LAYOUT MAIN:(1,9)(CMC,false,50)|([RAV:275],[GRN:254],[RAV:282],[GK1:49],[GK1:101],[GK1:101],[GK1:49],[GK1:49],[GK1:49],[GK1:101],[GK1:49],[GK1:49],[GK1:49],[GK1:49],[GK1:49],[GK1:49],[GK1:126],[GK1:100],[GK1:100],[GK1:100],[GK1:126],[GK1:100],[GK1:126],[GK1:100],[GK1:126],[GK1:126],[GK1:100],[GK1:100],[GK1:100],[GK1:126],[GK1:126],[GK1:126],[GK1:126])([GTC:97],[GRN:102])([GTC:86],[GRN:156],[GTC:148],[RAV:242],[RAV:255],[RAV:193],[WAR:12],[GRN:182],[GRN:187],[DGM:81],[RAV:213],[M20:218],[GTC:200],[GRN:26],[GRN:203],[RAV:235],[GTC:208])([DGM:137],[GTC:227],[GRN:231],[GTC:215],[GRN:159],[GRN:4],[GRN:165],[WAR:197],[GTC:12],[RAV:226],[GRN:198],[RAV:272],[GRN:204],[DGM:113],[DGM:135],[MH2:198],[GRN:109])([GRN:153],[RAV:194],[GRN:7],[GTC:163],[MOC:73],[RAV:206],[RAV:250],[WAR:216],[DGM:107],[GRN:209],[RAV:36],[RAV:152],[J22:1])([GTC:142],[DGM:56],[GRN:10],[GRN:227],[GK1:83],[RAV:267])([WAR:116],[RAV:205],[GTC:165],[GRN:19],[RAV:224],[GRN:202])([RTR:1],[DGM:58],[GRN:229])([WAR:24],[RAV:223])
+LAYOUT SIDEBOARD:(1,1)(NONE,false,50)|([GTC:143])

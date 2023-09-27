@@ -1,0 +1,77 @@
+1 [DGM:51] Advent of the Wurm
+1 [DGM:121] Alive // Well
+1 [RTR:143] Armada Wurm
+1 [GRN:221] Assure // Assemble
+1 [WAR:152] Awakening of Vitu-Ghazi
+1 [WAR:155] Bond of Flourishing
+1 [RTR:146] Call of the Conclave
+1 [GRN:157] Camaraderie
+1 [WAR:156] Centaur Nurturer
+1 [RAV:195] Chorus of the Conclave
+1 [RTR:150] Collective Blessing
+1 [GRN:161] Conclave Cavalier
+1 [GRN:162] Conclave Guildmage
+1 [GRN:6] Conclave Tribunal
+1 [RTR:154] Coursers' Accord
+1 [RAV:258] Crown of Convergence
+1 [GRN:8] Dawn of Hope
+1 [RTR:123] Druid's Deliverance
+1 [RTR:214] Dryad Militant
+1 [GRN:168] Emmara, Soul of the Accord
+1 [DGM:68] Emmara Tandris
+1 [RTR:10] Eyes in the Skies
+1 [M13:170] Farseek
+1 [C19:32] Full Flowering
+1 [RTR:217] Growing Ranks
+1 [RTR:240] Grove of the Guardian
+1 [GRN:273] Impervious Greatwurm
+1 [GRN:181] Join Shields
+1 [GRN:183] Knight of Autumn
+1 [RAV:214] Loxodon Hierarch
+1 [RTR:178] Loxodon Smiter
+1 [GRN:188] March of the Multitudes
+1 [M20:182] Might of the Masses
+1 [MH1:210] Nature's Chant
+1 [RAV:218] Phytohydra
+1 [RAV:219] Pollenbright Wings
+1 [RAV:251] Privileged Position
+1 [RAV:181] Scatter the Seeds
+1 [DGM:7] Scion of Vitu-Ghazi
+1 [RTR:194] Selesnya Charm
+1 [C19:35] Selesnya Eulogist
+1 [RAV:228] Selesnya Evangel
+1 [GRN:255] Selesnya Guildgate
+1 [RAV:252] Selesnya Guildmage
+1 [RTR:233] Selesnya Keyrune
+1 [GRN:240] Selesnya Locket
+1 [RAV:281] Selesnya Sanctuary
+1 [RAV:270] Selesnya Signet
+1 [GRN:145] Sprouting Renewal
+1 [RTR:223] Sundering Growth
+1 [RAV:185] Sundering Vitae
+1 [WAR:224] Tolsimir, Friend to Wolves
+1 [RAV:236] Tolsimir Wolfblood
+1 [RAV:186] Transluminant
+1 [GRN:208] Trostani Discordant
+1 [GRN:30] Venerated Loxodon
+1 [RTR:207] Vitu-Ghazi Guildmage
+1 [RAV:285] Vitu-Ghazi, the City-Tree
+1 [RAV:239] Watchwolf
+1 [RTR:209] Wayfaring Temple
+1 [M13:197] Yeva, Nature's Herald
+1 [RAV:191] Autochthon Wurm
+1 [RAV:207] Glare of Subdual
+1 [RAV:21] Hour of Reckoning
+1 [RTR:19] Rootborn Defenses
+1 [DGM:144] Selesnya Cluestone
+1 [C19:6] Song of the Worldsoul
+1 [RTR:28] Trostani's Judgment
+1 [MOC:20] Wand of the Worldsoul
+1 [DGM:10] Wake the Reflections
+10 [GK1:76] Forest
+5 [GK1:127] Forest
+9 [GK1:100] Plains
+5 [GK1:126] Plains
+SB: 1 [RTR:206] Trostani, Selesnya's Voice
+LAYOUT MAIN:(1,11)(CMC,false,50)|([RTR:240],[GRN:255],[RAV:281],[RAV:285],[GK1:76],[GK1:127],[GK1:76],[GK1:127],[GK1:127],[GK1:76],[GK1:76],[GK1:127],[GK1:76],[GK1:76],[GK1:76],[GK1:127],[GK1:76],[GK1:76],[GK1:76],[GK1:100],[GK1:126],[GK1:100],[GK1:100],[GK1:100],[GK1:100],[GK1:126],[GK1:126],[GK1:100],[GK1:100],[GK1:126],[GK1:100],[GK1:126],[GK1:100])([RTR:214],[C19:32],[M20:182],[DGM:10])([WAR:155],[RTR:146],[GRN:162],[RAV:258],[GRN:8],[RTR:123],[GRN:168],[M13:170],[MH1:210],[RTR:194],[RAV:228],[RAV:252],[RAV:270],[RTR:223],[RAV:186],[RTR:207],[RAV:239])([GRN:183],[RTR:178],[GRN:188],[C19:35],[RTR:233],[GRN:240],[GRN:145],[RAV:185],[RTR:209],[RTR:19],[DGM:144],[MOC:20])([DGM:51],[WAR:156],[GRN:161],[GRN:6],[RTR:10],[RTR:217],[RAV:214],[M13:197],[RAV:207])([DGM:121],[WAR:152],[GRN:181],[RAV:218],[RAV:251],[RAV:181],[DGM:7],[WAR:224],[GRN:208],[GRN:30])([RTR:143],[GRN:157],[RTR:150],[RTR:154],[RAV:219],[RAV:236],[C19:6],[RTR:28])([DGM:68],[RAV:21])([GRN:221],[RAV:195])([GRN:273])([RAV:191])
+LAYOUT SIDEBOARD:(1,1)(NONE,false,50)|([RTR:206])

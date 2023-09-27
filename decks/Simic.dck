@@ -1,0 +1,75 @@
+NAME:Simic
+1 [MH2:204] Lonis, Cryptozoologist
+1 [GK2:128] Vorel of the Hull Clade
+1 [RNA:195] Prime Speaker Vannifar
+1 [GTC:188] Prime Speaker Zegana
+1 [GK2:119] Momir Vig, Simic Visionary
+1 [GK2:107] Zegana, Utopian Speaker
+1 [RNA:32] Benthic Biomancer
+1 [RNA:158] Biomancer's Familiar
+1 [GTC:176] Master Biomancer
+1 [DIS:142] Biomantic Mastery
+1 [DGM:59] Bred for the Hunt
+1 [PRNA:246p] Breeding Pool
+1 [GK2:108] Cloudfin Raptor
+1 [GK2:115] Coiling Oracle
+1 [RNA:163] Combine Guildmage
+1 [DIS:23] Cytoplast Manipulator
+1 [GK2:110] Cytoplast Root-Kin
+1 [DIS:161] Evolution Vat
+1 [F13:9] Experiment One
+1 [GK2:118] Fathom Mage
+1 [RNA:174] Frilled Mystic
+1 [RNA:178] Growth Spiral
+1 [DGM:129] Give // Take
+1 [RNA:180] Gyre Engineer
+1 [GK2:112] Gyre Sage
+1 [DIS:26] Helium Squirter
+1 [RNA:183] Hydroid Krasis
+1 [RNA:131] Incubation Druid
+1 [RNA:226] Incubation // Incongruity
+1 [DGM:79] Krasis Incubation
+1 [DIS:116] Leafdrake Roost
+1 [GK2:121] Omnibian
+1 [DIS:27] Novijen Sages
+1 [DIS:175] Novijen, Heart of Progress
+1 [GK2:122] Plaxcaster Frogling
+1 [GK2:123] Progenitor Mimic
+1 [DGM:47] Renegade Krasis
+1 [RNA:227] Repudiate // Replicate
+1 [RNA:206] Sharktocrab
+1 [RNA:207] Simic Ascendancy
+1 [DIS:31] Silkwing Scout
+1 [GTC:195] Simic Charm
+1 [DGM:145] Simic Cluestone
+1 [GK2:131] Simic Growth Chamber
+1 [RNA:258] Simic Guildgate
+1 [DIS:148] Simic Guildmage
+1 [GTC:237] Simic Keyrune
+1 [MB1:1629] Simic Locket
+1 [GTC:50] Simic Manipulator
+1 [GK2:130] Simic Signet
+1 [GK2:124] Simic Sky Swallower
+1 [RNA:52] Skatewing Spy
+1 [GK2:125] Trygon Predator
+1 [GTC:203] Unexpected Results
+1 [GK2:126] Urban Evolution
+1 [GK2:127] Voidslime
+1 [DIS:135] Vigean Hydropon
+1 [GK2:129] Zameck Guildmage
+1 [RNA:152] Aeromunculus
+1 [GTC:213] Biomass Mutation
+1 [GK2:116] Elusive Krasis
+1 [RNA:175] Galloping Lizrog
+1 [GK2:120] Nimbus Swimmer
+1 [GTC:180] Mystic Genesis
+1 [DGM:91] Plasm Capture
+1 [RNA:47] Pteramander
+1 [GTC:193] Shambleshark
+11 [GK2:133] Forest
+5 [GK2:106] Forest
+7 [GK2:27] Island
+9 [GK2:132] Island
+SB: 1 [GK2:117] Experiment Kraj
+LAYOUT MAIN:(1,8)(CMC,false,25)|([PRNA:246p],[DIS:175],[GK2:131],[RNA:258],[GK2:133],[GK2:106],[GK2:133],[GK2:106],[GK2:106],[GK2:106],[GK2:133],[GK2:133],[GK2:133],[GK2:133],[GK2:133],[GK2:106],[GK2:133],[GK2:133],[GK2:133],[GK2:133],[GK2:27],[GK2:27],[GK2:27],[GK2:132],[GK2:132],[GK2:132],[GK2:132],[GK2:132],[GK2:27],[GK2:27],[GK2:132],[GK2:132],[GK2:132],[GK2:27],[GK2:132],[GK2:27])([RNA:32],[GK2:108],[F13:9],[RNA:47])([MH2:204],[RNA:158],[GK2:115],[RNA:163],[RNA:178],[GK2:112],[RNA:183],[RNA:131],[RNA:207],[GTC:195],[DIS:148],[GK2:130],[GK2:129],[GTC:213],[GK2:120],[GTC:193])([GK2:128],[DGM:59],[DIS:161],[RNA:180],[GK2:122],[DGM:47],[DIS:31],[DGM:145],[GTC:237],[MB1:1629],[GTC:50],[GK2:125],[GK2:127],[DIS:135],[RNA:152],[GK2:116])([RNA:195],[GK2:107],[GTC:176],[DIS:23],[GK2:110],[GK2:118],[RNA:174],[RNA:226],[DGM:79],[GK2:121],[RNA:206],[RNA:52],[GTC:203],[DGM:91])([GK2:119],[DIS:26],[DIS:116],[RNA:227],[GK2:126],[RNA:175],[GTC:180])([GTC:188],[DGM:129],[DIS:27],[GK2:123])([DIS:142],[GK2:124])
+LAYOUT SIDEBOARD:(1,1)(NONE,false,50)|([GK2:117])

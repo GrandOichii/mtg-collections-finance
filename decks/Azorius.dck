@@ -1,0 +1,77 @@
+1 [RNA:151] Absorb
+1 [RTR:142] Archon of the Triumvirate
+1 [RTR:3] Arrest
+1 [DGM:53] Ascended Lawmage
+1 [DIS:104] Azorius Aethermage
+1 [RTR:5] Azorius Arrester
+1 [DIS:170] Azorius Chancery
+1 [RTR:145] Azorius Charm
+1 [DGM:136] Azorius Cluestone
+1 [DIS:141] Azorius Guildmage
+1 [RTR:6] Azorius Justiciar
+1 [RTR:225] Azorius Keyrune
+1 [RNA:231] Azorius Locket
+1 [DIS:159] Azorius Signet
+1 [RNA:155] Azorius Skyguard
+1 [RTR:210] Azor's Elocutors
+1 [RIX:154] Azor, the Lawbringer
+1 [M21:46] Cancel
+1 [DIS:22] Court Hussar
+1 [RNA:225] Depose // Deploy
+1 [DGM:65] Deputy of Acquittals
+1 [RNA:165] Deputy of Detention
+1 [RTR:155] Detention Sphere
+1 [DIS:143] Dovescape
+1 [RNA:167] Dovin, Grand Arbiter
+1 [RNA:168] Dovin's Acuity
+1 [WAR:195] Elite Guardmage
+1 [RNA:169] Emergency Powers
+1 [RTR:161] Fall of the Gavel
+1 [DIS:25] Govern the Guildless
+1 [DIS:112] Grand Arbiter Augustin IV
+1 [RNA:251] Hallowed Fountain
+1 [RNA:182] High Alert
+1 [RTR:41] Inaction Injunction
+1 [DIS:114] Isperia the Inscrutable
+1 [RTR:218] Judge's Familiar
+1 [RNA:189] Lavinia, Azorius Renegade
+1 [DGM:80] Lavinia of the Tenth
+1 [RNA:190] Lawmage's Binding
+1 [DGM:3] Lyev Decree
+1 [RTR:14] Martial Law
+1 [RTR:181] New Prahv Guildmage
+1 [DIS:28] Ocular Halo
+1 [DIS:120] Overrule
+1 [DIS:124] Plumes of Peace
+1 [DIS:177] Prahv, Spires of Order
+1 [RNA:45] Precognitive Perception
+1 [DIS:125] Pride of the Clouds
+1 [DGM:97] Restore the Peace
+1 [RTR:189] Righteous Authority
+1 [M21:35] Secure the Scene
+1 [RNA:219] Senate Griffin
+1 [RNA:204] Senate Guildmage
+1 [RNA:20] Sentinel's Mark
+1 [DIS:131] Sky Hussar
+1 [RTR:196] Skymark Roc
+1 [DIS:32] Skyscribing
+1 [DIS:17] Soulsworn Jury
+1 [RNA:208] Sphinx of New Prahv
+1 [RTR:200] Sphinx's Revelation
+1 [DIS:18] Steeling Stance
+1 [RTR:201] Supreme Verdict
+1 [DIS:132] Swift Silence
+1 [RNA:29] Unbreakable Formation
+1 [RTR:224] Vassal Soul
+1 [RNA:58] Verity Circle
+1 [DIS:169] Walking Archive
+1 [RNA:230] Warrant // Warden
+1 [DIS:138] Windreaver
+1 [WAR:193] Dovin's Veto
+6 [GK2:27] Island
+8 [GK2:132] Island
+10 [GK2:26] Plains
+5 [GK2:50] Plains
+SB: 1 [RTR:171] Isperia, Supreme Judge
+LAYOUT MAIN:(1,8)(CMC,false,50)|([DIS:170],[RNA:251],[DIS:177],[GK2:27],[GK2:27],[GK2:132],[GK2:132],[GK2:132],[GK2:132],[GK2:27],[GK2:27],[GK2:132],[GK2:132],[GK2:27],[GK2:132],[GK2:132],[GK2:27],[GK2:26],[GK2:26],[GK2:26],[GK2:26],[GK2:26],[GK2:26],[GK2:50],[GK2:26],[GK2:26],[GK2:50],[GK2:26],[GK2:50],[GK2:50],[GK2:50],[GK2:26])([RTR:218])([RTR:5],[RTR:145],[DIS:141],[DIS:159],[DGM:65],[RTR:41],[RNA:189],[DGM:3],[RTR:181],[DIS:120],[DIS:125],[RNA:204],[RNA:20],[DIS:32],[WAR:193])([RNA:151],[RTR:3],[DIS:104],[DGM:136],[RTR:225],[RNA:231],[M21:46],[DIS:22],[RNA:165],[RTR:155],[RNA:167],[RNA:168],[RNA:182],[RNA:190],[DIS:124],[DGM:97],[DIS:17],[RTR:200],[DIS:18],[RNA:29],[RTR:224],[RNA:58],[DIS:169])([DGM:53],[RTR:6],[WAR:195],[DIS:112],[RTR:14],[DIS:28],[RNA:219],[RTR:196],[RNA:208],[RTR:201])([RTR:210],[RTR:161],[DIS:114],[DGM:80],[RNA:45],[RTR:189],[M21:35],[DIS:131],[DIS:132],[DIS:138])([RNA:155],[RIX:154],[RNA:225],[DIS:143],[DIS:25])([RTR:142],[RNA:169],[RNA:230])
+LAYOUT SIDEBOARD:(1,1)(NONE,false,50)|([RTR:171])

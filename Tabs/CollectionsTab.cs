@@ -27,6 +27,8 @@ public partial class CollectionsTab : TabBar
 	public Window AddCollectionWindowNode { get; private set; }
 	public LineEdit NewCollectionNameEditNode { get; private set; }
 	public FileDialog ImportDialogNode { get; private set; }
+	public OptionButton DefaultPriceOptionNode { get; private set; }
+	public Label TotalPriceLabelNode { get; private set; }
 	
 	#endregion
 	
@@ -46,6 +48,8 @@ public partial class CollectionsTab : TabBar
 		AddCollectionWindowNode = GetNode<Window>("%AddCollectionWindow");
 		NewCollectionNameEditNode = GetNode<LineEdit>("%NewCollectionNameEdit");
 		ImportDialogNode = GetNode<FileDialog>("%ImportDialog");
+		DefaultPriceOptionNode = GetNode<OptionButton>("%DefaultPriceOption");
+		TotalPriceLabelNode = GetNode<Label>("%TotalPriceLabel");
 		
 		#endregion
 		
@@ -95,7 +99,9 @@ public partial class CollectionsTab : TabBar
 		Wrapper<MTGCard>? cardW = null;
 		if (_cardOIDIndex.ContainsKey(card.OracleId))
 			cardW = new Wrapper<MTGCard>(_cardOIDIndex[card.OracleId]);
-		result.Load(card, cardW);
+		var priceI = DefaultPriceOptionNode.GetSelectedId();
+		var price = DefaultPriceOptionNode.GetItemText(priceI);
+		result.Load(card, cardW, price);
 		return result;
 	}
 	
@@ -118,7 +124,7 @@ public partial class CollectionsTab : TabBar
 	}
 	
 	private void Import(string text) {
-		var lines = text.Split(System.Environment.NewLine);
+		var lines = text.Replace("\r\n", "\n").Split("\n");
 		List<string> failed = new();
 		var collection = new Collection();
 		collection.Cards = new();
@@ -130,6 +136,7 @@ public partial class CollectionsTab : TabBar
 			}
 			if (card is null) {
 				failed.Add(line);
+				GD.Print("FAILED TO PARSE: " + line);
 				continue;
 			}
 			bool added = false;
@@ -140,9 +147,11 @@ public partial class CollectionsTab : TabBar
 					break;
 				}
 			}
+			GD.Print(added + " " + line);
 			if (!added)
 				collection.Cards.Add(card);
 		}
+		GD.Print(collection.Cards.Count);
 
 		collection.Name = NewCollectionNameEditNode.Text;
 //		collection.Cards = new();
@@ -152,6 +161,20 @@ public partial class CollectionsTab : TabBar
 		// XMAGE regex: (\d+) \[(.+)\] (.+)
 		// standard deck regex: (\d+) (.+)
 		// card list regex: (.+)
+	}
+	
+	public void UpdateTotalPrice() {
+		double result = 0;
+		foreach (var child in CardsContainerNode.GetChildren()) {
+			switch (child) {
+			case CollectionCard card:
+				result += card.TotalPrice;
+				continue;
+			default:
+				continue;
+			}
+		}
+		TotalPriceLabelNode.Text = "Total price: " + Math.Round(result, 2);
 	}
 
 	#region Signal connections
@@ -173,6 +196,8 @@ public partial class CollectionsTab : TabBar
 		CardsContainerNode.AddChild(bChild);
 		bChild.CustomMinimumSize = size;
 		bChild.Pressed += _on_add_card_to_collection_button_pressed;
+		
+		UpdateTotalPrice();
 	}
 	
 	private void _on_cards_card_added(Wrapper<MTGCard> cardW, bool update)
@@ -265,5 +290,24 @@ public partial class CollectionsTab : TabBar
 		Import(text);
 	}
 	
+	private void _on_default_price_option_item_selected(int index)
+	{
+		// Replace with function body.
+		var price = DefaultPriceOptionNode.GetItemText(index);
+		foreach (var child in CardsContainerNode.GetChildren()) {
+			switch (child) {
+			case CollectionCard card: 
+				card.UpdatePrice(price);
+				continue;
+			default:
+				continue;
+			}
+		}
+		
+		UpdateTotalPrice();
+	}
+	
 	#endregion
 }
+
+

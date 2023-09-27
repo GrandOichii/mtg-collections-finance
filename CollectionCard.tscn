@@ -30,6 +30,13 @@ layout_mode = 2
 text = "CARD NAME HERE "
 horizontal_alignment = 1
 
+[node name="PriceLabel" type="RichTextLabel" parent="Container"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "PRICE HERE"
+fit_content = true
+
 [node name="AmountSpin" type="SpinBox" parent="Container"]
 unique_name_in_owner = true
 layout_mode = 2

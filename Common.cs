@@ -100,3 +100,35 @@ public class XmageLineParser : CardLineParser {
 		return result;
 	}
 }
+
+public static class PriceUtil {
+	private static Dictionary<string, Dictionary<float, string>> _priceIndex = new() {
+		{"*", new() {
+			{5f, "red"},
+			{3f, "orange"},
+			{0f, "green"}
+		}}
+	};
+
+	private static Dictionary<float, string>? GetPriceIndexOf(string key) {
+		if (_priceIndex.ContainsKey(key))
+			return _priceIndex[key];
+		if (_priceIndex.ContainsKey("*"))
+			return _priceIndex["*"];
+		return null;
+	}
+
+	public static string GetColoredText(double price, string priceType) {
+		var result = price.ToString();
+		var priceIndex = GetPriceIndexOf(priceType);
+		if (priceIndex is not null) {
+			foreach (var pPair in priceIndex) {
+				if (price >= pPair.Key) {
+					result = "[color=" + pPair.Value + "]" + result + "[/color]";
+					break;
+				}
+			}
+		}
+		return result;
+	}
+}

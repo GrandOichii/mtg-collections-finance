@@ -1,0 +1,76 @@
+1 [RTR:141] Abrupt Decay
+1 [GRN:152] Assassin's Trophy
+1 [RNA:61] Awaken the Erstwhile
+1 [WAR:80] Bond of Revival
+1 [GRN:160] Charnel Troll
+1 [RTR:152] Corpsejack Menace
+1 [RAV:82] Darkblast
+1 [RAV:200] Dark Heart of the Wood
+1 [DGM:63] Deadbridge Chant
+1 [RTR:120] Deadbridge Goliath
+1 [WAR:189] Deathsprout
+1 [RTR:213] Deathrite Shaman
+1 [RTR:121] Death's Presence
+1 [RAV:204] Drooling Groodion
+1 [DGM:67] Drown in Filth
+1 [RAV:161] Elves of Deep Shadow
+1 [GRN:169] Erstwhile Trooper
+1 [DGM:72] Gaze of Granite
+1 [GRN:225] Find // Finality
+1 [RAV:247] Gleancrawler
+1 [GRN:173] Glowspore Shaman
+1 [RAV:166] Golgari Brownscale
+1 [RTR:164] Golgari Charm
+1 [DGM:139] Golgari Cluestone
+1 [GRN:175] Golgari Findbroker
+1 [RAV:209] Golgari Germination
+1 [RAV:167] Golgari Grave-Troll
+1 [GRN:248] Golgari Guildgate
+1 [RAV:248] Golgari Guildmage
+1 [RTR:229] Golgari Keyrune
+1 [GRN:237] Golgari Locket
+1 [GRN:130] Golgari Raiders
+1 [RAV:278] Golgari Rot Farm
+1 [RAV:262] Golgari Signet
+1 [RTR:67] Grave Betrayal
+1 [RAV:211] Grave-Shell Scarab
+1 [RTR:165] Grisly Salvage
+1 [GRN:132] Hatchery Spider
+1 [RTR:174] Jarad, Golgari Lich Lord
+1 [RTR:175] Jarad's Orders
+1 [RTR:176] Korozda Guildmage
+1 [GRN:135] Kraul Foragers
+1 [APC:130] Life // Death
+1 [RTR:177] Lotleth Troll
+1 [GRN:75] Mausoleum Secrets
+1 [2XM:209] Mazirek, Kraul Death Priest
+1 [GRN:190] Molderhulk
+1 [RAV:98] Necroplasm
+1 [GRN:79] Necrotic Wound
+1 [GRN:194] Ochran Assassin
+1 [GRN:253] Overgrown Tomb
+1 [RAV:269] Plague Boiler
+1 [DGM:93] Putrefy
+1 [RAV:179] Rolling Spoil
+1 [RAV:225] Savra, Queen of the Golgari
+1 [RAV:230] Shambling Shell
+1 [RAV:231] Sisters of Stone Death
+1 [GRN:230] Status // Statue
+1 [WAR:219] Storrev, Devkarin Lich
+1 [RAV:283] Svogthos, the Restless Tomb
+1 [GRN:211] Underrealm Lich
+1 [DGM:112] Varolz, the Scar-Striped
+1 [RAV:111] Vigor Mortis
+1 [GRN:213] Vraska, Golgari Queen
+1 [RTR:208] Vraska the Unseen
+1 [RAV:238] Vulturous Zombie
+1 [RAV:240] Woodwraith Corrupter
+1 [EMA:100] Night's Whisper
+1 [RTR:222] Slitherhead
+7 [GK1:127] Forest
+8 [GK1:76] Forest
+10 [GK1:25] Swamp
+5 [GK1:75] Swamp
+SB: 1 [GRN:180] Izoni, Thousand-Eyed
+LAYOUT MAIN:(1,10)(CMC,false,50)|([GRN:248],[RAV:278],[GRN:253],[RAV:283],[GK1:127],[GK1:76],[GK1:76],[GK1:127],[GK1:76],[GK1:76],[GK1:76],[GK1:127],[GK1:76],[GK1:127],[GK1:76],[GK1:127],[GK1:127],[GK1:127],[GK1:76],[GK1:25],[GK1:25],[GK1:25],[GK1:25],[GK1:25],[GK1:25],[GK1:25],[GK1:25],[GK1:25],[GK1:75],[GK1:75],[GK1:25],[GK1:75],[GK1:75],[GK1:75])([RAV:82],[RTR:213],[RAV:161],[GRN:79],[RTR:222])([RTR:141],[GRN:152],[RAV:200],[DGM:67],[GRN:173],[RTR:164],[RAV:248],[RAV:262],[RTR:165],[RTR:176],[RTR:177],[GRN:75],[EMA:100])([GRN:160],[GRN:169],[DGM:72],[RAV:166],[DGM:139],[RAV:209],[RTR:229],[GRN:237],[APC:130],[RAV:98],[GRN:194],[RAV:269],[DGM:93],[RAV:230],[DGM:112])([RTR:152],[RTR:120],[WAR:189],[GRN:175],[GRN:130],[RTR:174],[RTR:175],[RAV:179],[RAV:225],[WAR:219],[RAV:111],[GRN:213])([RNA:61],[WAR:80],[RAV:167],[RAV:211],[GRN:135],[2XM:209],[GRN:230],[GRN:211],[RTR:208],[RAV:238])([DGM:63],[RTR:121],[RAV:204],[RAV:247],[RAV:240])([RTR:67],[GRN:132])([GRN:225],[RAV:231])([GRN:190])
+LAYOUT SIDEBOARD:(1,1)(COLOR,false,50)|([GRN:180])

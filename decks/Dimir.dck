@@ -1,0 +1,76 @@
+1 [GTC:145] Bane Alley Broker
+1 [RAV:254] Bloodletter Quill
+1 [WAR:43] Bond of Insight
+1 [RAV:78] Brainspoil
+1 [GTC:149] Call of the Nightwing
+1 [RAV:196] Circu, Dimir Lobotomist
+1 [RAV:197] Clutch of the Undercity
+1 [RTR:33] Conjured Currency
+1 [GRN:222] Connive // Concoct
+1 [RAV:199] Consult the Necrosages
+1 [GTC:152] Consuming Aberration
+1 [RAV:276] Dimir Aqueduct
+1 [GTC:154] Dimir Charm
+1 [DGM:138] Dimir Cluestone
+1 [RAV:201] Dimir Cutpurse
+1 [GRN:245] Dimir Guildgate
+1 [RAV:245] Dimir Guildmage
+1 [RAV:83] Dimir House Guard
+1 [RAV:203] Dimir Infiltrator
+1 [GTC:228] Dimir Keyrune
+1 [GRN:234] Dimir Locket
+1 [RAV:84] Dimir Machinations
+1 [RAV:260] Dimir Signet
+1 [GRN:223] Discovery // Dispersal
+1 [GRN:69] Doom Whisperer
+1 [GRN:38] Dream Eater
+1 [RAV:46] Drift of Phantasms
+1 [GTC:158] Duskmantle Guildmage
+1 [RAV:277] Duskmantle, House of Shadow
+1 [GTC:159] Duskmantle Seer
+1 [RAV:47] Ethereal Usher
+1 [GRN:170] Etrata, the Silencer
+1 [DGM:127] Far // Away
+1 [RAV:53] Grozoth
+1 [GTC:37] Hands of Binding
+1 [DGM:12] Hidden Strings
+1 [GRN:177] House Guildmage
+1 [GTC:40] Last Thoughts
+1 [GRN:184] Lazav, the Multifarious
+1 [GTC:178] Mind Grind
+1 [RAV:215] Mindleech Mass
+1 [DGM:85] Mirko Vosk, Mind Drinker
+1 [GRN:44] Mission Briefing
+1 [GRN:189] Mnemonic Betrayal
+1 [GTC:179] Mortus Strider
+1 [RAV:60] Muddle the Mixture
+1 [GTC:222] Nightveil Specter
+1 [GRN:48] Nightveil Sprite
+1 [GRN:193] Notion Rain
+1 [DGM:88] Notion Thief
+1 [RAV:217] Perplex
+1 [DGM:90] Pilfered Plans
+1 [GRN:83] Price of Fame
+1 [GTC:189] Psychic Strike
+1 [RAV:253] Shadow of Doubt
+1 [RAV:105] Shred Memory
+1 [GRN:54] Sinister Sabotage
+1 [GTC:198] Soul Ransom
+1 [GTC:53] Stolen Identity
+1 [RAV:234] Szadek, Lord of Secrets
+1 [GRN:205] Thief of Sanity
+1 [RAV:237] Twisted Justice
+1 [GTC:83] Undercity Plague
+1 [GRN:259] Watery Grave
+1 [GTC:207] Whispering Madness
+1 [GK1:12] Dimir Doppelganger
+1 [DGM:76] Haunter of Nightveil
+1 [GK1:6] Netherborn Phalanx
+1 [GK1:21] Warped Physique
+6 [GK1:24] Island
+11 [GK1:48] Island
+10 [GK1:75] Swamp
+3 [GK1:25] Swamp
+SB: 1 [GTC:174] Lazav, Dimir Mastermind
+LAYOUT MAIN:(1,9)(CMC,false,50)|([RAV:276],[GRN:245],[RAV:277],[GRN:259],[GK1:24],[GK1:48],[GK1:48],[GK1:48],[GK1:24],[GK1:48],[GK1:24],[GK1:48],[GK1:48],[GK1:48],[GK1:48],[GK1:24],[GK1:24],[GK1:48],[GK1:48],[GK1:48],[GK1:75],[GK1:25],[GK1:25],[GK1:75],[GK1:25],[GK1:75],[GK1:75],[GK1:75],[GK1:75],[GK1:75],[GK1:75],[GK1:75],[GK1:75],[GK1:24])([GTC:154],[RAV:245],[RAV:203],[RAV:260],[GTC:158],[GTC:37],[DGM:12],[GRN:177],[GRN:184],[GTC:178],[GRN:44],[RAV:60],[GRN:48],[RAV:253],[RAV:105],[GK1:21])([GTC:145],[RAV:254],[RAV:199],[DGM:138],[RAV:201],[GTC:228],[GRN:234],[RAV:84],[RAV:46],[GRN:189],[GTC:179],[GTC:222],[GRN:193],[RAV:217],[DGM:90],[GTC:189],[GRN:54],[GRN:205],[GK1:12])([WAR:43],[GTC:149],[RAV:196],[RAV:197],[RAV:83],[GTC:159],[GRN:170],[GTC:40],[DGM:88],[GRN:83],[GTC:198],[GTC:207])([RAV:78],[GTC:152],[GRN:69],[DGM:127],[DGM:85],[DGM:76])([RTR:33],[GRN:38],[RAV:47],[GTC:53],[RAV:237],[GTC:83],[GK1:6])([GRN:223],[RAV:234])([RAV:215])([RAV:53],[GRN:222])
+LAYOUT SIDEBOARD:(1,1)(NONE,false,50)|([GTC:174])

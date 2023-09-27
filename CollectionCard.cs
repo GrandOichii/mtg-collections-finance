@@ -10,10 +10,12 @@ public partial class CollectionCard : Control
 	public SpinBox AmountSpinNode { get; private set; }
 	public HttpRequest ImageRequestNode { get; private set; }
 	public ColorRect TransparencyRectNode { get; private set; }
+	public RichTextLabel PriceLabelNode { get; private set; }
 	
 	#endregion
 	
 	public CCard Data { get; private set; }
+	public MTGCard CData { get; private set; }
 	
 	private Texture2D _defaultTex;
 
@@ -26,14 +28,19 @@ public partial class CollectionCard : Control
 		AmountSpinNode = GetNode<SpinBox>("%AmountSpin");
 		ImageRequestNode = GetNode<HttpRequest>("%ImageRequest");
 		TransparencyRectNode = GetNode<ColorRect>("%TransparencyRect");
+		PriceLabelNode = GetNode<RichTextLabel>("%PriceLabel");
 		
 		#endregion
 		
 		_defaultTex = ImageTextureNode.Texture;
 	}
 	
-	public void Load(CCard cCard, Wrapper<MTGCard>? cardW) {
+	private string _priceType;
+	
+	public void Load(CCard cCard, Wrapper<MTGCard>? cardW, string priceType) {
+		_priceType = priceType;
 		Data = cCard;
+		CData = cardW.Value; 
 		ImageTextureNode.Texture = _defaultTex;
 		AmountSpinNode.Value = cCard.Amount;
 		
@@ -45,6 +52,26 @@ public partial class CollectionCard : Control
 		NameLabelNode.Text = cardW.Value.Name;
 		ImageRequestNode.Request(cardW.Value.ImageURIs["normal"]);
 	}
+	
+	public void UpdatePrice(string newPriceType="") {
+		if (newPriceType == "")
+			newPriceType = _priceType;
+		_priceType = newPriceType;
+		
+		PriceLabelNode.Clear();
+		if (CData.Prices[_priceType] is null) {
+			PriceLabelNode.AppendText("-");
+			return;
+		}
+		var singlePrice = double.Parse(CData.Prices[_priceType]);
+		var singlePriceS = PriceUtil.GetColoredText(singlePrice, _priceType); 
+		var amount = AmountSpinNode.Value;
+		var fullPrice = TotalPrice;
+		var fullPriceS = "[color=yellow]" + fullPrice + "[/color]";
+		PriceLabelNode.AppendText("" + singlePriceS + " x " + amount + " = " + fullPriceS);
+	}
+
+	public double TotalPrice => Math.Round(double.Parse(CData.Prices[_priceType]) * AmountSpinNode.Value, 2);
 	
 	#region Signal connections
 	
@@ -62,6 +89,7 @@ public partial class CollectionCard : Control
 		if (v == 0) 
 			target = 0.5f;
 		var c = TransparencyRectNode.Color;
+		UpdatePrice();
 		CreateTween().TweenProperty(TransparencyRectNode, "color", new Color(c.R, c.G, c.B, target), .1f);
 	}
 	

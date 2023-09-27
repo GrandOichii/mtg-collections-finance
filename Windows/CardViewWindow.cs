@@ -5,13 +5,7 @@ using System.Collections.Generic;
 
 public partial class CardViewWindow : Window
 {
-	private Dictionary<string, Dictionary<float, string>> _priceIndex = new() {
-		{"*", new() {
-			{5f, "red"},
-			{3f, "orange"},
-			{0f, "green"}
-		}}
-	};
+	
 	
 	#region Nodes
 	
@@ -53,15 +47,7 @@ public partial class CardViewWindow : Window
 			if (pair.Value is not null) {
 				text = pair.Value;
 				var v = float.Parse(text);
-				var priceIndex = GetPriceIndexOf(pair.Key);
-				if (priceIndex is not null) {
-					foreach (var pPair in priceIndex) {
-						if (v >= pPair.Key) {
-							text = "[color=" + pPair.Value + "]" + text + "[/color]";
-							break;
-						}
-					}
-				}
+				text = PriceUtil.GetColoredText(v, pair.Key);
 			}
 			PricesLabelNode.AppendText(pair.Key + ": " + text + "\n");
 		}
@@ -69,13 +55,6 @@ public partial class CardViewWindow : Window
 		ImageRequestNode.Request(card.ImageURIs["normal"]);
 	}
 	
-	private Dictionary<float, string>? GetPriceIndexOf(string key) {
-		if (_priceIndex.ContainsKey(key))
-			return _priceIndex[key];
-		if (_priceIndex.ContainsKey("*"))
-			return _priceIndex["*"];
-		return null;
-	}
 	
 	#region Signal connections
 	
