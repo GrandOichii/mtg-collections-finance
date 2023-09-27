@@ -1,9 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://mj88lrjos2t6"]
+[gd_scene load_steps=5 format=3 uid="uid://mj88lrjos2t6"]
 
+[ext_resource type="Script" path="res://Main.cs" id="1_se0m2"]
 [ext_resource type="PackedScene" uid="uid://cus6j8i16d2vn" path="res://Tabs/CardsTab.tscn" id="1_swwpf"]
 [ext_resource type="PackedScene" uid="uid://d4gi3j2xx70wp" path="res://Tabs/CollectionsTab.tscn" id="2_q1vqo"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_17y6e"]
+bg_color = Color(0.4, 0.682353, 0.309804, 1)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+
 [node name="Main" type="CanvasLayer"]
+script = ExtResource("1_se0m2")
 
 [node name="TabContainer" type="TabContainer" parent="."]
 anchors_preset = 15
@@ -16,7 +25,31 @@ grow_vertical = 2
 layout_mode = 2
 
 [node name="Collections" parent="TabContainer" instance=ExtResource("2_q1vqo")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
+
+[node name="SavedPopin" type="CenterContainer" parent="."]
+unique_name_in_owner = true
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 37.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SavedPopin"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="SavedPopin/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_17y6e")
+
+[node name="Label" type="Label" parent="SavedPopin/MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = " Saved! "
 
 [connection signal="CardAdded" from="TabContainer/Cards" to="TabContainer/Collections" method="_on_cards_card_added"]

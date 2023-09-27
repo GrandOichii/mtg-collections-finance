@@ -43,6 +43,14 @@ public partial class CardsList : Control
 		return ListNode.GetItemMetadata(index).As<Wrapper<MTGCard>>();
 	}
 	
+	public void ResetFilter() {
+		FilterLineNode.Text = "";
+		ListNode.Clear();
+
+		foreach (var cardW in _cards)
+			_addItem(cardW);
+	}
+	
 	#region Signal connections
 	
 	private void _on_filter_button_pressed()

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d1nyq4j8slfxm" path="res://Assets/back.jpg" id="2_s0l1s"]
 
 [node name="CardViewWindow" type="Window"]
-position = Vector2i(0, 36)
+initial_position = 2
 size = Vector2i(890, 595)
 transient = true
 unresizable = true

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d4gi3j2xx70wp"]
+[gd_scene load_steps=3 format=3 uid="uid://d4gi3j2xx70wp"]
 
 [ext_resource type="Script" path="res://Tabs/CollectionsTab.cs" id="1_m5heb"]
+[ext_resource type="PackedScene" uid="uid://ch81xoe01fi4r" path="res://CardsList.tscn" id="2_rj44s"]
 
 [node name="CollectionsTab" type="TabBar"]
 anchors_preset = 15
@@ -47,4 +48,29 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="AddCardToCollectionWindow" type="Window" parent="."]
+unique_name_in_owner = true
+initial_position = 2
+size = Vector2i(400, 300)
+visible = false
+transient = true
+exclusive = true
+
+[node name="MarginContainer" type="MarginContainer" parent="AddCardToCollectionWindow"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="CardsList" parent="AddCardToCollectionWindow/MarginContainer" instance=ExtResource("2_rj44s")]
+unique_name_in_owner = true
+layout_mode = 2
+
 [connection signal="item_activated" from="HBoxContainer/VBoxContainer/CollectionsList" to="." method="_on_collections_list_item_activated"]
+[connection signal="close_requested" from="AddCardToCollectionWindow" to="." method="_on_add_card_to_collection_window_close_requested"]
+[connection signal="CardActivated" from="AddCardToCollectionWindow/MarginContainer/CardsList" to="." method="_on_cards_list_card_activated"]

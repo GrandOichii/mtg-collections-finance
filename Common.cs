@@ -31,8 +31,12 @@ public class Collection {
 	public string Name { get; set; }
 	[JsonPropertyName("cards")]
 	public List<CCard> Cards { get; set; }
+
 	public static Collection FromJson(string text) {
 		return JsonSerializer.Deserialize<Collection>(text) ?? throw new Exception("Failed to deserialize collection: " + text); 
+	}
+	public string ToJson() {
+		return JsonSerializer.Serialize(this);
 	}
 }
 

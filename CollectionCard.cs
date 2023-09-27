@@ -13,6 +13,8 @@ public partial class CollectionCard : Control
 	
 	#endregion
 	
+	public CCard Data { get; private set; }
+	
 	private Texture2D _defaultTex;
 
 	public override void _Ready()
@@ -31,6 +33,7 @@ public partial class CollectionCard : Control
 	}
 	
 	public void Load(CCard cCard, Wrapper<MTGCard>? cardW) {
+		Data = cCard;
 		ImageTextureNode.Texture = _defaultTex;
 		AmountSpinNode.Value = cCard.Amount;
 		
