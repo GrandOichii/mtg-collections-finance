@@ -33,6 +33,7 @@ public partial class CollectionsTab : TabBar
 	public Label TotalPriceLabelNode { get; private set; }
 	public ConfirmationDialog RemoveCollectionDialogNode { get; private set; }
 	public ConfirmationDialog RemoveCardDialogNode { get; private set; }
+	public Control SortButtonsContainerNode { get; private set; }
 	
 	#endregion
 	
@@ -57,6 +58,7 @@ public partial class CollectionsTab : TabBar
 		TotalPriceLabelNode = GetNode<Label>("%TotalPriceLabel");
 		RemoveCollectionDialogNode = GetNode<ConfirmationDialog>("%RemoveCollectionDialog");
 		RemoveCardDialogNode = GetNode<ConfirmationDialog>("%RemoveCardDialog");
+		SortButtonsContainerNode = GetNode<Control>("%SortButtonsContainer");
 		
 		#endregion
 		
@@ -104,6 +106,7 @@ public partial class CollectionsTab : TabBar
 		var result = CollectionCardPS.Instantiate() as CollectionCard;
 		CardsContainerNode.AddChild(result);
 		Wrapper<MTGCard>? cardW = null;
+//		GD.Print(_cardOIDIndex.Count);
 		if (_cardOIDIndex.ContainsKey(card.OracleId))
 			cardW = new Wrapper<MTGCard>(_cardOIDIndex[card.OracleId]);
 		var priceI = DefaultPriceOptionNode.GetSelectedId();
@@ -188,6 +191,7 @@ public partial class CollectionsTab : TabBar
 		var item = CollectionsListNode.GetItemMetadata(index).As<Wrapper<Collection>>();
 		var collection = item.Value;
 		_current = collection;
+		SortButtonsContainerNode.Visible = true;
 		RemoveCards();
 		// TODO bad
 		// don't know any other way :)
@@ -331,6 +335,7 @@ public partial class CollectionsTab : TabBar
 		var index = CollectionsListNode.GetSelectedItems()[0];
 		CollectionsListNode.RemoveItem(index);
 		_current = null;
+		SortButtonsContainerNode.Visible = false;
 		
 		RemoveCards();
 		TotalPriceLabelNode.Text = "";
@@ -368,6 +373,23 @@ public partial class CollectionsTab : TabBar
 		foreach (var child in sorted)
 			CardsContainerNode.MoveChild(child, 0);
 		CardsContainerNode.MoveChild(button, children.Count - 1);
+	}
+
+	private void _on_amount_sort_button_pressed()
+	{
+			var children = CardsContainerNode.GetChildren();
+		var button = children[children.Count - 1];
+		var sorted = children.OrderBy(child => {
+			switch(child) {
+			case CollectionCard card:
+				return card.AmountSpinNode.Value;
+			default:
+				return 0;
+			}
+		}).ToList();
+		foreach (var child in sorted)
+			CardsContainerNode.MoveChild(child, 0);
+		CardsContainerNode.MoveChild(button, children.Count - 1);		
 	}
 	
 	private void _on_card_remove_requested(Wrapper<CCard> cCardW, Wrapper<MTGCard> cardW) {

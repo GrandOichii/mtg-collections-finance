@@ -60,18 +60,25 @@ popup/item_0/id = 0
 popup/item_1/text = "eur"
 popup/item_1/id = 1
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer/VBoxContainer2"]
+[node name="SortButtonsContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
-[node name="PriceSortButton" type="Button" parent="HBoxContainer/VBoxContainer2/HBoxContainer3"]
+[node name="PriceSortButton" type="Button" parent="HBoxContainer/VBoxContainer2/SortButtonsContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Price sort"
 
-[node name="AlphabeticalSortButton" type="Button" parent="HBoxContainer/VBoxContainer2/HBoxContainer3"]
+[node name="AlphabeticalSortButton" type="Button" parent="HBoxContainer/VBoxContainer2/SortButtonsContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Alphabetical"
+
+[node name="AmountSortButton" type="Button" parent="HBoxContainer/VBoxContainer2/SortButtonsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Amount sort"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
@@ -183,8 +190,9 @@ initial_position = 2
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/NewButton" to="." method="_on_new_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/RemoveButton" to="." method="_on_remove_button_pressed"]
 [connection signal="item_selected" from="HBoxContainer/VBoxContainer2/HBoxContainer/DefaultPriceOption" to="." method="_on_default_price_option_item_selected"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer2/HBoxContainer3/PriceSortButton" to="." method="_on_price_sort_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer2/HBoxContainer3/AlphabeticalSortButton" to="." method="_on_alphabetical_sort_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/SortButtonsContainer/PriceSortButton" to="." method="_on_price_sort_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/SortButtonsContainer/AlphabeticalSortButton" to="." method="_on_alphabetical_sort_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/SortButtonsContainer/AmountSortButton" to="." method="_on_amount_sort_button_pressed"]
 [connection signal="close_requested" from="AddCardToCollectionWindow" to="." method="_on_add_card_to_collection_window_close_requested"]
 [connection signal="CardActivated" from="AddCardToCollectionWindow/MarginContainer/CardsList" to="." method="_on_cards_list_card_activated"]
 [connection signal="close_requested" from="AddCollectionWindow" to="." method="_on_add_collection_window_close_requested"]

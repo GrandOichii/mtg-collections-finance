@@ -1,10 +1,44 @@
 using Godot;
 using System;
+using System.IO;
 using System.Collections.Generic;
 
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
+
+public class ShortCard {
+	[JsonPropertyName("name")]
+	public string Name { get; set; }
+	[JsonPropertyName("path")]
+	public string Path { get; set; }
+
+	public static Dictionary<string, ShortCard> LoadManifest(string path) {
+		var text = File.ReadAllText(path);
+		return JsonSerializer.Deserialize<Dictionary<string, ShortCard>>(text) ?? throw new Exception("Failed to deserialize manifest file: " + path);
+	}
+
+	public List<Card> GetVariations() {
+		var text = File.ReadAllText(Path);
+		return JsonSerializer.Deserialize<List<Card>>(text);
+	}
+}
+
+public class Card {
+	[JsonPropertyName("name")]
+	public string Name { get; set; }
+	[JsonPropertyName("id")]
+	public string ID { get; set; }
+	[JsonPropertyName("oracle_id")]
+	public string OracleID { get; set; }
+	[JsonPropertyName("image_uris")]
+	public Dictionary<string, string> ImageURIs { get; set; }
+	[JsonPropertyName("oracle_text")]
+	public string Text { get; set; }
+	[JsonPropertyName("prices")]
+	public Dictionary<string, string?> Prices { get; set; }
+}
+
 
 public class MTGCard {
 	[JsonPropertyName("name")]
