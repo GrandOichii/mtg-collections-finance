@@ -50,6 +50,7 @@ public partial class CollectionCard : Control
 		}
 		
 		NameLabelNode.Text = cardW.Value.Name;
+		_on_amount_spin_value_changed(cCard.Amount);
 		ImageRequestNode.Request(cardW.Value.ImageURIs["normal"]);
 	}
 	
@@ -71,7 +72,7 @@ public partial class CollectionCard : Control
 		PriceLabelNode.AppendText("" + singlePriceS + " x " + amount + " = " + fullPriceS);
 	}
 
-	public double TotalPrice => Math.Round(double.Parse(CData.Prices[_priceType]) * AmountSpinNode.Value, 2);
+	public double TotalPrice => (CData.Prices[_priceType] is not null ? Math.Round(double.Parse(CData.Prices[_priceType]) * AmountSpinNode.Value, 2) : 0);
 	
 	#region Signal connections
 	
@@ -85,6 +86,7 @@ public partial class CollectionCard : Control
 	
 	private void _on_amount_spin_value_changed(double v)
 	{
+		Data.Amount = (int)v;
 		float target = 0f;
 		if (v == 0) 
 			target = 0.5f;

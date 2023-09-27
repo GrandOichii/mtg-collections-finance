@@ -102,6 +102,7 @@ public partial class CollectionsTab : TabBar
 		var priceI = DefaultPriceOptionNode.GetSelectedId();
 		var price = DefaultPriceOptionNode.GetItemText(priceI);
 		result.Load(card, cardW, price);
+		result.AmountSpinNode.ValueChanged += (v) => UpdateTotalPrice();
 		return result;
 	}
 	
@@ -158,9 +159,6 @@ public partial class CollectionsTab : TabBar
 		AddToCollectionList(collection);
 		AddCollectionWindowNode.Hide();
 		_on_collections_list_item_activated(CollectionsListNode.ItemCount - 1);
-		// XMAGE regex: (\d+) \[(.+)\] (.+)
-		// standard deck regex: (\d+) (.+)
-		// card list regex: (.+)
 	}
 	
 	public void UpdateTotalPrice() {
