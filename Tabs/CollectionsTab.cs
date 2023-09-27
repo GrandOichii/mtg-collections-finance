@@ -32,10 +32,12 @@ public partial class CollectionsTab : TabBar
 	public OptionButton DefaultPriceOptionNode { get; private set; }
 	public Label TotalPriceLabelNode { get; private set; }
 	public ConfirmationDialog RemoveCollectionDialogNode { get; private set; }
+	public ConfirmationDialog RemoveCardDialogNode { get; private set; }
 	
 	#endregion
 	
 	private Collection _current = null;
+	private CCard _dueForRemoval = null;
 	
 	private Dictionary<string, MTGCard> _cardOIDIndex = new();
 	private Dictionary<string, MTGCard> _cardNameIndex = new();
@@ -54,6 +56,7 @@ public partial class CollectionsTab : TabBar
 		DefaultPriceOptionNode = GetNode<OptionButton>("%DefaultPriceOption");
 		TotalPriceLabelNode = GetNode<Label>("%TotalPriceLabel");
 		RemoveCollectionDialogNode = GetNode<ConfirmationDialog>("%RemoveCollectionDialog");
+		RemoveCardDialogNode = GetNode<ConfirmationDialog>("%RemoveCardDialog");
 		
 		#endregion
 		
@@ -107,6 +110,7 @@ public partial class CollectionsTab : TabBar
 		var price = DefaultPriceOptionNode.GetItemText(priceI);
 		result.Load(card, cardW, price);
 		result.AmountSpinNode.ValueChanged += (v) => UpdateTotalPrice();
+		result.RemoveRequested += _on_card_remove_requested;
 		return result;
 	}
 	
@@ -248,6 +252,7 @@ public partial class CollectionsTab : TabBar
 
 	private void _on_new_button_pressed()
 	{
+		NewCollectionNameEditNode.Text = "";
 		AddCollectionWindowNode.Show();
 	}
 	
@@ -365,8 +370,45 @@ public partial class CollectionsTab : TabBar
 		CardsContainerNode.MoveChild(button, children.Count - 1);
 	}
 	
+	private void _on_card_remove_requested(Wrapper<CCard> cCardW, Wrapper<MTGCard> cardW) {
+		_dueForRemoval = cCardW.Value;
+		RemoveCardDialogNode.DialogText = "Remove card " + cardW.Value.Name + " from collection " + _current.Name + "?";
+		RemoveCardDialogNode.Show();
+	}
+
+	private void _on_remove_card_dialog_confirmed()
+	{
+		// remove from collection
+//		bool removed = false;
+//		foreach (var card in _current.Cards) {
+//			if (card == _dueForRemoval) {
+//				_current
+//			}
+//		}
+//		if (!removed) {
+//			throw new Exception("Failed to remove card with oracle id " + _dueForRemoval.OracleId + " from collection " + _current.Name);
+//		}
+		_current.Cards.Remove(_dueForRemoval);
+		
+		// remove from list
+		foreach (var child in CardsContainerNode.GetChildren()) {
+			switch (child) {
+			case CollectionCard card:
+				if (card.Data == _dueForRemoval) {
+					card.Free();
+					UpdateTotalPrice();
+					return;
+				}
+				continue;
+			default:
+				continue;
+			}
+		}
+	}
+	
 	#endregion
 }
+
 
 
 

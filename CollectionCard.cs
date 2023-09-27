@@ -13,6 +13,13 @@ public partial class CollectionCard : Control
 	public RichTextLabel PriceLabelNode { get; private set; }
 	
 	#endregion
+
+	#region Signals
+	
+	[Signal]
+	public delegate void RemoveRequestedEventHandler(Wrapper<CCard> cCardW, Wrapper<MTGCard> cardW);
+	
+	#endregion
 	
 	public CCard Data { get; private set; }
 	public MTGCard CData { get; private set; }
@@ -98,9 +105,15 @@ public partial class CollectionCard : Control
 		UpdatePrice();
 		CreateTween().TweenProperty(TransparencyRectNode, "color", new Color(c.R, c.G, c.B, target), .1f);
 	}
+
+	private void _on_remove_button_pressed()
+	{
+		EmitSignal(SignalName.RemoveRequested, new Wrapper<CCard>(Data), new Wrapper<MTGCard>(CData));
+	}
 	
 	#endregion
 }
+
 
 
 

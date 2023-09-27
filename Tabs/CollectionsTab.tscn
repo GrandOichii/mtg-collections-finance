@@ -145,7 +145,6 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Collection"
 placeholder_text = "Enter collection name"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="AddCollectionWindow/MarginContainer/VBoxContainer"]
@@ -176,7 +175,7 @@ access = 2
 unique_name_in_owner = true
 initial_position = 2
 
-[node name="RemoveCollectionDialog2" type="ConfirmationDialog" parent="."]
+[node name="RemoveCardDialog" type="ConfirmationDialog" parent="."]
 unique_name_in_owner = true
 initial_position = 2
 
@@ -194,4 +193,4 @@ initial_position = 2
 [connection signal="pressed" from="AddCollectionWindow/MarginContainer/VBoxContainer/HBoxContainer/ClipboardImportButton" to="." method="_on_clipboard_import_button_pressed"]
 [connection signal="file_selected" from="AddCollectionWindow/ImportDialog" to="." method="_on_import_dialog_file_selected"]
 [connection signal="confirmed" from="RemoveCollectionDialog" to="." method="_on_remove_collection_dialog_confirmed"]
-[connection signal="confirmed" from="RemoveCollectionDialog2" to="." method="_on_remove_collection_dialog_confirmed"]
+[connection signal="confirmed" from="RemoveCardDialog" to="." method="_on_remove_card_dialog_confirmed"]
