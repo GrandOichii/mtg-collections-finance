@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.IO;
+using System.Linq;
 using System.Collections.Generic;
 
 public partial class CollectionsTab : TabBar
@@ -30,6 +31,7 @@ public partial class CollectionsTab : TabBar
 	public FileDialog ImportDialogNode { get; private set; }
 	public OptionButton DefaultPriceOptionNode { get; private set; }
 	public Label TotalPriceLabelNode { get; private set; }
+	public ConfirmationDialog RemoveCollectionDialogNode { get; private set; }
 	
 	#endregion
 	
@@ -51,6 +53,7 @@ public partial class CollectionsTab : TabBar
 		ImportDialogNode = GetNode<FileDialog>("%ImportDialog");
 		DefaultPriceOptionNode = GetNode<OptionButton>("%DefaultPriceOption");
 		TotalPriceLabelNode = GetNode<Label>("%TotalPriceLabel");
+		RemoveCollectionDialogNode = GetNode<ConfirmationDialog>("%RemoveCollectionDialog");
 		
 		#endregion
 		
@@ -149,11 +152,9 @@ public partial class CollectionsTab : TabBar
 					break;
 				}
 			}
-			GD.Print(added + " " + line);
 			if (!added)
 				collection.Cards.Add(card);
 		}
-		GD.Print(collection.Cards.Count);
 
 		collection.Name = NewCollectionNameEditNode.Text;
 //		collection.Cards = new();
@@ -306,8 +307,69 @@ public partial class CollectionsTab : TabBar
 		
 		UpdateTotalPrice();
 	}
+
+	private void _on_remove_button_pressed()
+	{
+		var indicies = CollectionsListNode.GetSelectedItems();
+		if (indicies.Length != 1) {
+			GUtil.Alert(this, "Select one collection for removal!");
+			return;
+		}
+		var index = indicies[0];
+		var name = CollectionsListNode.GetItemText(index);
+		RemoveCollectionDialogNode.DialogText = "Remove collection " + name + "?";
+		RemoveCollectionDialogNode.Show();
+	}
+
+	private void _on_remove_collection_dialog_confirmed()
+	{
+		var index = CollectionsListNode.GetSelectedItems()[0];
+		CollectionsListNode.RemoveItem(index);
+		_current = null;
+		
+		RemoveCards();
+		TotalPriceLabelNode.Text = "";
+	}
+
+	private void _on_price_sort_button_pressed()
+	{
+		var children = CardsContainerNode.GetChildren();
+		var button = children[children.Count - 1];
+		var sorted = children.OrderBy(child => {
+			switch(child) {
+			case CollectionCard card:
+				return card.TotalPrice;
+			default:
+				return 0;
+			}
+		}).ToList();
+		foreach (var child in sorted)
+			CardsContainerNode.MoveChild(child, 0);
+		CardsContainerNode.MoveChild(button, children.Count - 1);
+	}
+
+	private void _on_alphabetical_sort_button_pressed()
+	{
+		var children = CardsContainerNode.GetChildren();
+		var button = children[children.Count - 1];
+		var sorted = children.OrderBy(child => {
+			switch(child) {
+			case CollectionCard card:
+				return card.CData.Name;
+			default:
+				return "";
+			}
+		}).Reverse().ToList();
+		foreach (var child in sorted)
+			CardsContainerNode.MoveChild(child, 0);
+		CardsContainerNode.MoveChild(button, children.Count - 1);
+	}
 	
 	#endregion
 }
+
+
+
+
 
 

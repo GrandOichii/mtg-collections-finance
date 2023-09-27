@@ -78,6 +78,10 @@ public partial class CollectionCard : Control
 	
 	private void _on_image_request_request_completed(long result, long response_code, string[] headers, byte[] body)
 	{
+		if (response_code != 200) {
+			// 
+			return;
+		}
 		var image = new Image();
 		image.LoadJpgFromBuffer(body);
 		var tex = ImageTexture.CreateFromImage(image);

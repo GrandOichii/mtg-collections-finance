@@ -60,13 +60,25 @@ popup/item_0/id = 0
 popup/item_1/text = "eur"
 popup/item_1/id = 1
 
+[node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="PriceSortButton" type="Button" parent="HBoxContainer/VBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Price sort"
+
+[node name="AlphabeticalSortButton" type="Button" parent="HBoxContainer/VBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Alphabetical"
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 
 [node name="TotalPriceLabel" type="Label" parent="HBoxContainer/VBoxContainer2/HBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Total price: "
 
 [node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
@@ -160,9 +172,20 @@ ok_button_text = "Open"
 file_mode = 0
 access = 2
 
+[node name="RemoveCollectionDialog" type="ConfirmationDialog" parent="."]
+unique_name_in_owner = true
+initial_position = 2
+
+[node name="RemoveCollectionDialog2" type="ConfirmationDialog" parent="."]
+unique_name_in_owner = true
+initial_position = 2
+
 [connection signal="item_activated" from="HBoxContainer/VBoxContainer/CollectionsList" to="." method="_on_collections_list_item_activated"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/NewButton" to="." method="_on_new_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/RemoveButton" to="." method="_on_remove_button_pressed"]
 [connection signal="item_selected" from="HBoxContainer/VBoxContainer2/HBoxContainer/DefaultPriceOption" to="." method="_on_default_price_option_item_selected"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/HBoxContainer3/PriceSortButton" to="." method="_on_price_sort_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/HBoxContainer3/AlphabeticalSortButton" to="." method="_on_alphabetical_sort_button_pressed"]
 [connection signal="close_requested" from="AddCardToCollectionWindow" to="." method="_on_add_card_to_collection_window_close_requested"]
 [connection signal="CardActivated" from="AddCardToCollectionWindow/MarginContainer/CardsList" to="." method="_on_cards_list_card_activated"]
 [connection signal="close_requested" from="AddCollectionWindow" to="." method="_on_add_collection_window_close_requested"]
@@ -170,3 +193,5 @@ access = 2
 [connection signal="pressed" from="AddCollectionWindow/MarginContainer/VBoxContainer/HBoxContainer/FileImportButton" to="." method="_on_file_import_button_pressed"]
 [connection signal="pressed" from="AddCollectionWindow/MarginContainer/VBoxContainer/HBoxContainer/ClipboardImportButton" to="." method="_on_clipboard_import_button_pressed"]
 [connection signal="file_selected" from="AddCollectionWindow/ImportDialog" to="." method="_on_import_dialog_file_selected"]
+[connection signal="confirmed" from="RemoveCollectionDialog" to="." method="_on_remove_collection_dialog_confirmed"]
+[connection signal="confirmed" from="RemoveCollectionDialog2" to="." method="_on_remove_collection_dialog_confirmed"]

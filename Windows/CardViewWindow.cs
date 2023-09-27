@@ -46,7 +46,7 @@ public partial class CardViewWindow : Window
 			var text = "-";
 			if (pair.Value is not null) {
 				text = pair.Value;
-				var v = float.Parse(text);
+				var v = Math.Round(float.Parse(text), 2);
 				text = PriceUtil.GetColoredText(v, pair.Key);
 			}
 			PricesLabelNode.AppendText(pair.Key + ": " + text + "\n");
