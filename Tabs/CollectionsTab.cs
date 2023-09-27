@@ -20,6 +20,8 @@ public partial class CollectionsTab : TabBar
 	public FlowContainer CardsContainerNode { get; private set; }
 	public Window AddCardToCollectionWindowNode { get; private set; }
 	public CardsList CardsListNode { get; private set; }
+	public Window AddCollectionWindowNode { get; private set; }
+	public LineEdit NewCollectionNameEditNode { get; private set; }
 	
 	#endregion
 	
@@ -35,6 +37,8 @@ public partial class CollectionsTab : TabBar
 		CardsContainerNode = GetNode<FlowContainer>("%CardsContainer");
 		AddCardToCollectionWindowNode = GetNode<Window>("%AddCardToCollectionWindow");
 		CardsListNode = GetNode<CardsList>("%CardsList");
+		AddCollectionWindowNode = GetNode<Window>("%AddCollectionWindow");
+		NewCollectionNameEditNode = GetNode<LineEdit>("%NewCollectionNameEdit");
 		
 		#endregion
 		
@@ -64,9 +68,13 @@ public partial class CollectionsTab : TabBar
 		var files = Directory.GetFiles(COLLECTIONS_DIR);
 		foreach (var file in files) {
 			var collection = Collection.FromJson(File.ReadAllText(file));
-			var index = CollectionsListNode.AddItem(collection.Name);
-			CollectionsListNode.SetItemMetadata(index, new Wrapper<Collection>(collection));
+			AddToCollectionList(collection);
 		}
+	}
+
+	private void AddToCollectionList(Collection c) {
+		var index = CollectionsListNode.AddItem(c.Name);
+		CollectionsListNode.SetItemMetadata(index, new Wrapper<Collection>(c));
 	}
 
 	private void RemoveCards() {
@@ -82,6 +90,24 @@ public partial class CollectionsTab : TabBar
 			cardW = new Wrapper<MTGCard>(_cardIndex[card.OracleId]);
 		result.Load(card, cardW);
 		return result;
+	}
+	
+	private bool CanCreate() {
+		var t = NewCollectionNameEditNode.Text;
+		if (t.Length == 0) {
+			GUtil.Alert(this, "Enter collection name");
+			return false;
+		}
+		
+		for (int i = 0; i < CollectionsListNode.ItemCount; i++) {
+			var name = CollectionsListNode.GetItemText(i);
+			if (name == t) {
+				GUtil.Alert(this, "Collections with name " + name + " already exists");
+				return false;
+			}
+		}
+		
+		return true;
 	}
 
 	#region Signal connections
@@ -141,19 +167,48 @@ public partial class CollectionsTab : TabBar
 		AddCardToCollectionWindowNode.Hide();
 		
 		_current.Cards.Add(c);
-		
 	}
 
 	private void _on_add_card_to_collection_window_close_requested()
 	{
 		AddCardToCollectionWindowNode.Hide();
 	}
+
+	private void _on_new_button_pressed()
+	{
+		AddCollectionWindowNode.Show();
+	}
+	
+	private void _on_empty_button_pressed()
+	{
+		var cc = CanCreate();
+		if (!cc) return;
+		
+		var collection = new Collection();
+		collection.Name = NewCollectionNameEditNode.Text;
+		collection.Cards = new();
+		AddToCollectionList(collection);
+		AddCollectionWindowNode.Hide();
+		_on_collections_list_item_activated(CollectionsListNode.ItemCount - 1);
+	}
+
+	private void _on_file_import_button_pressed()
+	{
+		// TODO
+	}
+
+	private void _on_clipboard_import_button_pressed()
+	{
+		// TODO
+	}
+
+	private void _on_add_collection_window_close_requested()
+	{
+		AddCollectionWindowNode.Hide();
+	}
 	
 	#endregion
 }
-
-
-
 
 
 

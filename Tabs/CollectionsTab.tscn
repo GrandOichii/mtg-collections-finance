@@ -71,6 +71,58 @@ theme_override_constants/margin_bottom = 5
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="AddCollectionWindow" type="Window" parent="."]
+unique_name_in_owner = true
+title = "Create new collection"
+initial_position = 2
+size = Vector2i(400, 70)
+visible = false
+transient = true
+exclusive = true
+
+[node name="MarginContainer" type="MarginContainer" parent="AddCollectionWindow"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AddCollectionWindow/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="AddCollectionWindow/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="NewCollectionNameEdit" type="LineEdit" parent="AddCollectionWindow/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Enter collection name"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AddCollectionWindow/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="EmptyButton" type="Button" parent="AddCollectionWindow/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Empty"
+
+[node name="FileImportButton" type="Button" parent="AddCollectionWindow/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Import from file"
+
+[node name="ClipboardImportButton" type="Button" parent="AddCollectionWindow/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Import from clipboard"
+
 [connection signal="item_activated" from="HBoxContainer/VBoxContainer/CollectionsList" to="." method="_on_collections_list_item_activated"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/NewButton" to="." method="_on_new_button_pressed"]
 [connection signal="close_requested" from="AddCardToCollectionWindow" to="." method="_on_add_card_to_collection_window_close_requested"]
 [connection signal="CardActivated" from="AddCardToCollectionWindow/MarginContainer/CardsList" to="." method="_on_cards_list_card_activated"]
+[connection signal="close_requested" from="AddCollectionWindow" to="." method="_on_add_collection_window_close_requested"]
+[connection signal="pressed" from="AddCollectionWindow/MarginContainer/VBoxContainer/HBoxContainer/EmptyButton" to="." method="_on_empty_button_pressed"]
+[connection signal="pressed" from="AddCollectionWindow/MarginContainer/VBoxContainer/HBoxContainer/FileImportButton" to="." method="_on_file_import_button_pressed"]
+[connection signal="pressed" from="AddCollectionWindow/MarginContainer/VBoxContainer/HBoxContainer/ClipboardImportButton" to="." method="_on_clipboard_import_button_pressed"]
