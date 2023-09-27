@@ -8,6 +8,7 @@ public partial class CollectionsTab : TabBar
 	private static readonly string COLLECTIONS_DIR = "Collections";
 	private static List<CardLineParser> PARSERS = new(){
 		new SimpleLineParser(),
+		new DeckCardLineParser(),
 		new XmageLineParser()
 	};
 
@@ -236,6 +237,7 @@ public partial class CollectionsTab : TabBar
 		AddCardToCollectionWindowNode.Hide();
 		
 		_current.Cards.Add(c);
+		UpdateTotalPrice();
 	}
 
 	private void _on_add_card_to_collection_window_close_requested()

@@ -101,6 +101,24 @@ public class XmageLineParser : CardLineParser {
 	}
 }
 
+public class DeckCardLineParser : CardLineParser {
+	private readonly Regex PATTERN = new("(\\d+) (.+)");
+
+	public override CCard Do(string line, Dictionary<string, MTGCard> index)
+	{
+		var match = PATTERN.Match(line);
+		if (match.Groups[0].Length == 0) return null;
+		var name = match.Groups[2].ToString();
+		if (!index.ContainsKey(name))
+			return null;
+		var result = new CCard();
+		result.OracleId = index[name].OracleId;
+		result.Amount = int.Parse(match.Groups[1].ToString());
+		// TODO add sideboard and printing
+		return result;
+	}
+}
+
 public static class PriceUtil {
 	private static Dictionary<string, Dictionary<float, string>> _priceIndex = new() {
 		{"*", new() {
