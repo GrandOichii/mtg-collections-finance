@@ -101,6 +101,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+text = "Collection"
 placeholder_text = "Enter collection name"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="AddCollectionWindow/MarginContainer/VBoxContainer"]
@@ -118,6 +119,15 @@ text = "Import from file"
 layout_mode = 2
 text = "Import from clipboard"
 
+[node name="ImportDialog" type="FileDialog" parent="AddCollectionWindow"]
+unique_name_in_owner = true
+title = "Open a File"
+initial_position = 2
+size = Vector2i(700, 500)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+
 [connection signal="item_activated" from="HBoxContainer/VBoxContainer/CollectionsList" to="." method="_on_collections_list_item_activated"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/NewButton" to="." method="_on_new_button_pressed"]
 [connection signal="close_requested" from="AddCardToCollectionWindow" to="." method="_on_add_card_to_collection_window_close_requested"]
@@ -126,3 +136,4 @@ text = "Import from clipboard"
 [connection signal="pressed" from="AddCollectionWindow/MarginContainer/VBoxContainer/HBoxContainer/EmptyButton" to="." method="_on_empty_button_pressed"]
 [connection signal="pressed" from="AddCollectionWindow/MarginContainer/VBoxContainer/HBoxContainer/FileImportButton" to="." method="_on_file_import_button_pressed"]
 [connection signal="pressed" from="AddCollectionWindow/MarginContainer/VBoxContainer/HBoxContainer/ClipboardImportButton" to="." method="_on_clipboard_import_button_pressed"]
+[connection signal="file_selected" from="AddCollectionWindow/ImportDialog" to="." method="_on_import_dialog_file_selected"]

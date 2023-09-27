@@ -22,12 +22,14 @@ public partial class CollectionsTab : TabBar
 	public CardsList CardsListNode { get; private set; }
 	public Window AddCollectionWindowNode { get; private set; }
 	public LineEdit NewCollectionNameEditNode { get; private set; }
+	public FileDialog ImportDialogNode { get; private set; }
 	
 	#endregion
 	
 	private Collection _current = null;
 	
-	private Dictionary<string, MTGCard> _cardIndex = new();
+	private Dictionary<string, MTGCard> _cardOIDIndex = new();
+	private Dictionary<string, MTGCard> _cardNameIndex = new();
 	
 	public override void _Ready()
 	{
@@ -39,6 +41,7 @@ public partial class CollectionsTab : TabBar
 		CardsListNode = GetNode<CardsList>("%CardsList");
 		AddCollectionWindowNode = GetNode<Window>("%AddCollectionWindow");
 		NewCollectionNameEditNode = GetNode<LineEdit>("%NewCollectionNameEdit");
+		ImportDialogNode = GetNode<FileDialog>("%ImportDialog");
 		
 		#endregion
 		
@@ -86,8 +89,8 @@ public partial class CollectionsTab : TabBar
 		var result = CollectionCardPS.Instantiate() as CollectionCard;
 		CardsContainerNode.AddChild(result);
 		Wrapper<MTGCard>? cardW = null;
-		if (_cardIndex.ContainsKey(card.OracleId))
-			cardW = new Wrapper<MTGCard>(_cardIndex[card.OracleId]);
+		if (_cardOIDIndex.ContainsKey(card.OracleId))
+			cardW = new Wrapper<MTGCard>(_cardOIDIndex[card.OracleId]);
 		result.Load(card, cardW);
 		return result;
 	}
@@ -108,6 +111,34 @@ public partial class CollectionsTab : TabBar
 		}
 		
 		return true;
+	}
+	
+	private void Import(string text) {
+		var lines = text.Split(System.Environment.NewLine);
+		List<string> failed = new();
+		var collection = new Collection();
+		collection.Cards = new();
+		foreach (var line in lines) {
+			// TODO different regex variations
+			if (!_cardNameIndex.ContainsKey(line)) {
+				failed.Add(line);
+				continue;
+			}
+			var card = _cardNameIndex[line];
+			var c = new CCard();
+			c.OracleId = card.OracleId;
+			c.Amount = 1;
+			collection.Cards.Add(c);
+		}
+
+		collection.Name = NewCollectionNameEditNode.Text;
+//		collection.Cards = new();
+		AddToCollectionList(collection);
+		AddCollectionWindowNode.Hide();
+		_on_collections_list_item_activated(CollectionsListNode.ItemCount - 1);
+		// XMAGE regex: (\d+) \[(.+)\] (.+)
+		// standard deck regex: (\d+) (.+)
+		// card list regex: (.+)
 	}
 
 	#region Signal connections
@@ -133,7 +164,9 @@ public partial class CollectionsTab : TabBar
 	
 	private void _on_cards_card_added(Wrapper<MTGCard> cardW, bool update)
 	{
-		_cardIndex.Add(cardW.Value.OracleId, cardW.Value);
+		_cardOIDIndex.Add(cardW.Value.OracleId, cardW.Value);
+		if (!_cardNameIndex.ContainsKey(cardW.Value.Name))
+			_cardNameIndex.Add(cardW.Value.Name, cardW.Value);
 		CardsListNode.AddItem(cardW);
 	}
 	
@@ -194,21 +227,30 @@ public partial class CollectionsTab : TabBar
 
 	private void _on_file_import_button_pressed()
 	{
-		// TODO
+		var cc = CanCreate();
+		if (!cc) return;
+		
+		ImportDialogNode.Show();
 	}
 
 	private void _on_clipboard_import_button_pressed()
 	{
-		// TODO
+		var cc = CanCreate();
+		if (!cc) return;
+		
+		Import(DisplayServer.ClipboardGet());
 	}
 
 	private void _on_add_collection_window_close_requested()
 	{
 		AddCollectionWindowNode.Hide();
 	}
+
+	private void _on_import_dialog_file_selected(string path)
+	{
+		var text = File.ReadAllText(path);
+		Import(text);
+	}
 	
 	#endregion
 }
-
-
-

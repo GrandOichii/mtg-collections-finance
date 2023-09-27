@@ -1,0 +1,77 @@
+1 [GRN:154] Beacon Bolt
+1 [RTR:211] Blistercoil Weird
+1 [WAR:43] Bond of Insight
+1 [GPT:107] Cerebral Vortex
+1 [GRN:32] Chemister's Insight
+1 [RAV:40] Compulsive Research
+1 [RTR:153] Counterflux
+1 [GRN:163] Crackling Drake
+1 [RTR:35] Cyclonic Rift
+1 [GPT:142] Djinn Illuminatus
+1 [DGM:66] Dragonshift
+1 [RTR:93] Electrickery
+1 [RNA:99] Electrodominance
+1 [GPT:111] Electrolyze
+1 [GRN:97] Electrostatic Field
+1 [RTR:159] Epic Experiment
+1 [GRN:224] Expansion // Explosion
+1 [M21:218] Experimental Overload
+1 [GRN:171] Firemind's Research
+1 [WAR:237] Firemind Vessel
+1 [GPT:113] Gelectrode
+1 [GRN:174] Goblin Electromancer
+1 [GPT:116] Goblin Flectomancer
+1 [DGM:74] Goblin Test Pilot
+1 [RTR:170] Hypersonic Dragon
+1 [GPT:67] Hypervolt Grasp
+1 [GRN:228] Invert // Invent
+1 [GPT:118] Invoke the Firemind
+1 [GRN:179] Ionize
+1 [GPT:159] Izzet Boilerworks
+1 [RTR:172] Izzet Charm
+1 [CLB:798] Izzet Chemister
+1 [GPT:119] Izzet Chronarch
+1 [DGM:141] Izzet Cluestone
+1 [GRN:251] Izzet Guildgate
+1 [GPT:145] Izzet Guildmage
+1 [RTR:230] Izzet Keyrune
+1 [GRN:238] Izzet Locket
+1 [GPT:152] Izzet Signet
+1 [RTR:173] Izzet Staticaster
+1 [GRN:185] League Guildmage
+1 [DGM:84] Melek, Izzet Paragon
+1 [RTR:180] Mercurial Chemister
+1 [RTR:101] Mizzium Mortars
+1 [GPT:153] Mizzium Transreliquat
+1 [CMM:348] Mizzix of the Izmagnus
+1 [J22:35] Mizzix, Replica Rider
+1 [GPT:160] Nivix, Aerie of the Firemind
+1 [RTR:182] Nivix Guildmage
+1 [RTR:219] Nivmagus Elemental
+1 [RTR:183] Niv-Mizzet, Dracogenius
+1 [GPT:123] Niv-Mizzet, the Firemind
+1 [GRN:51] Quasiduplicate
+1 [GRN:52] Radical Idea
+1 [GRN:195] Ral, Izzet Viceroy
+1 [MOM:158] Ral's Reinforcements
+1 [WAR:211*] Ral, Storm Conduit
+1 [DGM:94] Ral Zarek
+1 [GPT:76] Siege of Towers
+1 [M21:161] Spellgorger Weird
+1 [WAR:69] Spellkeeper Weird
+1 [GRN:257] Steam Vents
+1 [GPT:132] Stitch in Time
+1 [RTR:106] Street Spasm
+1 [GRN:207] Thousand-Year Storm
+1 [GPT:135] Tibor and Lumia
+1 [GPT:39] Train of Thought
+1 [DGM:134] Turn // Burn
+1 [RTR:111] Vandalblast
+1 [RTR:236] Volatile Rig
+5 [GK1:24] Island
+9 [GK1:48] Island
+10 [GK1:49] Mountain
+5 [GK1:101] Mountain
+SB: 1 [GRN:192] Niv-Mizzet, Parun
+LAYOUT MAIN:(1,8)(CMC,false,50)|([GPT:159],[GRN:251],[GPT:160],[GRN:257],[GK1:48],[GK1:24],[GK1:48],[GK1:48],[GK1:24],[GK1:48],[GK1:48],[GK1:24],[GK1:48],[GK1:48],[GK1:48],[GK1:48],[GK1:24],[GK1:24],[GK1:49],[GK1:101],[GK1:49],[GK1:101],[GK1:49],[GK1:49],[GK1:49],[GK1:101],[GK1:49],[GK1:49],[GK1:101],[GK1:101],[GK1:49],[GK1:49],[GK1:49])([RTR:211],[RTR:93],[RTR:219],[RTR:106],[RTR:111])([RTR:35],[RNA:99],[GRN:97],[RTR:159],[GRN:171],[GRN:174],[RTR:172],[GPT:145],[GPT:152],[GRN:185],[RTR:101],[RTR:182],[GRN:52],[MOM:158],[GPT:76],[GPT:39])([GRN:154],[GPT:107],[RAV:40],[RTR:153],[DGM:66],[GPT:111],[GPT:113],[GPT:116],[DGM:74],[GPT:67],[GPT:118],[GRN:179],[CLB:798],[DGM:141],[RTR:230],[GRN:238],[RTR:173],[GPT:153],[GRN:51],[M21:161],[WAR:69],[GPT:132])([WAR:43],[GRN:32],[GRN:163],[M21:218],[WAR:237],[CMM:348],[DGM:94],[GPT:135],[RTR:236],[WAR:211*])([RTR:170],[GPT:119],[RTR:180],[J22:35],[GRN:195],[DGM:134])([GRN:224],[DGM:84],[RTR:183],[GPT:123],[GRN:207])([GPT:142],[GRN:228])
+LAYOUT SIDEBOARD:(1,1)(NONE,false,50)|([GRN:192])
