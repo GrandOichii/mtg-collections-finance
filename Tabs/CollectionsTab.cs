@@ -6,6 +6,10 @@ using System.Collections.Generic;
 public partial class CollectionsTab : TabBar
 {
 	private static readonly string COLLECTIONS_DIR = "Collections";
+	private static List<CardLineParser> PARSERS = new(){
+		new SimpleLineParser(),
+		new XmageLineParser()
+	};
 
 	#region Packed scenes
 	
@@ -119,16 +123,25 @@ public partial class CollectionsTab : TabBar
 		var collection = new Collection();
 		collection.Cards = new();
 		foreach (var line in lines) {
-			// TODO different regex variations
-			if (!_cardNameIndex.ContainsKey(line)) {
+			CCard? card = null;
+			foreach (var parser in PARSERS) {
+				card = parser.Do(line, _cardNameIndex);
+				if (card is not null) break;
+			}
+			if (card is null) {
 				failed.Add(line);
 				continue;
 			}
-			var card = _cardNameIndex[line];
-			var c = new CCard();
-			c.OracleId = card.OracleId;
-			c.Amount = 1;
-			collection.Cards.Add(c);
+			bool added = false;
+			foreach (var c in collection.Cards) {
+				if (c.OracleId == card.OracleId) {
+					added = true;
+					c.Amount += card.Amount;
+					break;
+				}
+			}
+			if (!added)
+				collection.Cards.Add(card);
 		}
 
 		collection.Name = NewCollectionNameEditNode.Text;

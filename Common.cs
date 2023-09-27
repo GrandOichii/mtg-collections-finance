@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Text.RegularExpressions;
 
 public class MTGCard {
 	[JsonPropertyName("name")]
@@ -62,5 +63,40 @@ public static class GUtil
 			return false;
 		}
 		return true;
+	}
+}
+
+
+public abstract class CardLineParser {
+	public abstract CCard? Do(string line, Dictionary<string, MTGCard> index);
+}
+
+public class SimpleLineParser : CardLineParser {
+	public override CCard? Do(string line, Dictionary<string, MTGCard> index)
+	{
+		if (!index.ContainsKey(line))
+			return null;
+		var result = new CCard();
+		result.OracleId = index[line].OracleId;
+		result.Amount = 1;
+		return result;
+	}
+}
+
+public class XmageLineParser : CardLineParser {
+	private readonly Regex PATTERN = new("(SB: )?(\\d+) \\[(.+)\\] (.+)");
+
+	public override CCard Do(string line, Dictionary<string, MTGCard> index)
+	{
+		var match = PATTERN.Match(line);
+		if (match.Groups[0].Length == 0) return null;
+		var name = match.Groups[4].ToString();
+		if (!index.ContainsKey(name))
+			return null;
+		var result = new CCard();
+		result.OracleId = index[name].OracleId;
+		result.Amount = int.Parse(match.Groups[2].ToString());
+		// TODO add sideboard and printing
+		return result;
 	}
 }
