@@ -30,7 +30,7 @@ public partial class CollectionCard : Control
 	private Texture2D _defaultTex;
 	private string _priceType;
 	
-	private List<Card> _variations;
+	public List<Card> Variations { get; private set; }
 	private Card? _variant;
 	public Card? Variant {
 		get => _variant;
@@ -73,17 +73,17 @@ public partial class CollectionCard : Control
 		Data = cCard;
 		CData = cardW.Value;
 		
-		_variations = CData.GetVariations();
+		Variations = CData.GetVariations();
 		NameLabelNode.Text = cardW.Value.Name;
 		
 		if (cardW is null) {
 			NameLabelNode.Text = cCard.OracleId;
 			return;
 		}
-		_variant = _variations[0];
+		_variant = Variations[0];
 		if (cCard.Printing.Length > 0) {
 			_variant = null;
-			foreach (var v in _variations) {
+			foreach (var v in Variations) {
 				if (v.ID == cCard.Printing) {
 					_variant = v;
 					break;
@@ -115,7 +115,7 @@ public partial class CollectionCard : Control
 		var amount = AmountSpinNode.Value;
 		var fullPrice = TotalPrice;
 		var fullPriceS = "[color=yellow]" + fullPrice + "[/color]";
-		PriceLabelNode.AppendText("" + singlePriceS + " x " + amount + " = " + fullPriceS);
+		PriceLabelNode.AppendText("" + singlePriceS + " x " + amount + " = " + fullPriceS + " (" + _priceType + ")");
 	}
 
 	// TODO check for null

@@ -89,7 +89,6 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [node name="CheapestPrintingsButton" type="Button" parent="HBoxContainer/VBoxContainer2"]
-visible = false
 layout_mode = 2
 text = "Select cheapest printings"
 
@@ -204,6 +203,7 @@ exclusive = true
 [connection signal="pressed" from="HBoxContainer/VBoxContainer2/SortButtonsContainer/PriceSortButton" to="." method="_on_price_sort_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer2/SortButtonsContainer/AlphabeticalSortButton" to="." method="_on_alphabetical_sort_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer2/SortButtonsContainer/AmountSortButton" to="." method="_on_amount_sort_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/CheapestPrintingsButton" to="." method="_on_cheapest_printings_button_pressed"]
 [connection signal="close_requested" from="AddCardToCollectionWindow" to="." method="_on_add_card_to_collection_window_close_requested"]
 [connection signal="CardActivated" from="AddCardToCollectionWindow/MarginContainer/CardsList" to="." method="_on_cards_list_card_activated"]
 [connection signal="close_requested" from="AddCollectionWindow" to="." method="_on_add_collection_window_close_requested"]

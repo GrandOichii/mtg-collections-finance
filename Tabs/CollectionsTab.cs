@@ -164,7 +164,7 @@ public partial class CollectionsTab : TabBar
 			}
 			bool added = false;
 			foreach (var c in collection.Cards) {
-				if (c.OracleId == card.OracleId) {
+				if (c.OracleId == card.OracleId && c.Printing == card.Printing) {
 					added = true;
 					c.Amount += card.Amount;
 					break;
@@ -444,7 +444,39 @@ public partial class CollectionsTab : TabBar
 		_edited.Variant = EditPrintingWindowNode.Variant;
 		UpdateTotalPrice();
 	}
+
+	private void _on_cheapest_printings_button_pressed()
+	{
+		foreach (var child in CardsContainerNode.GetChildren()) {
+			switch (child) {
+			case CollectionCard cardNode:
+				Card cheapest = null;
+				string cheapestPriceType = "";
+				double cheapestPrice = 0;
+				foreach (var v in cardNode.Variations) {
+					foreach (var pair in v.Prices) {
+						if (pair.Value is null) continue;
+						if (pair.Key == "tix") continue;
+						if (!pair.Key.Contains(DefaultPriceOptionNode.Text)) continue;
+						var p = double.Parse(pair.Value);
+						if (cheapest is null || (p < cheapestPrice)) {
+							cheapest = v;
+							cheapestPrice = p;
+							cheapestPriceType = pair.Key;
+						}
+					}
+				}
+				cardNode.Variant = cheapest;
+				cardNode.UpdatePrice(cheapestPriceType);
+				break;
+			default:
+				break;
+			}
+		}
+		UpdateTotalPrice();
+	}
 	
 	#endregion
 }
+
 
