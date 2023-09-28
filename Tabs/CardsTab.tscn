@@ -46,6 +46,11 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
+[node name="SaveVariationsProgress" type="ProgressBar" parent="VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
 [connection signal="CardAdded" from="." to="." method="_on_card_added"]
 [connection signal="CardActivated" from="VBoxContainer/CardsList" to="." method="_on_cards_list_card_activated"]
 [connection signal="pressed" from="VBoxContainer/DownloadCardsButton" to="." method="_on_download_cards_button_pressed"]

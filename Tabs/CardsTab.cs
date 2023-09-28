@@ -48,6 +48,7 @@ public partial class CardsTab : TabBar
 	public HttpRequest DownloadCardsRequestNode { get; private set; }
 	public HttpRequest BulkDataRequestNode { get; private set; }
 	public CardViewWindow CardViewWindowNode { get; private set; }
+	public ProgressBar SaveVariationsProgressNode { get; private set; }
 	
 	#endregion
 	
@@ -64,8 +65,16 @@ public partial class CardsTab : TabBar
 		set {
 			_downloading = value;
 			DownloadProgressNode.Visible = value;
+			SaveVariationsProgressNode.Visible = value;
 			DownloadCardsButtonNode.Disabled = value;
 		}
+	}
+	private void SetDownloading(bool v) {
+		Downloading = v;
+	}
+	
+	private void IncrementSaveVariationsProgressNode() {
+		SaveVariationsProgressNode.Value += 1;
 	}
 		
 	public override void _Ready()
@@ -78,6 +87,7 @@ public partial class CardsTab : TabBar
 		DownloadCardsRequestNode = GetNode<HttpRequest>("%DownloadCardsRequest");
 		BulkDataRequestNode = GetNode<HttpRequest>("%BulkDataRequest");
 		CardViewWindowNode = GetNode<CardViewWindow>("%CardViewWindow");
+		SaveVariationsProgressNode = GetNode<ProgressBar>("%SaveVariationsProgress");
 		
 		#endregion
 				
@@ -110,6 +120,34 @@ public partial class CardsTab : TabBar
 	public void AddCard(Wrapper<ShortCard> cardW, bool update) {
 		EmitSignal(SignalName.CardAdded, cardW, update);
 	}
+
+	private void SaveVariations(Dictionary<string, List<Card>> index) {
+		var manifest = new List<ShortCard>();
+		foreach (var pair in index) {
+			// TODO save variations
+			var card = new ShortCard();
+			var original = pair.Value[0];
+			card.Name = original.Name;
+			card.OracleId = original.OracleId;
+			// TODO remove
+			card.ImageURIs = original.ImageURIs;
+			card.Text = original.Text;
+			// TODO remove
+			card.Prices = original.Prices;
+			card.Path = Path.Combine(CARDS_DATA_PATH, card.OracleId + ".json");
+			
+			var lT = JsonSerializer.Serialize(pair.Value);
+			File.WriteAllText(card.Path, lT);
+
+			CallDeferred("IncrementSaveVariationsProgressNode");
+			manifest.Add(card);
+		}
+		var mT = JsonSerializer.Serialize(manifest);
+		File.WriteAllText(Path.Combine(CARDS_DATA_PATH, CARDS_MANIFEST_FILE), mT);
+		
+		CallDeferred("SetDownloading", false);
+		CallDeferred("LoadCards", true);
+	}
 	
 
 	#region Signal connections
@@ -137,15 +175,13 @@ public partial class CardsTab : TabBar
 		DownloadCardsRequestNode.Request(downloadURI);
 	}
 
-	private void _on_download_cards_request_request_completed(long result, long response_code, string[] headers, byte[] body)
+	private async void _on_download_cards_request_request_completed(long result, long response_code, string[] headers, byte[] body)
 	{
 		if (response_code != 200) {
 			GUtil.Alert(this, "Failed to download cards! (Response code: " + response_code + ")");
 			return;
 		}
 		
-		Downloading = false;
-
 		// index cards
 		var text = System.Text.Encoding.Default.GetString(body);
 		var data = JsonSerializer.Deserialize<List<Card>>(text);
@@ -156,27 +192,10 @@ public partial class CardsTab : TabBar
 				index.Add(item.OracleId, new());
 			index[item.OracleId].Add(item);
 		}
-
-		var manifest = new List<ShortCard>();
-		foreach (var pair in index) {
-			// TODO save variations
-			var card = new ShortCard();
-			var original = pair.Value[0];
-			card.Name = original.Name;
-			card.OracleId = original.OracleId;
-			// TODO remove
-			card.ImageURIs = original.ImageURIs;
-			card.Text = original.Text;
-			// TODO remove
-			card.Prices = original.Prices;
-			card.Path = Path.Combine(CARDS_DATA_PATH, card.OracleId + ".json");
-			// TODO save variations
-			manifest.Add(card);
-		}
-		var mT = JsonSerializer.Serialize(manifest);
-		File.WriteAllText(Path.Combine(CARDS_DATA_PATH, CARDS_MANIFEST_FILE), mT);
 		
-		LoadCards(true);
+		SaveVariationsProgressNode.Value = 0;
+		SaveVariationsProgressNode.MaxValue = index.Count;
+		Task.Run(() => SaveVariations(index));
 	}
 
 	private void _on_card_added(Wrapper<ShortCard> cardW, bool update)
