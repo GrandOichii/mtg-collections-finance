@@ -45,7 +45,6 @@ public class Card {
 	public string ID { get; set; }
 	[JsonPropertyName("oracle_id")]
 	public string OracleId { get; set; }
-
 	[JsonPropertyName("image_uris")]
 	public Dictionary<string, string> ImageURIs { get; set; }
 	[JsonPropertyName("oracle_text")]
@@ -54,10 +53,12 @@ public class Card {
 	public Dictionary<string, string?> Prices { get; set; }
 	[JsonPropertyName("set")]
 	public string Set { get; set; }
+	[JsonPropertyName("set_name")]
+	public string SetName { get; set; }
 	[JsonPropertyName("collector_number")]
 	public string CollectorNumber { get; set; }
 
-	public string UID => Set + "#" + CollectorNumber;
+	public string UID => SetName + " (" + Set + "#" + CollectorNumber + ")";
 }
 
 

@@ -138,6 +138,7 @@ public partial class CardsTab : TabBar
 			
 			var lT = JsonSerializer.Serialize(pair.Value);
 			File.WriteAllText(card.Path, lT);
+			// TODO create a task list and execute them all at once
 
 			CallDeferred("IncrementSaveVariationsProgressNode");
 			manifest.Add(card);

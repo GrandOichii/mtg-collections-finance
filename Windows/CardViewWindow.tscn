@@ -10,14 +10,25 @@ transient = true
 unresizable = true
 script = ExtResource("1_s7ha8")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="ImageRequest" type="HTTPRequest" parent="."]
+unique_name_in_owner = true
+use_threads = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 
-[node name="ImageRect" type="TextureRect" parent="HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="ImageRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -26,38 +37,38 @@ texture = ExtResource("2_s0l1s")
 expand_mode = 3
 stretch_mode = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="NameLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="NameLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "CARD NAME HERE"
 
-[node name="HSeparator" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="TextLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "ORACLE TEXT HERE
 ORACLE TEXT FERE"
 autowrap_mode = 2
 
-[node name="HSeparator2" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Prices:"
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 30
 
-[node name="PricesLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/MarginContainer"]
+[node name="PricesLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -66,15 +77,12 @@ text = "PRICES HERE
 PRICES HERE
 PRICES HERE"
 
-[node name="PrintingsList" type="ItemList" parent="HBoxContainer/VBoxContainer"]
+[node name="PrintingsList" type="ItemList" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 
-[node name="ImageRequest" type="HTTPRequest" parent="."]
-unique_name_in_owner = true
-use_threads = true
-
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
 [connection signal="request_completed" from="ImageRequest" to="." method="_on_image_request_request_completed"]
+[connection signal="item_activated" from="MarginContainer/HBoxContainer/VBoxContainer/PrintingsList" to="." method="_on_printings_list_item_activated"]

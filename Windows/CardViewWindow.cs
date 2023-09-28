@@ -6,8 +6,6 @@ using System.Collections.Generic;
 
 public partial class CardViewWindow : Window
 {
-	
-	
 	#region Nodes
 	
 	public TextureRect ImageRectNode { get; private set; }
@@ -15,6 +13,7 @@ public partial class CardViewWindow : Window
 	public Label TextLabelNode { get; private set; }
 	public HttpRequest ImageRequestNode { get; private set; }
 	public RichTextLabel PricesLabelNode { get; private set; }
+	public ItemList PrintingsListNode { get; private set; }
 	
 	#endregion
 	
@@ -29,7 +28,8 @@ public partial class CardViewWindow : Window
 		TextLabelNode = GetNode<Label>("%TextLabel");
 		ImageRequestNode = GetNode<HttpRequest>("%ImageRequest");
 		PricesLabelNode = GetNode<RichTextLabel>("%PricesLabel");
-		
+		PrintingsListNode = GetNode<ItemList>("%PrintingsList");
+
 		#endregion
 		
 		_defaultBack = ImageRectNode.Texture;
@@ -41,19 +41,13 @@ public partial class CardViewWindow : Window
 		var card = cardW.Value;
 		NameLabelNode.Text = card.Name;
 		TextLabelNode.Text = card.Text;
-		
-		PricesLabelNode.Clear();
-		foreach (var pair in card.Prices) {
-			var text = "-";
-			if (pair.Value is not null) {
-				text = pair.Value;
-				var v = Math.Round(float.Parse(text), 2);
-				text = PriceUtil.GetColoredText(v, pair.Key);
-			}
-			PricesLabelNode.AppendText(pair.Key + ": " + text + "\n");
+
+		var variations = card.GetVariations();
+		foreach (var v in variations) {
+			var index = PrintingsListNode.AddItem(v.UID);
+			PrintingsListNode.SetItemMetadata(index, new Wrapper<Card>(v));
 		}
-		
-		ImageRequestNode.Request(card.ImageURIs["normal"]);
+		_on_printings_list_item_activated(0);
 	}
 
 	private void SetTexture(Texture2D tex) {
@@ -77,9 +71,28 @@ public partial class CardViewWindow : Window
 			CallDeferred("SetTexture", tex);
 		});
 	}
+
+	private void _on_printings_list_item_activated(int index)
+	{
+		var variation = PrintingsListNode.GetItemMetadata(index).As<Wrapper<Card>>().Value;
+
+		PricesLabelNode.Clear();
+		foreach (var pair in variation.Prices) {
+			var text = "-";
+			if (pair.Value is not null) {
+				text = pair.Value;
+				var v = Math.Round(float.Parse(text), 2);
+				text = PriceUtil.GetColoredText(v, pair.Key);
+			}
+			PricesLabelNode.AppendText(pair.Key + ": " + text + "\n");
+		}
+		
+		ImageRequestNode.Request(variation.ImageURIs["normal"]);
+	}
 	
 	#endregion
 }
+
 
 
 
