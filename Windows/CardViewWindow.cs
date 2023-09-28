@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Threading.Tasks;
 
 using System.Collections.Generic;
 
@@ -54,6 +55,10 @@ public partial class CardViewWindow : Window
 		
 		ImageRequestNode.Request(card.ImageURIs["normal"]);
 	}
+
+	private void SetTexture(Texture2D tex) {
+		ImageRectNode.Texture = tex;
+	}
 	
 	
 	#region Signal connections
@@ -65,10 +70,12 @@ public partial class CardViewWindow : Window
 	
 	private void _on_image_request_request_completed(long result, long response_code, string[] headers, byte[] body)
 	{
-		var image = new Image();
-		image.LoadJpgFromBuffer(body);
-		var tex = ImageTexture.CreateFromImage(image);
-		ImageRectNode.Texture = tex;
+		Task.Run(() => {
+			var image = new Image();
+			image.LoadJpgFromBuffer(body);
+			var tex = ImageTexture.CreateFromImage(image);
+			CallDeferred("SetTexture", tex);
+		});
 	}
 	
 	#endregion

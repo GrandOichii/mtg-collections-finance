@@ -32,6 +32,7 @@ public class ShortCard {
 	}
 
 	public List<Card> GetVariations() {
+		// TODO too slow, create some kind of internal counter
 		var text = File.ReadAllText(Path);
 		return JsonSerializer.Deserialize<List<Card>>(text);
 	}
@@ -51,6 +52,12 @@ public class Card {
 	public string Text { get; set; }
 	[JsonPropertyName("prices")]
 	public Dictionary<string, string?> Prices { get; set; }
+	[JsonPropertyName("set")]
+	public string Set { get; set; }
+	[JsonPropertyName("collector_number")]
+	public string CollectorNumber { get; set; }
+
+	public string UID => Set + "#" + CollectorNumber;
 }
 
 

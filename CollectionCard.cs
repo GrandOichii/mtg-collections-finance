@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Threading.Tasks;
 
 public partial class CollectionCard : Control
 {
@@ -81,6 +82,11 @@ public partial class CollectionCard : Control
 
 	public double TotalPrice => (CData.Prices[_priceType] is not null ? Math.Round(double.Parse(CData.Prices[_priceType]) * AmountSpinNode.Value, 2) : 0);
 	
+	private void SetTexture(Texture2D tex) {
+		ImageTextureNode.Texture = tex;
+
+	}
+
 	#region Signal connections
 	
 	private void _on_image_request_request_completed(long result, long response_code, string[] headers, byte[] body)
@@ -89,10 +95,12 @@ public partial class CollectionCard : Control
 			// 
 			return;
 		}
-		var image = new Image();
-		image.LoadJpgFromBuffer(body);
-		var tex = ImageTexture.CreateFromImage(image);
-		ImageTextureNode.Texture = tex;
+		Task.Run(() => {
+			var image = new Image();
+			image.LoadJpgFromBuffer(body);
+			var tex = ImageTexture.CreateFromImage(image);
+			CallDeferred("SetTexture", tex);
+		});
 	}
 	
 	private void _on_amount_spin_value_changed(double v)
