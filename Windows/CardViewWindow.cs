@@ -14,10 +14,12 @@ public partial class CardViewWindow : Window
 	public HttpRequest ImageRequestNode { get; private set; }
 	public RichTextLabel PricesLabelNode { get; private set; }
 	public ItemList PrintingsListNode { get; private set; }
+	public LineEdit SetNameFilterEditNode { get; private set; }
 	
 	#endregion
 	
 	private Texture2D _defaultBack;
+	private List<Card> _variations;
 	
 	public override void _Ready()
 	{
@@ -29,6 +31,7 @@ public partial class CardViewWindow : Window
 		ImageRequestNode = GetNode<HttpRequest>("%ImageRequest");
 		PricesLabelNode = GetNode<RichTextLabel>("%PricesLabel");
 		PrintingsListNode = GetNode<ItemList>("%PrintingsList");
+		SetNameFilterEditNode = GetNode<LineEdit>("%SetNameFilterEdit");
 
 		#endregion
 		
@@ -42,11 +45,10 @@ public partial class CardViewWindow : Window
 		NameLabelNode.Text = card.Name;
 		TextLabelNode.Text = card.Text;
 
-		var variations = card.GetVariations();
-		foreach (var v in variations) {
-			var index = PrintingsListNode.AddItem(v.UID);
-			PrintingsListNode.SetItemMetadata(index, new Wrapper<Card>(v));
-		}
+		PrintingsListNode.Clear();
+		_variations = card.GetVariations();
+		SetNameFilterEditNode.Text = "";
+		_on_filter_button_pressed();
 		_on_printings_list_item_activated(0);
 	}
 
@@ -89,11 +91,17 @@ public partial class CardViewWindow : Window
 		
 		ImageRequestNode.Request(variation.ImageURIs["normal"]);
 	}
+
+	private void _on_filter_button_pressed()
+	{
+		PrintingsListNode.Clear();
+		var filter = SetNameFilterEditNode.Text;
+		foreach (var v in _variations) {
+			if (!v.SetName.ToLower().Contains(filter.ToLower())) continue;
+			var index = PrintingsListNode.AddItem(v.UID);
+			PrintingsListNode.SetItemMetadata(index, new Wrapper<Card>(v));
+		}
+	}
 	
 	#endregion
 }
-
-
-
-
-

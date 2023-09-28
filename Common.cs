@@ -58,7 +58,7 @@ public class Card {
 	[JsonPropertyName("collector_number")]
 	public string CollectorNumber { get; set; }
 
-	public string UID => SetName + " (" + Set + "#" + CollectorNumber + ")";
+	public string UID => SetName + " (" + Set.ToUpper() + "#" + CollectorNumber + ")";
 }
 
 
