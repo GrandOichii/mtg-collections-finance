@@ -40,8 +40,8 @@ public partial class CollectionsTab : TabBar
 	private Collection _current = null;
 	private CCard _dueForRemoval = null;
 	
-	private Dictionary<string, MTGCard> _cardOIDIndex = new();
-	private Dictionary<string, MTGCard> _cardNameIndex = new();
+	private Dictionary<string, ShortCard> _cardOIDIndex = new();
+	private Dictionary<string, ShortCard> _cardNameIndex = new();
 	
 	public override void _Ready()
 	{
@@ -105,10 +105,10 @@ public partial class CollectionsTab : TabBar
 	private CollectionCard AddCardToCollection(CCard card) {
 		var result = CollectionCardPS.Instantiate() as CollectionCard;
 		CardsContainerNode.AddChild(result);
-		Wrapper<MTGCard>? cardW = null;
+		Wrapper<ShortCard>? cardW = null;
 //		GD.Print(_cardOIDIndex.Count);
 		if (_cardOIDIndex.ContainsKey(card.OracleId))
-			cardW = new Wrapper<MTGCard>(_cardOIDIndex[card.OracleId]);
+			cardW = new Wrapper<ShortCard>(_cardOIDIndex[card.OracleId]);
 		var priceI = DefaultPriceOptionNode.GetSelectedId();
 		var price = DefaultPriceOptionNode.GetItemText(priceI);
 		result.Load(card, cardW, price);
@@ -208,7 +208,7 @@ public partial class CollectionsTab : TabBar
 		UpdateTotalPrice();
 	}
 	
-	private void _on_cards_card_added(Wrapper<MTGCard> cardW, bool update)
+	private void _on_cards_card_added(Wrapper<ShortCard> cardW, bool update)
 	{
 		_cardOIDIndex.Add(cardW.Value.OracleId, cardW.Value);
 		if (!_cardNameIndex.ContainsKey(cardW.Value.Name))
@@ -221,7 +221,7 @@ public partial class CollectionsTab : TabBar
 		AddCardToCollectionWindowNode.Show();
 	}
 
-	private void _on_cards_list_card_activated(Wrapper<MTGCard> cardW)
+	private void _on_cards_list_card_activated(Wrapper<ShortCard> cardW)
 	{
 		foreach (var child in CardsContainerNode.GetChildren()) {
 			switch (child) {
@@ -392,7 +392,7 @@ public partial class CollectionsTab : TabBar
 		CardsContainerNode.MoveChild(button, children.Count - 1);		
 	}
 	
-	private void _on_card_remove_requested(Wrapper<CCard> cCardW, Wrapper<MTGCard> cardW) {
+	private void _on_card_remove_requested(Wrapper<CCard> cCardW, Wrapper<ShortCard> cardW) {
 		_dueForRemoval = cCardW.Value;
 		RemoveCardDialogNode.DialogText = "Remove card " + cardW.Value.Name + " from collection " + _current.Name + "?";
 		RemoveCardDialogNode.Show();

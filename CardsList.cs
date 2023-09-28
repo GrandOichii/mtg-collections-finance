@@ -7,7 +7,7 @@ public partial class CardsList : Control
 	#region Signals
 	
 	[Signal]
-	public delegate void CardActivatedEventHandler(Wrapper<MTGCard> cardW);
+	public delegate void CardActivatedEventHandler(Wrapper<ShortCard> cardW);
 	
 	#endregion
 	
@@ -18,7 +18,7 @@ public partial class CardsList : Control
 	
 	#endregion
 	
-	private List<Wrapper<MTGCard>> _cards = new();
+	private List<Wrapper<ShortCard>> _cards = new();
 	
 	public override void _Ready() {
 		#region Node fetching
@@ -29,18 +29,18 @@ public partial class CardsList : Control
 		#endregion
 	}
 	
-	public void AddItem(Wrapper<MTGCard> cardW) {
+	public void AddItem(Wrapper<ShortCard> cardW) {
 		_cards.Add(cardW);
 		_addItem(cardW);
 	}
 	
-	private void _addItem(Wrapper<MTGCard> cardW) {
+	private void _addItem(Wrapper<ShortCard> cardW) {
 		var index = ListNode.AddItem(cardW.Value.Name);
 		ListNode.SetItemMetadata(index, cardW);
 	}
 	
-	public Wrapper<MTGCard> GetItem(int index) {
-		return ListNode.GetItemMetadata(index).As<Wrapper<MTGCard>>();
+	public Wrapper<ShortCard> GetItem(int index) {
+		return ListNode.GetItemMetadata(index).As<Wrapper<ShortCard>>();
 	}
 	
 	public void ResetFilter() {

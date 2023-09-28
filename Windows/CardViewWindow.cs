@@ -35,7 +35,7 @@ public partial class CardViewWindow : Window
 		
 	}
 
-	public void Load(Wrapper<MTGCard> cardW) {
+	public void Load(Wrapper<ShortCard> cardW) {
 		ImageRectNode.Texture = _defaultBack;
 		var card = cardW.Value;
 		NameLabelNode.Text = card.Name;

@@ -36,7 +36,6 @@ text = "Download latest cards"
 
 [node name="DownloadCardsRequest" type="HTTPRequest" parent="VBoxContainer/DownloadCardsButton"]
 unique_name_in_owner = true
-download_file = "cards.json"
 use_threads = true
 
 [node name="BulkDataRequest" type="HTTPRequest" parent="VBoxContainer/DownloadCardsButton"]

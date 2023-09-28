@@ -7,15 +7,28 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 
+// be very careful abount implementing this
 public class ShortCard {
 	[JsonPropertyName("name")]
 	public string Name { get; set; }
 	[JsonPropertyName("path")]
 	public string Path { get; set; }
 
-	public static Dictionary<string, ShortCard> LoadManifest(string path) {
+	#region Legacy MTGCard info
+	[JsonPropertyName("oracle_id")]
+	public string OracleId { get; set; }
+
+	[JsonPropertyName("image_uris")]
+	public Dictionary<string, string> ImageURIs { get; set; }
+	[JsonPropertyName("oracle_text")]
+	public string Text { get; set; }
+	[JsonPropertyName("prices")]
+	public Dictionary<string, string?> Prices { get; set; } 
+	#endregion
+
+	public static List<ShortCard> LoadManifest(string path) {
 		var text = File.ReadAllText(path);
-		return JsonSerializer.Deserialize<Dictionary<string, ShortCard>>(text) ?? throw new Exception("Failed to deserialize manifest file: " + path);
+		return JsonSerializer.Deserialize<List<ShortCard>>(text) ?? throw new Exception("Failed to deserialize manifest file: " + path);
 	}
 
 	public List<Card> GetVariations() {
@@ -30,7 +43,8 @@ public class Card {
 	[JsonPropertyName("id")]
 	public string ID { get; set; }
 	[JsonPropertyName("oracle_id")]
-	public string OracleID { get; set; }
+	public string OracleId { get; set; }
+
 	[JsonPropertyName("image_uris")]
 	public Dictionary<string, string> ImageURIs { get; set; }
 	[JsonPropertyName("oracle_text")]
@@ -40,19 +54,19 @@ public class Card {
 }
 
 
-public class MTGCard {
-	[JsonPropertyName("name")]
-	public string Name { get; set; }
-	[JsonPropertyName("oracle_id")]
-	public string OracleId { get; set; }
+// public class MTGCard {
+// 	[JsonPropertyName("name")]
+// 	public string Name { get; set; }
+// 	[JsonPropertyName("oracle_id")]
+// 	public string OracleId { get; set; }
 
-	[JsonPropertyName("image_uris")]
-	public Dictionary<string, string> ImageURIs { get; set; }
-	[JsonPropertyName("oracle_text")]
-	public string Text { get; set; }
-	[JsonPropertyName("prices")]
-	public Dictionary<string, string?> Prices { get; set; } 
-}
+// 	[JsonPropertyName("image_uris")]
+// 	public Dictionary<string, string> ImageURIs { get; set; }
+// 	[JsonPropertyName("oracle_text")]
+// 	public string Text { get; set; }
+// 	[JsonPropertyName("prices")]
+// 	public Dictionary<string, string?> Prices { get; set; } 
+// }
 
 public class CCard {
 	[JsonPropertyName("oracle_id")]
@@ -102,11 +116,11 @@ public static class GUtil
 
 
 public abstract class CardLineParser {
-	public abstract CCard? Do(string line, Dictionary<string, MTGCard> index);
+	public abstract CCard? Do(string line, Dictionary<string, ShortCard> index);
 }
 
 public class SimpleLineParser : CardLineParser {
-	public override CCard? Do(string line, Dictionary<string, MTGCard> index)
+	public override CCard? Do(string line, Dictionary<string, ShortCard> index)
 	{
 		if (!index.ContainsKey(line))
 			return null;
@@ -120,7 +134,7 @@ public class SimpleLineParser : CardLineParser {
 public class XmageLineParser : CardLineParser {
 	private readonly Regex PATTERN = new("(SB: )?(\\d+) \\[(.+)\\] (.+)");
 
-	public override CCard Do(string line, Dictionary<string, MTGCard> index)
+	public override CCard Do(string line, Dictionary<string, ShortCard> index)
 	{
 		var match = PATTERN.Match(line);
 		if (match.Groups[0].Length == 0) return null;
@@ -138,7 +152,7 @@ public class XmageLineParser : CardLineParser {
 public class DeckCardLineParser : CardLineParser {
 	private readonly Regex PATTERN = new("(\\d+) (.+)");
 
-	public override CCard Do(string line, Dictionary<string, MTGCard> index)
+	public override CCard Do(string line, Dictionary<string, ShortCard> index)
 	{
 		var match = PATTERN.Match(line);
 		if (match.Groups[0].Length == 0) return null;

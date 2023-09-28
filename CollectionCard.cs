@@ -17,12 +17,12 @@ public partial class CollectionCard : Control
 	#region Signals
 	
 	[Signal]
-	public delegate void RemoveRequestedEventHandler(Wrapper<CCard> cCardW, Wrapper<MTGCard> cardW);
+	public delegate void RemoveRequestedEventHandler(Wrapper<CCard> cCardW, Wrapper<ShortCard> cardW);
 	
 	#endregion
 	
 	public CCard Data { get; private set; }
-	public MTGCard CData { get; private set; }
+	public ShortCard CData { get; private set; }
 	
 	private Texture2D _defaultTex;
 
@@ -44,7 +44,7 @@ public partial class CollectionCard : Control
 	
 	private string _priceType;
 	
-	public void Load(CCard cCard, Wrapper<MTGCard>? cardW, string priceType) {
+	public void Load(CCard cCard, Wrapper<ShortCard>? cardW, string priceType) {
 		_priceType = priceType;
 		Data = cCard;
 		CData = cardW.Value; 
@@ -108,7 +108,7 @@ public partial class CollectionCard : Control
 
 	private void _on_remove_button_pressed()
 	{
-		EmitSignal(SignalName.RemoveRequested, new Wrapper<CCard>(Data), new Wrapper<MTGCard>(CData));
+		EmitSignal(SignalName.RemoveRequested, new Wrapper<CCard>(Data), new Wrapper<ShortCard>(CData));
 	}
 	
 	#endregion

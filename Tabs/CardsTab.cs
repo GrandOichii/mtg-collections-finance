@@ -37,6 +37,8 @@ class BulkDataEntryJson {
 public partial class CardsTab : TabBar
 {
 	private readonly string BULK_DATA_INFO_URL = "https://api.scryfall.com/bulk-data";
+	private readonly string CARDS_DATA_PATH = "Data";
+	private readonly string CARDS_MANIFEST_FILE = "manifest.json";
 	
 	#region Nodes
 	
@@ -52,7 +54,7 @@ public partial class CardsTab : TabBar
 	#region Signals
 	
 	[Signal]
-	public delegate void CardAddedEventHandler(Wrapper<MTGCard> cardW, bool update);
+	public delegate void CardAddedEventHandler(Wrapper<ShortCard> cardW, bool update);
 	
 	#endregion
 	
@@ -65,9 +67,7 @@ public partial class CardsTab : TabBar
 			DownloadCardsButtonNode.Disabled = value;
 		}
 	}
-	
-	private string _cardsSrc;
-	
+		
 	public override void _Ready()
 	{
 		#region Node fetching
@@ -80,9 +80,7 @@ public partial class CardsTab : TabBar
 		CardViewWindowNode = GetNode<CardViewWindow>("%CardViewWindow");
 		
 		#endregion
-		
-		_cardsSrc = DownloadCardsRequestNode.DownloadFile;
-		
+				
 		// load cards
 		LoadCards(false);
 	}
@@ -95,17 +93,21 @@ public partial class CardsTab : TabBar
 	
 	public void LoadCards(bool update) {
 		Task.Run(() => {
-			var cards = JsonSerializer.Deserialize<List<MTGCard>>(File.ReadAllText(_cardsSrc));
+			var path = Path.Combine(CARDS_DATA_PATH, CARDS_MANIFEST_FILE);
+			if (!File.Exists(path)) return;
+
+			var cards = ShortCard.LoadManifest(path);
+			// var cards = JsonSerializer.Deserialize<List<ShortCard>>(File.ReadAllText(_cardsSrc));
 	//		SampleSizeNode.MaxValue = cards.Count;
 			foreach (var card in cards) {
-				CallDeferred("AddCard", new Wrapper<MTGCard>(card), update);
+				CallDeferred("AddCard", new Wrapper<ShortCard>(card), update);
 //				AddCard(card, update);
 //				break;
 			}
 		});
 	}
 	
-	public void AddCard(Wrapper<MTGCard> cardW, bool update) {
+	public void AddCard(Wrapper<ShortCard> cardW, bool update) {
 		EmitSignal(SignalName.CardAdded, cardW, update);
 	}
 	
@@ -127,11 +129,11 @@ public partial class CardsTab : TabBar
 		
 		var text = System.Text.Encoding.Default.GetString(body);
 		var data = BulkDataJson.FromJSON(text);
-		var oracleCards = data["oracle_cards"];
-		if (oracleCards is null) throw new Exception("Failed to find the oracle cards download link");
+		var defaultCards = data["default_cards"];
+		if (defaultCards is null) throw new Exception("Failed to find the default cards download link");
 
-		DownloadProgressNode.MaxValue = oracleCards.Size;
-		var downloadURI = oracleCards?.DownloadURI;
+		DownloadProgressNode.MaxValue = defaultCards.Size;
+		var downloadURI = defaultCards?.DownloadURI;
 		DownloadCardsRequestNode.Request(downloadURI);
 	}
 
@@ -143,11 +145,41 @@ public partial class CardsTab : TabBar
 		}
 		
 		Downloading = false;
+
+		// index cards
+		var text = System.Text.Encoding.Default.GetString(body);
+		var data = JsonSerializer.Deserialize<List<Card>>(text);
+		var index = new Dictionary<string, List<Card>>();
+		foreach (var item in data) {
+			if (item.OracleId is null || item.OracleId == "") continue;
+			if (!index.ContainsKey(item.OracleId))
+				index.Add(item.OracleId, new());
+			index[item.OracleId].Add(item);
+		}
+
+		var manifest = new List<ShortCard>();
+		foreach (var pair in index) {
+			// TODO save variations
+			var card = new ShortCard();
+			var original = pair.Value[0];
+			card.Name = original.Name;
+			card.OracleId = original.OracleId;
+			// TODO remove
+			card.ImageURIs = original.ImageURIs;
+			card.Text = original.Text;
+			// TODO remove
+			card.Prices = original.Prices;
+			card.Path = Path.Combine(CARDS_DATA_PATH, card.OracleId + ".json");
+			// TODO save variations
+			manifest.Add(card);
+		}
+		var mT = JsonSerializer.Serialize(manifest);
+		File.WriteAllText(Path.Combine(CARDS_DATA_PATH, CARDS_MANIFEST_FILE), mT);
 		
 		LoadCards(true);
 	}
 
-	private void _on_card_added(Wrapper<MTGCard> cardW, bool update)
+	private void _on_card_added(Wrapper<ShortCard> cardW, bool update)
 	{
 		
 		// check if card already exists
@@ -165,7 +197,7 @@ public partial class CardsTab : TabBar
 		CardsListNode.AddItem(cardW);
 	}
 	
-	private void _on_cards_list_card_activated(Wrapper<MTGCard> cardW)
+	private void _on_cards_list_card_activated(Wrapper<ShortCard> cardW)
 	{
 		CardViewWindowNode.Load(cardW);
 		CardViewWindowNode.Show();
