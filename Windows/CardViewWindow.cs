@@ -20,6 +20,14 @@ public partial class CardViewWindow : Window
 	
 	private Texture2D _defaultBack;
 	private List<Card> _variations;
+	private Card _variant;
+	public Card Variant { 
+		get => _variant;
+		set {
+			_variant = value;
+			UpdateInfo();
+		} 
+	}
 	
 	public override void _Ready()
 	{
@@ -39,7 +47,8 @@ public partial class CardViewWindow : Window
 		
 	}
 
-	public void Load(Wrapper<ShortCard> cardW) {
+	public void Load(Wrapper<ShortCard> cardW, Card variant=null) {
+		ImageRequestNode.CancelRequest();
 		ImageRectNode.Texture = _defaultBack;
 		var card = cardW.Value;
 		NameLabelNode.Text = card.Name;
@@ -49,13 +58,31 @@ public partial class CardViewWindow : Window
 		_variations = card.GetVariations();
 		SetNameFilterEditNode.Text = "";
 		_on_filter_button_pressed();
-		_on_printings_list_item_activated(0);
+		if (variant is null) {
+			Variant = _variations[0];
+			return;
+		}
+		Variant = variant;
 	}
 
 	private void SetTexture(Texture2D tex) {
 		ImageRectNode.Texture = tex;
 	}
-	
+
+	private void UpdateInfo() {
+		PricesLabelNode.Clear();
+		foreach (var pair in _variant.Prices) {
+			var text = "-";
+			if (pair.Value is not null) {
+				text = pair.Value;
+				var v = Math.Round(float.Parse(text), 2);
+				text = PriceUtil.GetColoredText(v, pair.Key);
+			}
+			PricesLabelNode.AppendText(pair.Key + ": " + text + "\n");
+		}
+		
+		ImageRequestNode.Request(_variant.ImageURIs["normal"]);
+	}
 	
 	#region Signal connections
 	
@@ -76,20 +103,8 @@ public partial class CardViewWindow : Window
 
 	private void _on_printings_list_item_activated(int index)
 	{
-		var variation = PrintingsListNode.GetItemMetadata(index).As<Wrapper<Card>>().Value;
-
-		PricesLabelNode.Clear();
-		foreach (var pair in variation.Prices) {
-			var text = "-";
-			if (pair.Value is not null) {
-				text = pair.Value;
-				var v = Math.Round(float.Parse(text), 2);
-				text = PriceUtil.GetColoredText(v, pair.Key);
-			}
-			PricesLabelNode.AppendText(pair.Key + ": " + text + "\n");
-		}
-		
-		ImageRequestNode.Request(variation.ImageURIs["normal"]);
+		ImageRequestNode.CancelRequest();		
+		Variant = PrintingsListNode.GetItemMetadata(index).As<Wrapper<Card>>().Value;
 	}
 
 	private void _on_filter_button_pressed()

@@ -34,6 +34,7 @@ public partial class CollectionsTab : TabBar
 	public ConfirmationDialog RemoveCollectionDialogNode { get; private set; }
 	public ConfirmationDialog RemoveCardDialogNode { get; private set; }
 	public Control SortButtonsContainerNode { get; private set; }
+	public CardViewWindow EditPrintingWindowNode { get; private set; }
 	
 	#endregion
 	
@@ -42,6 +43,8 @@ public partial class CollectionsTab : TabBar
 	
 	private Dictionary<string, ShortCard> _cardOIDIndex = new();
 	private Dictionary<string, ShortCard> _cardNameIndex = new();
+
+	private CollectionCard _edited;
 	
 	public override void _Ready()
 	{
@@ -59,6 +62,7 @@ public partial class CollectionsTab : TabBar
 		RemoveCollectionDialogNode = GetNode<ConfirmationDialog>("%RemoveCollectionDialog");
 		RemoveCardDialogNode = GetNode<ConfirmationDialog>("%RemoveCardDialog");
 		SortButtonsContainerNode = GetNode<Control>("%SortButtonsContainer");
+		EditPrintingWindowNode = GetNode<CardViewWindow>("%EditPrintingWindow");
 		
 		#endregion
 		
@@ -114,7 +118,14 @@ public partial class CollectionsTab : TabBar
 		result.Load(card, cardW, price);
 		result.AmountSpinNode.ValueChanged += (v) => UpdateTotalPrice();
 		result.RemoveRequested += _on_card_remove_requested;
+		result.PrintingButtonNode.Pressed += () => EditPrinting(result);
 		return result;
+	}
+
+	private void EditPrinting(CollectionCard child) {
+		_edited = child;
+		EditPrintingWindowNode.Load(new(child.CData), child.Variant);
+		EditPrintingWindowNode.Show();
 	}
 	
 	private bool CanCreate() {
@@ -389,7 +400,7 @@ public partial class CollectionsTab : TabBar
 		}).ToList();
 		foreach (var child in sorted)
 			CardsContainerNode.MoveChild(child, 0);
-		CardsContainerNode.MoveChild(button, children.Count - 1);		
+		CardsContainerNode.MoveChild(button, children.Count - 1);
 	}
 	
 	private void _on_card_remove_requested(Wrapper<CCard> cCardW, Wrapper<ShortCard> cardW) {
@@ -427,13 +438,13 @@ public partial class CollectionsTab : TabBar
 			}
 		}
 	}
+
+	private void _on_edit_printing_window_close_requested()
+	{
+		_edited.Variant = EditPrintingWindowNode.Variant;
+		UpdateTotalPrice();
+	}
 	
 	#endregion
 }
-
-
-
-
-
-
 

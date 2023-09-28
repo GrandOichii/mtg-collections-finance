@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://d4gi3j2xx70wp"]
+[gd_scene load_steps=4 format=3 uid="uid://d4gi3j2xx70wp"]
 
 [ext_resource type="Script" path="res://Tabs/CollectionsTab.cs" id="1_m5heb"]
 [ext_resource type="PackedScene" uid="uid://ch81xoe01fi4r" path="res://CardsList.tscn" id="2_rj44s"]
+[ext_resource type="PackedScene" uid="uid://b1y4i4dbes22g" path="res://Windows/CardViewWindow.tscn" id="3_o3a5x"]
 
 [node name="CollectionsTab" type="TabBar"]
 anchors_preset = 15
@@ -86,6 +87,11 @@ layout_mode = 2
 [node name="TotalPriceLabel" type="Label" parent="HBoxContainer/VBoxContainer2/HBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="CheapestPrintingsButton" type="Button" parent="HBoxContainer/VBoxContainer2"]
+visible = false
+layout_mode = 2
+text = "Select cheapest printings"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
@@ -186,6 +192,11 @@ initial_position = 2
 unique_name_in_owner = true
 initial_position = 2
 
+[node name="EditPrintingWindow" parent="." instance=ExtResource("3_o3a5x")]
+unique_name_in_owner = true
+visible = false
+exclusive = true
+
 [connection signal="item_activated" from="HBoxContainer/VBoxContainer/CollectionsList" to="." method="_on_collections_list_item_activated"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/NewButton" to="." method="_on_new_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/RemoveButton" to="." method="_on_remove_button_pressed"]
@@ -202,3 +213,4 @@ initial_position = 2
 [connection signal="file_selected" from="AddCollectionWindow/ImportDialog" to="." method="_on_import_dialog_file_selected"]
 [connection signal="confirmed" from="RemoveCollectionDialog" to="." method="_on_remove_collection_dialog_confirmed"]
 [connection signal="confirmed" from="RemoveCardDialog" to="." method="_on_remove_card_dialog_confirmed"]
+[connection signal="close_requested" from="EditPrintingWindow" to="." method="_on_edit_printing_window_close_requested"]

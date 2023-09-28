@@ -79,6 +79,8 @@ public class Card {
 public class CCard {
 	[JsonPropertyName("oracle_id")]
 	public string OracleId { get; set; }
+	[JsonPropertyName("id")]
+	public string Printing { get; set; } = "";
 	[JsonPropertyName("amount")]
 	public int Amount { get; set; }
 }

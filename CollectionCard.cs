@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 public partial class CollectionCard : Control
@@ -12,6 +13,7 @@ public partial class CollectionCard : Control
 	public HttpRequest ImageRequestNode { get; private set; }
 	public ColorRect TransparencyRectNode { get; private set; }
 	public RichTextLabel PriceLabelNode { get; private set; }
+	public Button PrintingButtonNode { get; private set; }
 	
 	#endregion
 
@@ -26,6 +28,17 @@ public partial class CollectionCard : Control
 	public ShortCard CData { get; private set; }
 	
 	private Texture2D _defaultTex;
+	private string _priceType;
+	
+	private List<Card> _variations;
+	private Card? _variant;
+	public Card? Variant {
+		get => _variant;
+		set {
+			_variant = value;
+			UpdateVariantData();
+		}
+	}
 
 	public override void _Ready()
 	{
@@ -37,29 +50,53 @@ public partial class CollectionCard : Control
 		ImageRequestNode = GetNode<HttpRequest>("%ImageRequest");
 		TransparencyRectNode = GetNode<ColorRect>("%TransparencyRect");
 		PriceLabelNode = GetNode<RichTextLabel>("%PriceLabel");
+		PrintingButtonNode = GetNode<Button>("%PrintingButton");
 		
 		#endregion
 		
 		_defaultTex = ImageTextureNode.Texture;
 	}
 	
-	private string _priceType;
+	private void UpdateVariantData() {
+		PrintingButtonNode.Text = "???";
+		if (_variant is null) return;
+		PrintingButtonNode.Text = _variant.UID;
+		Data.Printing = _variant.ID;
+
+		ImageRequestNode.Request(_variant.ImageURIs["normal"]);
+		UpdatePrice();
+	}
 	
 	public void Load(CCard cCard, Wrapper<ShortCard>? cardW, string priceType) {
+		ImageTextureNode.Texture = _defaultTex;
 		_priceType = priceType;
 		Data = cCard;
-		CData = cardW.Value; 
-		ImageTextureNode.Texture = _defaultTex;
-		AmountSpinNode.Value = cCard.Amount;
+		CData = cardW.Value;
+		
+		_variations = CData.GetVariations();
+		NameLabelNode.Text = cardW.Value.Name;
 		
 		if (cardW is null) {
 			NameLabelNode.Text = cCard.OracleId;
 			return;
 		}
-		
-		NameLabelNode.Text = cardW.Value.Name;
+		_variant = _variations[0];
+		if (cCard.Printing.Length > 0) {
+			_variant = null;
+			foreach (var v in _variations) {
+				if (v.ID == cCard.Printing) {
+					_variant = v;
+					break;
+				}
+			}
+		}
+		if (_variant is null) {
+			GUtil.Alert(this, "Failed to find printing ID " + cCard.Printing + " for card " + CData.Name);
+//			return;
+		}
+		UpdateVariantData();
+		AmountSpinNode.Value = cCard.Amount;		
 		_on_amount_spin_value_changed(cCard.Amount);
-		ImageRequestNode.Request(cardW.Value.ImageURIs["normal"]);
 	}
 	
 	public void UpdatePrice(string newPriceType="") {
@@ -68,11 +105,12 @@ public partial class CollectionCard : Control
 		_priceType = newPriceType;
 		
 		PriceLabelNode.Clear();
-		if (CData.Prices[_priceType] is null) {
+		// TODO check for null
+		if (_variant.Prices[_priceType] is null) {
 			PriceLabelNode.AppendText("-");
 			return;
 		}
-		var singlePrice = double.Parse(CData.Prices[_priceType]);
+		var singlePrice = double.Parse(_variant.Prices[_priceType]);
 		var singlePriceS = PriceUtil.GetColoredText(singlePrice, _priceType); 
 		var amount = AmountSpinNode.Value;
 		var fullPrice = TotalPrice;
@@ -80,7 +118,8 @@ public partial class CollectionCard : Control
 		PriceLabelNode.AppendText("" + singlePriceS + " x " + amount + " = " + fullPriceS);
 	}
 
-	public double TotalPrice => (CData.Prices[_priceType] is not null ? Math.Round(double.Parse(CData.Prices[_priceType]) * AmountSpinNode.Value, 2) : 0);
+	// TODO check for null
+	public double TotalPrice => (_variant.Prices[_priceType] is not null ? Math.Round(double.Parse(_variant.Prices[_priceType]) * AmountSpinNode.Value, 2) : 0);
 	
 	private void SetTexture(Texture2D tex) {
 		ImageTextureNode.Texture = tex;

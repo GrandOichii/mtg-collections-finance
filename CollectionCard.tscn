@@ -31,6 +31,12 @@ layout_mode = 2
 text = "CARD NAME HERE "
 horizontal_alignment = 1
 
+[node name="PrintingButton" type="Button" parent="Container"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "PRINTING HERE"
+clip_text = true
+
 [node name="PriceLabel" type="RichTextLabel" parent="Container"]
 unique_name_in_owner = true
 layout_mode = 2
