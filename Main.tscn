@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://mj88lrjos2t6"]
+[gd_scene load_steps=6 format=3 uid="uid://mj88lrjos2t6"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_se0m2"]
 [ext_resource type="PackedScene" uid="uid://cus6j8i16d2vn" path="res://Tabs/CardsTab.tscn" id="1_swwpf"]
 [ext_resource type="PackedScene" uid="uid://d4gi3j2xx70wp" path="res://Tabs/CollectionsTab.tscn" id="2_q1vqo"]
+[ext_resource type="PackedScene" uid="uid://d3q8kpmksf6o4" path="res://Tabs/EDHTab.tscn" id="4_bsksp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_17y6e"]
 bg_color = Color(0.4, 0.682353, 0.309804, 1)
@@ -58,4 +59,9 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
+[node name="EDH" parent="MarginContainer/TabContainer" instance=ExtResource("4_bsksp")]
+visible = false
+layout_mode = 2
+
 [connection signal="CardAdded" from="MarginContainer/TabContainer/Cards" to="MarginContainer/TabContainer/Collections" method="_on_cards_card_added"]
+[connection signal="CardAdded" from="MarginContainer/TabContainer/Cards" to="MarginContainer/TabContainer/EDH" method="_on_cards_card_added"]

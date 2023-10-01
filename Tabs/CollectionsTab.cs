@@ -35,6 +35,7 @@ public partial class CollectionsTab : TabBar
 	public ConfirmationDialog RemoveCardDialogNode { get; private set; }
 	public Control SortButtonsContainerNode { get; private set; }
 	public CardViewWindow EditPrintingWindowNode { get; private set; }
+	public Button CheapestPrintingsButtonNode { get; private set; }
 	
 	#endregion
 	
@@ -63,6 +64,7 @@ public partial class CollectionsTab : TabBar
 		RemoveCardDialogNode = GetNode<ConfirmationDialog>("%RemoveCardDialog");
 		SortButtonsContainerNode = GetNode<Control>("%SortButtonsContainer");
 		EditPrintingWindowNode = GetNode<CardViewWindow>("%EditPrintingWindow");
+		CheapestPrintingsButtonNode = GetNode<Button>("%CheapestPrintingsButton");
 		
 		#endregion
 		
@@ -203,6 +205,7 @@ public partial class CollectionsTab : TabBar
 		var collection = item.Value;
 		_current = collection;
 		SortButtonsContainerNode.Visible = true;
+		CheapestPrintingsButtonNode.Visible = true;
 		RemoveCards();
 		// TODO bad
 		// don't know any other way :)
@@ -347,6 +350,7 @@ public partial class CollectionsTab : TabBar
 		CollectionsListNode.RemoveItem(index);
 		_current = null;
 		SortButtonsContainerNode.Visible = false;
+		CheapestPrintingsButtonNode.Visible = false;
 		
 		RemoveCards();
 		TotalPriceLabelNode.Text = "";

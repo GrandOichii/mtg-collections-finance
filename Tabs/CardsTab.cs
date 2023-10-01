@@ -37,7 +37,8 @@ class BulkDataEntryJson {
 public partial class CardsTab : TabBar
 {
 	private readonly string BULK_DATA_INFO_URL = "https://api.scryfall.com/bulk-data";
-	private readonly string CARDS_DATA_PATH = "Data";
+	private readonly string DATA_PATH = "Data";
+	private readonly string CARDS_DATA_PATH = "Cards";
 	private readonly string CARDS_MANIFEST_FILE = "manifest.json";
 	
 	#region Nodes
@@ -103,7 +104,7 @@ public partial class CardsTab : TabBar
 	
 	public void LoadCards(bool update) {
 		Task.Run(() => {
-			var path = Path.Combine(CARDS_DATA_PATH, CARDS_MANIFEST_FILE);
+			var path = Path.Combine(DATA_PATH, CARDS_DATA_PATH, CARDS_MANIFEST_FILE);
 			if (!File.Exists(path)) return;
 
 			var cards = ShortCard.LoadManifest(path);
@@ -121,20 +122,23 @@ public partial class CardsTab : TabBar
 		EmitSignal(SignalName.CardAdded, cardW, update);
 	}
 
-	private void SaveVariations(Dictionary<string, List<Card>> index) {
+	private void SaveVariations(Dictionary<string, List<DownloadedCard>> index) {
 		var manifest = new List<ShortCard>();
+		
+		if (Directory.Exists(DATA_PATH))
+			Directory.Delete(DATA_PATH, true);
+		Directory.CreateDirectory(DATA_PATH);
+		Directory.CreateDirectory(Path.Combine(DATA_PATH, CARDS_DATA_PATH));
+		
 		foreach (var pair in index) {
 			// TODO save variations
 			var card = new ShortCard();
 			var original = pair.Value[0];
 			card.Name = original.Name;
 			card.OracleId = original.OracleId;
-			// TODO remove
-			card.ImageURIs = original.ImageURIs;
 			card.Text = original.Text;
-			// TODO remove
-			card.Prices = original.Prices;
-			card.Path = Path.Combine(CARDS_DATA_PATH, card.OracleId + ".json");
+			card.TypeLine = original.TypeLine;
+			card.Path = Path.Combine(DATA_PATH, CARDS_DATA_PATH, card.OracleId + ".json");
 			
 			var lT = JsonSerializer.Serialize(pair.Value);
 			File.WriteAllText(card.Path, lT);
@@ -144,7 +148,7 @@ public partial class CardsTab : TabBar
 			manifest.Add(card);
 		}
 		var mT = JsonSerializer.Serialize(manifest);
-		File.WriteAllText(Path.Combine(CARDS_DATA_PATH, CARDS_MANIFEST_FILE), mT);
+		File.WriteAllText(Path.Combine(DATA_PATH, CARDS_DATA_PATH, CARDS_MANIFEST_FILE), mT);
 		
 		CallDeferred("SetDownloading", false);
 		CallDeferred("LoadCards", true);
@@ -185,8 +189,8 @@ public partial class CardsTab : TabBar
 		
 		// index cards
 		var text = System.Text.Encoding.Default.GetString(body);
-		var data = JsonSerializer.Deserialize<List<Card>>(text);
-		var index = new Dictionary<string, List<Card>>();
+		var data = JsonSerializer.Deserialize<List<DownloadedCard>>(text);
+		var index = new Dictionary<string, List<DownloadedCard>>();
 		foreach (var item in data) {
 			if (item.OracleId is null || item.OracleId == "") continue;
 			if (!index.ContainsKey(item.OracleId))

@@ -4,3 +4,4 @@
 cards*.json
 Data/
 !Data/.gdignore
+Export/*

@@ -7,23 +7,30 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 
-// be very careful abount implementing this
+public class DownloadedCard : Card {
+	[JsonPropertyName("name")]
+	public string Name { get; set; }
+	[JsonPropertyName("oracle_id")]
+	public string OracleId { get; set; }
+	[JsonPropertyName("type_line")]
+	public string TypeLine { get; set; }
+	[JsonPropertyName("oracle_text")]
+	public string Text { get; set; }
+}
+
 public class ShortCard {
 	[JsonPropertyName("name")]
 	public string Name { get; set; }
 	[JsonPropertyName("path")]
 	public string Path { get; set; }
-
+	[JsonPropertyName("type_line")]
+	public string TypeLine { get; set; }
 	#region Legacy MTGCard info
 	[JsonPropertyName("oracle_id")]
 	public string OracleId { get; set; }
 
-	[JsonPropertyName("image_uris")]
-	public Dictionary<string, string> ImageURIs { get; set; }
 	[JsonPropertyName("oracle_text")]
 	public string Text { get; set; }
-	[JsonPropertyName("prices")]
-	public Dictionary<string, string?> Prices { get; set; } 
 	#endregion
 
 	public static List<ShortCard> LoadManifest(string path) {
@@ -32,23 +39,28 @@ public class ShortCard {
 	}
 
 	public List<Card> GetVariations() {
-		// TODO too slow, create some kind of internal counter
 		var text = File.ReadAllText(Path);
 		return JsonSerializer.Deserialize<List<Card>>(text);
+	}
+
+	public bool CanBeCommander() {
+		return TypeLine.Contains("Creature") && TypeLine.Contains("Legendary");
+	}
+
+	public string URLFriendlyName() {
+		return Name
+			.Replace(",", "")
+			.Replace("\'", "")
+			.Replace(" ", "-")
+			.ToLower();
 	}
 }
 
 public class Card {
-	[JsonPropertyName("name")]
-	public string Name { get; set; }
 	[JsonPropertyName("id")]
 	public string ID { get; set; }
-	[JsonPropertyName("oracle_id")]
-	public string OracleId { get; set; }
 	[JsonPropertyName("image_uris")]
 	public Dictionary<string, string> ImageURIs { get; set; }
-	[JsonPropertyName("oracle_text")]
-	public string Text { get; set; }
 	[JsonPropertyName("prices")]
 	public Dictionary<string, string?> Prices { get; set; }
 	[JsonPropertyName("set")]
@@ -207,4 +219,17 @@ public static class PriceUtil {
 		}
 		return result;
 	}
+}
+
+
+public class EDHData {
+	[JsonPropertyName("cardlist")]
+	public List<EDHCard> Cards { get; set; }
+}
+
+public class EDHCard {
+	[JsonPropertyName("name")]
+	public string Name { get; set; }
+	[JsonPropertyName("synergy")]
+	public float Synergy { get; set; }
 }

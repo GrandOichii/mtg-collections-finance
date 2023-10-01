@@ -1,0 +1,78 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3q8kpmksf6o4"]
+
+[ext_resource type="PackedScene" uid="uid://ch81xoe01fi4r" path="res://CardsList.tscn" id="1_isbse"]
+[ext_resource type="Script" path="res://Tabs/EDHTab.cs" id="1_rc46r"]
+[ext_resource type="Texture2D" uid="uid://d1nyq4j8slfxm" path="res://Assets/back.jpg" id="3_yqabc"]
+
+[node name="EDHTab" type="TabBar"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_rc46r")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="CardsList" parent="HBoxContainer" instance=ExtResource("1_isbse")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="TopContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CommanderTexture" type="TextureRect" parent="HBoxContainer/MarginContainer/VBoxContainer/TopContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_yqabc")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="FlowContainer" type="FlowContainer" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="DownloadRequest" type="HTTPRequest" parent="HBoxContainer"]
+unique_name_in_owner = true
+use_threads = true
+
+[node name="ImageRequest" type="HTTPRequest" parent="HBoxContainer"]
+unique_name_in_owner = true
+use_threads = true
+
+[connection signal="CardActivated" from="HBoxContainer/CardsList" to="." method="_on_cards_list_card_activated"]
+[connection signal="mouse_entered" from="HBoxContainer/MarginContainer/VBoxContainer/TopContainer/CommanderTexture" to="." method="_on_commander_texture_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/MarginContainer/VBoxContainer/TopContainer/CommanderTexture" to="." method="_on_commander_texture_mouse_exited"]
+[connection signal="request_completed" from="HBoxContainer/DownloadRequest" to="." method="_on_download_request_request_completed"]
+[connection signal="request_completed" from="HBoxContainer/ImageRequest" to="." method="_on_image_request_request_completed"]
