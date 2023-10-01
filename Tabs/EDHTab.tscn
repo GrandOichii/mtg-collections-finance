@@ -40,6 +40,10 @@ theme_override_constants/margin_bottom = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer"]
 layout_mode = 2
 
+[node name="DownloadDataButton" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Download EDHREC data "
+
 [node name="TopContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -53,15 +57,35 @@ texture = ExtResource("3_yqabc")
 expand_mode = 3
 stretch_mode = 5
 
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SynergySortButton" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Sort by synergy"
+
+[node name="TypeSortButton" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Sort by type"
+
 [node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
+horizontal_scroll_mode = 0
 
-[node name="FlowContainer" type="FlowContainer" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer"]
+[node name="CardsContainer" type="FlowContainer" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
+
+[node name="GenerateButton" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Generate deck as collection"
 
 [node name="DownloadRequest" type="HTTPRequest" parent="HBoxContainer"]
 unique_name_in_owner = true
@@ -72,7 +96,10 @@ unique_name_in_owner = true
 use_threads = true
 
 [connection signal="CardActivated" from="HBoxContainer/CardsList" to="." method="_on_cards_list_card_activated"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/DownloadDataButton" to="." method="_on_download_data_button_pressed"]
 [connection signal="mouse_entered" from="HBoxContainer/MarginContainer/VBoxContainer/TopContainer/CommanderTexture" to="." method="_on_commander_texture_mouse_entered"]
 [connection signal="mouse_exited" from="HBoxContainer/MarginContainer/VBoxContainer/TopContainer/CommanderTexture" to="." method="_on_commander_texture_mouse_exited"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/SynergySortButton" to="." method="_on_synergy_sort_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/TypeSortButton" to="." method="_on_type_sort_button_pressed"]
 [connection signal="request_completed" from="HBoxContainer/DownloadRequest" to="." method="_on_download_request_request_completed"]
 [connection signal="request_completed" from="HBoxContainer/ImageRequest" to="." method="_on_image_request_request_completed"]

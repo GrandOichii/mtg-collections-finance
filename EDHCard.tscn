@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctrunw14nxh6d"]
+
+[ext_resource type="Script" path="res://EDHCard.cs" id="1_2y10a"]
+[ext_resource type="Texture2D" uid="uid://d1nyq4j8slfxm" path="res://Assets/back.jpg" id="1_l24fl"]
+
+[node name="EDHCard" type="MarginContainer"]
+custom_minimum_size = Vector2(232, 380)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -920.0
+offset_bottom = -268.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+script = ExtResource("1_2y10a")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ImageTexture" type="TextureRect" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_l24fl")
+expand_mode = 3
+
+[node name="NameLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "CARD NAME HERE"
+horizontal_alignment = 1
+
+[node name="SynergyLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "SYNERGY HERE"
+horizontal_alignment = 1
+
+[node name="ImageRequest" type="HTTPRequest" parent="."]
+unique_name_in_owner = true
+use_threads = true
+
+[connection signal="request_completed" from="ImageRequest" to="." method="_on_image_request_request_completed"]

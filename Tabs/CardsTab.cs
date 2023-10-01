@@ -136,6 +136,8 @@ public partial class CardsTab : TabBar
 			var original = pair.Value[0];
 			card.Name = original.Name;
 			card.OracleId = original.OracleId;
+			card.ColorIdentity = original.ColorIdentity;
+			card.Layout = original.Layout;
 			card.Text = original.Text;
 			card.TypeLine = original.TypeLine;
 			card.Path = Path.Combine(DATA_PATH, CARDS_DATA_PATH, card.OracleId + ".json");

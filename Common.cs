@@ -16,9 +16,12 @@ public class DownloadedCard : Card {
 	public string TypeLine { get; set; }
 	[JsonPropertyName("oracle_text")]
 	public string Text { get; set; }
+	[JsonPropertyName("color_identity")]
+	public List<string> ColorIdentity { get; set; }
 }
 
 public class ShortCard {
+	public static readonly List<string> TypePriority = new() {"Planeswalker", "Creature", "Artifact", "Sorcery", "Instant", "Enchantment", "Land"};
 	[JsonPropertyName("name")]
 	public string Name { get; set; }
 	[JsonPropertyName("path")]
@@ -28,6 +31,10 @@ public class ShortCard {
 	#region Legacy MTGCard info
 	[JsonPropertyName("oracle_id")]
 	public string OracleId { get; set; }
+	[JsonPropertyName("color_identity")]
+	public List<string> ColorIdentity { get; set; }
+	[JsonPropertyName("layout")]
+	public string Layout { get; set; }
 
 	[JsonPropertyName("oracle_text")]
 	public string Text { get; set; }
@@ -44,7 +51,8 @@ public class ShortCard {
 	}
 
 	public bool CanBeCommander() {
-		return TypeLine.Contains("Creature") && TypeLine.Contains("Legendary");
+		
+		return Layout != "token" && TypeLine.Contains("Creature") && TypeLine.Contains("Legendary");
 	}
 
 	public string URLFriendlyName() {
@@ -53,6 +61,13 @@ public class ShortCard {
 			.Replace("\'", "")
 			.Replace(" ", "-")
 			.ToLower();
+	}
+
+	public string GetPrimaryType() {
+		foreach (var type in TypePriority)
+			if (TypeLine.Contains(type))
+				return type;
+		return "";
 	}
 }
 
@@ -69,6 +84,8 @@ public class Card {
 	public string SetName { get; set; }
 	[JsonPropertyName("collector_number")]
 	public string CollectorNumber { get; set; }
+	[JsonPropertyName("layout")]
+	public string Layout { get; set; }
 
 	public string UID => SetName + " (" + Set.ToUpper() + "#" + CollectorNumber + ")";
 }
@@ -224,10 +241,10 @@ public static class PriceUtil {
 
 public class EDHData {
 	[JsonPropertyName("cardlist")]
-	public List<EDHCard> Cards { get; set; }
+	public List<EDHDataCard> Cards { get; set; }
 }
 
-public class EDHCard {
+public class EDHDataCard {
 	[JsonPropertyName("name")]
 	public string Name { get; set; }
 	[JsonPropertyName("synergy")]
