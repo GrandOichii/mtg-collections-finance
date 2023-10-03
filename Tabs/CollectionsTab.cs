@@ -12,6 +12,9 @@ public partial class CollectionsTab : TabBar
 		new DeckCardLineParser(),
 		new XmageLineParser()
 	};
+	private static List<CollectionExportProfile> _exportProfiles = new(){
+		new TextFileExportProfile(),
+	};
 
 	#region Packed scenes
 	
@@ -36,6 +39,9 @@ public partial class CollectionsTab : TabBar
 	public Control SortButtonsContainerNode { get; private set; }
 	public CardViewWindow EditPrintingWindowNode { get; private set; }
 	public Button CheapestPrintingsButtonNode { get; private set; }
+	public OptionButton ExportTypeOptionNode { get; private set; }
+	public Control ExportContainerNode { get; private set; }
+	public FileDialog SaveExportDialogNode { get; private set; }
 	
 	#endregion
 	
@@ -65,10 +71,26 @@ public partial class CollectionsTab : TabBar
 		SortButtonsContainerNode = GetNode<Control>("%SortButtonsContainer");
 		EditPrintingWindowNode = GetNode<CardViewWindow>("%EditPrintingWindow");
 		CheapestPrintingsButtonNode = GetNode<Button>("%CheapestPrintingsButton");
-		
+		ExportTypeOptionNode = GetNode<OptionButton>("%ExportTypeOption");
+		ExportContainerNode = GetNode<Control>("%ExportContainer");
+		SaveExportDialogNode = GetNode<FileDialog>("%SaveExportDialog");
+
 		#endregion
 		
+		FillExportTypes();
 		LoadCollections();
+	}
+
+	private void FillExportTypes() {
+		if (_exportProfiles.Count == 0) {
+			ExportContainerNode.Visible = false;
+			return;
+		}
+
+		foreach (var profile in _exportProfiles) {
+			ExportTypeOptionNode.AddItem(profile.Name);
+			ExportTypeOptionNode.SetItemMetadata(ExportTypeOptionNode.ItemCount - 1, new Wrapper<CollectionExportProfile>(profile));
+		}
 	}
 	
 	public void SaveCollections() {
@@ -479,7 +501,22 @@ public partial class CollectionsTab : TabBar
 		}
 		UpdateTotalPrice();
 	}
+
+	private void _on_export_button_pressed()
+	{
+		SaveExportDialogNode.Show();
+	}
 	
+	private void _on_save_export_dialog_file_selected(string path)
+	{
+		var profile = ExportTypeOptionNode.GetItemMetadata(ExportTypeOptionNode.Selected).As<Wrapper<CollectionExportProfile>>().Value;
+		var collection = _current;
+		var text = profile.Do(collection, _cardOIDIndex);
+
+		File.WriteAllText(path, text);
+		// Replace with function body.
+	}
+
 	#endregion
 }
 

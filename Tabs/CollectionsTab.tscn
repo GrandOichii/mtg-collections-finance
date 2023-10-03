@@ -106,6 +106,19 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="ExportContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ExportButton" type="Button" parent="HBoxContainer/VBoxContainer2/ExportContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Export"
+
+[node name="ExportTypeOption" type="OptionButton" parent="HBoxContainer/VBoxContainer2/ExportContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
 [node name="AddCardToCollectionWindow" type="Window" parent="."]
 unique_name_in_owner = true
 initial_position = 2
@@ -198,6 +211,12 @@ unique_name_in_owner = true
 visible = false
 exclusive = true
 
+[node name="SaveExportDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+initial_position = 2
+size = Vector2i(800, 500)
+access = 2
+
 [connection signal="item_activated" from="HBoxContainer/VBoxContainer/CollectionsList" to="." method="_on_collections_list_item_activated"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/NewButton" to="." method="_on_new_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/RemoveButton" to="." method="_on_remove_button_pressed"]
@@ -206,6 +225,7 @@ exclusive = true
 [connection signal="pressed" from="HBoxContainer/VBoxContainer2/SortButtonsContainer/AlphabeticalSortButton" to="." method="_on_alphabetical_sort_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer2/SortButtonsContainer/AmountSortButton" to="." method="_on_amount_sort_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer2/CheapestPrintingsButton" to="." method="_on_cheapest_printings_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/ExportContainer/ExportButton" to="." method="_on_export_button_pressed"]
 [connection signal="close_requested" from="AddCardToCollectionWindow" to="." method="_on_add_card_to_collection_window_close_requested"]
 [connection signal="CardActivated" from="AddCardToCollectionWindow/MarginContainer/CardsList" to="." method="_on_cards_list_card_activated"]
 [connection signal="close_requested" from="AddCollectionWindow" to="." method="_on_add_collection_window_close_requested"]
@@ -216,3 +236,4 @@ exclusive = true
 [connection signal="confirmed" from="RemoveCollectionDialog" to="." method="_on_remove_collection_dialog_confirmed"]
 [connection signal="confirmed" from="RemoveCardDialog" to="." method="_on_remove_card_dialog_confirmed"]
 [connection signal="close_requested" from="EditPrintingWindow" to="." method="_on_edit_printing_window_close_requested"]
+[connection signal="file_selected" from="SaveExportDialog" to="." method="_on_save_export_dialog_file_selected"]

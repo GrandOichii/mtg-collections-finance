@@ -250,3 +250,25 @@ public class EDHDataCard {
 	[JsonPropertyName("synergy")]
 	public float Synergy { get; set; }
 }
+
+
+public abstract class CollectionExportProfile {
+	public virtual string Name { get; }
+	public abstract string Do(Collection c, Dictionary<string, ShortCard> oidIndex);
+}
+
+public class TextFileExportProfile : CollectionExportProfile {
+    public override string Name => "Text file";
+	public override string Do(Collection c, Dictionary<string, ShortCard> oidIndex)
+    {
+		var result = "";
+		for (int i = 0; i < c.Cards.Count; i++) {
+			var card = c.Cards[i];
+			if (card.Amount == 0) continue;
+			result += card.Amount + " " + oidIndex[card.OracleId].Name;
+			if (i == c.Cards.Count - 1) continue;
+			result += "\n";
+		}
+		return result;
+    }
+}
