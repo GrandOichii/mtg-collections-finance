@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Globalization;
 using System.Threading.Tasks;
 
 using System.Collections.Generic;
@@ -75,7 +76,7 @@ public partial class CardViewWindow : Window
 			var text = "-";
 			if (pair.Value is not null) {
 				text = pair.Value;
-				var v = Math.Round(float.Parse(text), 2);
+				var v = Math.Round(float.Parse(text, CultureInfo.InvariantCulture), 2);
 				text = PriceUtil.GetColoredText(v, pair.Key);
 			}
 			PricesLabelNode.AppendText(pair.Key + ": " + text + "\n");

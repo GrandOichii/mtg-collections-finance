@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Threading.Tasks;
 
 public partial class CollectionCard : Control
@@ -110,7 +111,7 @@ public partial class CollectionCard : Control
 			PriceLabelNode.AppendText("-");
 			return;
 		}
-		var singlePrice = double.Parse(_variant.Prices[_priceType]);
+		var singlePrice = double.Parse(_variant.Prices[_priceType], CultureInfo.InvariantCulture);
 		var singlePriceS = PriceUtil.GetColoredText(singlePrice, _priceType); 
 		var amount = AmountSpinNode.Value;
 		var fullPrice = TotalPrice;
@@ -119,7 +120,7 @@ public partial class CollectionCard : Control
 	}
 
 	// TODO check for null
-	public double TotalPrice => (_variant.Prices[_priceType] is not null ? Math.Round(double.Parse(_variant.Prices[_priceType]) * AmountSpinNode.Value, 2) : 0);
+	public double TotalPrice => (_variant.Prices[_priceType] is not null ? Math.Round(double.Parse(_variant.Prices[_priceType], CultureInfo.InvariantCulture) * AmountSpinNode.Value, 2) : 0);
 	
 	private void SetTexture(Texture2D tex) {
 		ImageTextureNode.Texture = tex;

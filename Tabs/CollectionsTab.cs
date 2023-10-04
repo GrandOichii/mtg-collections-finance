@@ -3,6 +3,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Collections.Generic;
+using System.Globalization;
 
 public partial class CollectionsTab : TabBar
 {
@@ -484,7 +485,7 @@ public partial class CollectionsTab : TabBar
 						if (pair.Value is null) continue;
 						if (pair.Key == "tix") continue;
 						if (!pair.Key.Contains(DefaultPriceOptionNode.Text)) continue;
-						var p = double.Parse(pair.Value);
+						var p = double.Parse(pair.Value, CultureInfo.InvariantCulture);
 						if (cheapest is null || (p < cheapestPrice)) {
 							cheapest = v;
 							cheapestPrice = p;
