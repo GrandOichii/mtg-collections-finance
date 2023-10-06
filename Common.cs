@@ -86,8 +86,21 @@ public class Card {
 	public string CollectorNumber { get; set; }
 	[JsonPropertyName("layout")]
 	public string Layout { get; set; }
+	[JsonPropertyName("card_faces")]
+	public List<CardFace>? Faces { get; set; }
 
 	public string UID => SetName + " (" + Set.ToUpper() + "#" + CollectorNumber + ")";
+}
+
+public class CardFace {
+	[JsonPropertyName("name")]
+	public string Name { get; set; }
+	[JsonPropertyName("type_line")]
+	public string TypeLine { get; set; }
+	[JsonPropertyName("oracle_text")]
+	public string Text { get; set; }
+	[JsonPropertyName("image_uris")]
+	public Dictionary<string, string> ImageURIs { get; set; }
 }
 
 

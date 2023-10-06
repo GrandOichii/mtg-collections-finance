@@ -8,17 +8,15 @@ public partial class CardViewWindow : Window
 {
 	#region Nodes
 	
-	public TextureRect ImageRectNode { get; private set; }
+	public MTGCardBase CardNode { get; private set; }
 	public Label NameLabelNode { get; private set; }
 	public Label TextLabelNode { get; private set; }
-	public HttpRequest ImageRequestNode { get; private set; }
 	public RichTextLabel PricesLabelNode { get; private set; }
 	public ItemList PrintingsListNode { get; private set; }
 	public LineEdit SetNameFilterEditNode { get; private set; }
 	
 	#endregion
 	
-	private Texture2D _defaultBack;
 	private List<Card> _variations;
 	private Card _variant;
 	public Card Variant { 
@@ -33,23 +31,17 @@ public partial class CardViewWindow : Window
 	{
 		#region Node fetching
 		
-		ImageRectNode = GetNode<TextureRect>("%ImageRect");
+		CardNode = GetNode<MTGCardBase>("%Card");
 		NameLabelNode = GetNode<Label>("%NameLabel");
 		TextLabelNode = GetNode<Label>("%TextLabel");
-		ImageRequestNode = GetNode<HttpRequest>("%ImageRequest");
 		PricesLabelNode = GetNode<RichTextLabel>("%PricesLabel");
 		PrintingsListNode = GetNode<ItemList>("%PrintingsList");
 		SetNameFilterEditNode = GetNode<LineEdit>("%SetNameFilterEdit");
 
-		#endregion
-		
-		_defaultBack = ImageRectNode.Texture;
-		
+		#endregion		
 	}
 
 	public void Load(Wrapper<ShortCard> cardW, Card variant=null) {
-		ImageRequestNode.CancelRequest();
-		ImageRectNode.Texture = _defaultBack;
 		var card = cardW.Value;
 		NameLabelNode.Text = card.Name;
 		TextLabelNode.Text = card.Text;
@@ -65,10 +57,6 @@ public partial class CardViewWindow : Window
 		Variant = variant;
 	}
 
-	private void SetTexture(Texture2D tex) {
-		ImageRectNode.Texture = tex;
-	}
-
 	private void UpdateInfo() {
 		PricesLabelNode.Clear();
 		foreach (var pair in _variant.Prices) {
@@ -81,7 +69,7 @@ public partial class CardViewWindow : Window
 			PricesLabelNode.AppendText(pair.Key + ": " + text + "\n");
 		}
 		
-		ImageRequestNode.Request(_variant.ImageURIs["normal"]);
+		CardNode.Load(Variant);
 	}
 	
 	#region Signal connections
@@ -90,20 +78,9 @@ public partial class CardViewWindow : Window
 	{
 		Hide();
 	}
-	
-	private void _on_image_request_request_completed(long result, long response_code, string[] headers, byte[] body)
-	{
-		Task.Run(() => {
-			var image = new Image();
-			image.LoadJpgFromBuffer(body);
-			var tex = ImageTexture.CreateFromImage(image);
-			CallDeferred("SetTexture", tex);
-		});
-	}
 
 	private void _on_printings_list_item_activated(int index)
 	{
-		ImageRequestNode.CancelRequest();		
 		Variant = PrintingsListNode.GetItemMetadata(index).As<Wrapper<Card>>().Value;
 	}
 

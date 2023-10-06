@@ -128,6 +128,8 @@ public partial class CardsTab : TabBar
 		if (Directory.Exists(DATA_PATH))
 			Directory.Delete(DATA_PATH, true);
 		Directory.CreateDirectory(DATA_PATH);
+		// for Godot
+		File.Create(Path.Combine(DATA_PATH, ".gdignore"));
 		Directory.CreateDirectory(Path.Combine(DATA_PATH, CARDS_DATA_PATH));
 		
 		foreach (var pair in index) {

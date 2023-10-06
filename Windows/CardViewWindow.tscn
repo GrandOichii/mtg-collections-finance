@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b1y4i4dbes22g"]
 
 [ext_resource type="Script" path="res://Windows/CardViewWindow.cs" id="1_s7ha8"]
-[ext_resource type="Texture2D" uid="uid://d1nyq4j8slfxm" path="res://Assets/back.jpg" id="2_s0l1s"]
+[ext_resource type="PackedScene" uid="uid://d2wi0nrcrfvaj" path="res://MTGCardBase.tscn" id="2_w4gje"]
 
 [node name="CardViewWindow" type="Window"]
 initial_position = 2
@@ -9,10 +9,6 @@ size = Vector2i(890, 595)
 transient = true
 unresizable = true
 script = ExtResource("1_s7ha8")
-
-[node name="ImageRequest" type="HTTPRequest" parent="."]
-unique_name_in_owner = true
-use_threads = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -28,14 +24,9 @@ theme_override_constants/margin_bottom = 5
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="ImageRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+[node name="Card" parent="MarginContainer/HBoxContainer" instance=ExtResource("2_w4gje")]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource("2_s0l1s")
-expand_mode = 3
-stretch_mode = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -97,6 +88,5 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
-[connection signal="request_completed" from="ImageRequest" to="." method="_on_image_request_request_completed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/FilterButton" to="." method="_on_filter_button_pressed"]
 [connection signal="item_activated" from="MarginContainer/HBoxContainer/VBoxContainer/PrintingsList" to="." method="_on_printings_list_item_activated"]
