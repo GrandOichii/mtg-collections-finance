@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0t2uudts1yfs"]
+
+[ext_resource type="PackedScene" uid="uid://d2wi0nrcrfvaj" path="res://MTGCardBase.tscn" id="1_4ljp8"]
+[ext_resource type="Texture2D" uid="uid://dwec8ergxenht" path="res://Assets/opca-9-academy-at-tolaria-west.png" id="2_wgcbh"]
+
+[node name="PlanechaseTab" type="TabBar"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MTGCardBase" parent="MarginContainer/VBoxContainer/HBoxContainer/Control" instance=ExtResource("1_4ljp8")]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -481.0
+offset_top = -288.5
+offset_right = -53.1343
+offset_bottom = 324.5
+grow_horizontal = 0
+grow_vertical = 2
+rotation = 1.5708
+size_flags_vertical = 3
+texture = ExtResource("2_wgcbh")
+
+[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Start"

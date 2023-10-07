@@ -111,7 +111,7 @@ public partial class EDHTab : TabBar
 
 	#region Signal connections
 	
-	private void _on_cards_card_added(Wrapper<ShortCard> cardW, bool update)
+	private void _on_cards_card_added(Wrapper<ShortCard> cardW)
 	{
 		_cards.Add(cardW.Value);
 		if (!cardW.Value.CanBeCommander()) return;
@@ -212,8 +212,15 @@ public partial class EDHTab : TabBar
 			CardsContainerNode.MoveChild(child, 0);
 		CardsContainerNode.MoveChild(button, children.Count - 1);
 	}
+
+	private void _on_cards_clear_cards()
+	{
+		_cards = new();
+	}
+
 	#endregion
 }
+
 
 
 

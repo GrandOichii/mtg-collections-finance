@@ -11,6 +11,7 @@ public partial class CollectionsTab : TabBar
 	private static List<CardLineParser> PARSERS = new(){
 		new SimpleLineParser(),
 		new DeckCardLineParser(),
+		new ArenaLineParser(),
 		new XmageLineParser()
 	};
 	private static List<CollectionExportProfile> _exportProfiles = new(){
@@ -245,7 +246,7 @@ public partial class CollectionsTab : TabBar
 		UpdateTotalPrice();
 	}
 	
-	private void _on_cards_card_added(Wrapper<ShortCard> cardW, bool update)
+	private void _on_cards_card_added(Wrapper<ShortCard> cardW)
 	{
 		_cardOIDIndex.Add(cardW.Value.OracleId, cardW.Value);
 		if (!_cardNameIndex.ContainsKey(cardW.Value.Name))
@@ -518,7 +519,14 @@ public partial class CollectionsTab : TabBar
 		// Replace with function body.
 	}
 
+	private void _on_cards_clear_cards()
+	{
+		_cardOIDIndex = new();
+		_cardNameIndex = new();
+	}
+
 	#endregion
 }
+
 
 

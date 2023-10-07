@@ -56,8 +56,11 @@ public partial class CardsTab : TabBar
 	#region Signals
 	
 	[Signal]
-	public delegate void CardAddedEventHandler(Wrapper<ShortCard> cardW, bool update);
+	public delegate void CardAddedEventHandler(Wrapper<ShortCard> cardW);
 	
+	[Signal]
+	public delegate void ClearCardsEventHandler();
+
 	#endregion
 	
 	private bool _downloading = false;
@@ -110,16 +113,21 @@ public partial class CardsTab : TabBar
 			var cards = ShortCard.LoadManifest(path);
 			// var cards = JsonSerializer.Deserialize<List<ShortCard>>(File.ReadAllText(_cardsSrc));
 	//		SampleSizeNode.MaxValue = cards.Count;
+			CallDeferred("ClearAllCards");
 			foreach (var card in cards) {
-				CallDeferred("AddCard", new Wrapper<ShortCard>(card), update);
+				CallDeferred("AddCard", new Wrapper<ShortCard>(card));
 //				AddCard(card, update);
 //				break;
 			}
 		});
 	}
+
+	public void ClearAllCards() {
+		EmitSignal(SignalName.ClearCards);
+	}
 	
-	public void AddCard(Wrapper<ShortCard> cardW, bool update) {
-		EmitSignal(SignalName.CardAdded, cardW, update);
+	public void AddCard(Wrapper<ShortCard> cardW) {
+		EmitSignal(SignalName.CardAdded, cardW);
 	}
 
 	private void SaveVariations(Dictionary<string, List<DownloadedCard>> index) {
@@ -207,7 +215,7 @@ public partial class CardsTab : TabBar
 		Task.Run(() => SaveVariations(index));
 	}
 
-	private void _on_card_added(Wrapper<ShortCard> cardW, bool update)
+	private void _on_card_added(Wrapper<ShortCard> cardW)
 	{
 		
 		// check if card already exists

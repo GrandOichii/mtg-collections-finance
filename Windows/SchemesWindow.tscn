@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://nsrcp052l35a"]
+
+[ext_resource type="PackedScene" uid="uid://d2wi0nrcrfvaj" path="res://MTGCardBase.tscn" id="1_mjexa"]
+[ext_resource type="Script" path="res://Windows/SchemesWindow.cs" id="1_tloyo"]
+
+[node name="SchemesWindow" type="Window"]
+title = "Archenemy schemes"
+initial_position = 2
+size = Vector2i(1000, 600)
+script = ExtResource("1_tloyo")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="Card" parent="MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("1_mjexa")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="NextButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Next"
+
+[node name="AddToOngoingButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = ">>>"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OngoingSchemes" type="FlowContainer" parent="MarginContainer/HBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/AddToOngoingButton" to="." method="_on_add_to_ongoing_button_pressed"]

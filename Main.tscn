@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://mj88lrjos2t6"]
+[gd_scene load_steps=8 format=3 uid="uid://mj88lrjos2t6"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_se0m2"]
 [ext_resource type="PackedScene" uid="uid://cus6j8i16d2vn" path="res://Tabs/CardsTab.tscn" id="1_swwpf"]
 [ext_resource type="PackedScene" uid="uid://d4gi3j2xx70wp" path="res://Tabs/CollectionsTab.tscn" id="2_q1vqo"]
 [ext_resource type="PackedScene" uid="uid://d3q8kpmksf6o4" path="res://Tabs/EDHTab.tscn" id="4_bsksp"]
+[ext_resource type="PackedScene" uid="uid://diuaidvblgj1o" path="res://Tabs/ArchenemyTab.tscn" id="5_3go56"]
+[ext_resource type="PackedScene" uid="uid://b0t2uudts1yfs" path="res://Tabs/PlanechaseTab.tscn" id="6_h54nf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_17y6e"]
 bg_color = Color(0.4, 0.682353, 0.309804, 1)
@@ -63,5 +65,17 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 
+[node name="Archenemy" parent="MarginContainer/TabContainer" instance=ExtResource("5_3go56")]
+visible = false
+layout_mode = 2
+
+[node name="Planechase" parent="MarginContainer/TabContainer" instance=ExtResource("6_h54nf")]
+visible = false
+layout_mode = 2
+
 [connection signal="CardAdded" from="MarginContainer/TabContainer/Cards" to="MarginContainer/TabContainer/Collections" method="_on_cards_card_added"]
 [connection signal="CardAdded" from="MarginContainer/TabContainer/Cards" to="MarginContainer/TabContainer/EDH" method="_on_cards_card_added"]
+[connection signal="CardAdded" from="MarginContainer/TabContainer/Cards" to="MarginContainer/TabContainer/Archenemy" method="_on_cards_card_added"]
+[connection signal="ClearCards" from="MarginContainer/TabContainer/Cards" to="MarginContainer/TabContainer/Collections" method="_on_cards_clear_cards"]
+[connection signal="ClearCards" from="MarginContainer/TabContainer/Cards" to="MarginContainer/TabContainer/EDH" method="_on_cards_clear_cards"]
+[connection signal="ClearCards" from="MarginContainer/TabContainer/Cards" to="MarginContainer/TabContainer/Archenemy" method="_on_cards_clear_cards"]
